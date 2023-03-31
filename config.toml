@@ -3,7 +3,7 @@ baseURL = "http://www.bdser.cc/"
 theme = "LoveIt"
 
 # 网站标题
-title = "道草- Site"
+title = "道草站点"
 
 # 网站语言, 仅在这里 CN 大写 ["en", "zh-CN", "fr", "pl", ...]
 languageCode = 'zh-CN'
@@ -28,7 +28,7 @@ hasCJKLanguage = true
     name = "文章"
     url = "/posts/"
     # 当你将鼠标悬停在此菜单链接上时, 将显示的标题
-    title = ""
+    title = "道草站点"
   [[menu.main]]
     weight = 2
     identifier = "tags"
@@ -52,6 +52,23 @@ hasCJKLanguage = true
   [markup.highlight]
     # false 是必要的设置 (https://github.com/dillonzq/LoveIt/issues/158)
     noClasses = false
+# 页面头部导航栏标题配置
+[params.header.title]
+# URL of the LOGO
+# LOGO 的 URL
+logo = ""
+# title name
+# 标题名称
+name = "道草站点"
+# you can add extra information before the name (HTML format is supported), such as icons
+# 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
+pre = ""
+# you can add extra information after the name (HTML format is supported), such as icons
+# 你可以在名称 (允许 HTML 格式) 之后添加其他信息, 例如图标
+post = ""
+# whether to use typeit animation for title name
+# 是否为标题显示打字机动画
+typeit = false
 
 [params]
   # 网站默认主题样式 ["auto", "light", "dark"]
