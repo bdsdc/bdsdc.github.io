@@ -3,8 +3,8 @@ title: "和谐交易-AB=CD"
 date: 2023-03-31T22:26:09+08:00
 author: 'bdsdc'
 linkToMarkdown: true
-categories: '和谐交易'
-tags: 'ab=cd'
+categories: ['和谐交易']
+tags: ['ab=cd']
 ---
 
 ## AB=CD
