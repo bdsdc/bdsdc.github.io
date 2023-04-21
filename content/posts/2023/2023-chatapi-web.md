@@ -1,5 +1,5 @@
 ---
-title: "道草|打造免费专属的ChatGPT网站给朋友"
+title: "道草|轻松打造免费专属的ChatGPT网站给朋友"
 date: 2023-04-21
 author: 'bdsdc'
 linkToMarkdown: true
