@@ -247,6 +247,15 @@ Vercel. App 因为被大量使用，自然而然被墙掉了，不过好在 Verc
 
 ## 手机快捷方式方便
 
-![image.png](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20230421214741.png)
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20230421215024.png)
+
+## 手机使用 
+选择设置
+![image](https://user-images.githubusercontent.com/129520887/233653469-9053a1c5-e17a-46b6-af35-a1394a84e42a.png)
+
+把我给你的授权密码填进去
+
+![image](https://user-images.githubusercontent.com/129520887/233653486-e76582cf-4e4c-4f50-bde6-a0a7baf42d1f.png)
+
 
 `over`
