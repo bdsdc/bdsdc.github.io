@@ -244,5 +244,6 @@ Vercel. App 因为被大量使用，自然而然被墙掉了，不过好在 Verc
 
 这里我们选择使用代码缓存构建，不更新代码，只更新我们变更的配置，部署更快，点击 `Redeploy `
 ![image.png](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20230421210559.png)
-
+## 手机快捷方式
+![image.png](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20230421214741.png)
 `over`
