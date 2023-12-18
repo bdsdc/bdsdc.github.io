@@ -22,18 +22,27 @@ Coze是由字节跳动在海外推出的一个AL聊天机器人和应用程序�
 ### 注册coze
 网站： https://www.coze.com/docs/zh_cn/welcome.html
 首先注册一下网站，我这里通过google邮箱进行注册的，正好我有google邮箱，如果前面买了wildcard的同学应该也会有谷歌邮箱，不过也可以是电话
+
 ![image](https://github.com/bdsdc/bdsdc.github.io/assets/129520887/aa92b54f-efdb-4124-8c2c-1b2c498ae9e9)
+
 ### 创建机器人
 这是目前我创建的机器人
+
 ![image](https://github.com/bdsdc/bdsdc.github.io/assets/129520887/eb3d5d65-9220-4daf-9335-2fefb1fc0442)
+
 然后根据我们之前打造GPTs的经验，可以创建一个机器人产品，如果不清楚的，可以去破解别人的思路，或者还可以参考官方coze的explore
 网站：https://www.coze.com/explore
+
 ![image](https://github.com/bdsdc/bdsdc.github.io/assets/129520887/b39867a5-15bb-4503-a0b5-66234ab096e7)
 ### 打造个性产品
 支持的功能目前看，比chatgpt灵活很多，自定义配置也很灵活，比chatgpt好一点的就是不需要额外编程也可以
+
 ![image](https://github.com/bdsdc/bdsdc.github.io/assets/129520887/c1f4b506-26a3-4319-ae52-0327a90f056c)
+
 翻译了一下，大家参考看一下功能
+
 ![image](https://github.com/bdsdc/bdsdc.github.io/assets/129520887/661583f7-88a9-42e3-94d9-8bcdc9ca7b08)
+
 ### coze 对接discord 
 下面我们就需要分别登录进去操作了，涉及到要来回切换，大致的配置流程顺序如下
 - 在coze界面，我们选择对接 discord，然后进入配置界面
@@ -42,28 +51,47 @@ Coze是由字节跳动在海外推出的一个AL聊天机器人和应用程序�
 - 然后在discord中配置一个coze提供的url地址，填入进去，这样discord就可以调用coze了
 - 然后在discord中通过/start启动机器人，通过@机器人名字 方式进行会话聊天了
 #### 进入coze，选择discord配置
+
 ![image](https://github.com/bdsdc/bdsdc.github.io/assets/129520887/7548a7c1-c8ad-43f4-a300-ebd8017d8f7a)
+
 #### 进入discord，找到token和public key
 首先进入 https://discord.com/developers/applications 这里建立discord的机器人
+
 ![image](https://github.com/bdsdc/bdsdc.github.io/assets/129520887/736210db-26e5-4b2a-a73c-a3e18588904a)
+
 随便定义名字
+
 ![image](https://github.com/bdsdc/bdsdc.github.io/assets/129520887/a5723dbf-2efc-4f5e-84d6-a936a009c679)
+
 找到public key
+
 ![image](https://github.com/bdsdc/bdsdc.github.io/assets/129520887/690073f7-44de-46b0-8483-e369b50b9287)
+
 配置一下discord机器人 ，按照图中进行选择配置，里面有token，进行生成一个token 
+
 ![image](https://github.com/bdsdc/bdsdc.github.io/assets/129520887/2a36a2d2-e1af-4262-9f03-7bbd0dea2f47)
+
 #### 发布coze 
 复制下面url，后面会用到
+
 ![image](https://github.com/bdsdc/bdsdc.github.io/assets/129520887/23ae9477-d450-420d-9e86-c1aab9c25d48)
+
 发布coze
+
 ![image](https://github.com/bdsdc/bdsdc.github.io/assets/129520887/dae12926-9f2c-4d35-8fa0-4d616e732df5)
+
 看下coze状态，绿色代表正常
+
 ![image](https://github.com/bdsdc/bdsdc.github.io/assets/129520887/1b4d0940-c908-470c-92b5-79dbdf0f8c6f)
 #### 配置discord连接coze 
 上面复制的url ，粘贴到discord中，如下
+
 ![image](https://github.com/bdsdc/bdsdc.github.io/assets/129520887/3fb8f61a-fda3-4943-8ccc-3932c047bf0f)
+
 然后配置discord 机器人授予管理员权限
+
 ![image](https://github.com/bdsdc/bdsdc.github.io/assets/129520887/1351f91d-b7e7-4a6b-aee1-39ad947e05fd)
+
 ## 在discord 开始使用
 ![image](https://github.com/bdsdc/bdsdc.github.io/assets/129520887/d88374ed-5253-4797-926a-12a14444e462)
 
