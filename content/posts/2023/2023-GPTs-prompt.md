@@ -1,12 +1,12 @@
-
 ---
 title: "道草|反向抓去GPTs关键指令，学习他人的prompt"
-date: 2023-12-18
+date: 2023-12-19
 author: 'bdsdc'
 linkToMarkdown: true
 categories: ['AI']
 tags: ['ChatGPT']
 ---
+
 # 前言
 最近GPTs正在暗流涌动的潜移默化的发展着，包括前面分享的 GPTs Hunter 网站都已经更新了好多功能，增加了搜索的功能，并且每天上传量还在持续的增长 
 
