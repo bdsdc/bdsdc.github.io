@@ -97,6 +97,9 @@ Coze是由字节跳动在海外推出的一个AL聊天机器人和应用程序�
 
 ![image](https://github.com/bdsdc/bdsdc.github.io/assets/129520887/875f3f61-8d24-40dd-8035-395e90d7e670)
 
+## 总结
+最后关于初步体验还是不错的，还有很多其他相关的强大的功能，只需要登录discord就可以无限体验了哦，如果部署有难度或者想要一起讨论，吹水，闲聊的 ，可以加入我的discord频道体验机器人和闲聊吹水~ ​
+我的discord频道地址： https://discord.gg/hZ2cw9Uf3W
 
 
 
