@@ -72,7 +72,7 @@ Coze是由字节跳动在海外推出的一个AL聊天机器人和应用程序�
 ![image](https://github.com/bdsdc/bdsdc.github.io/assets/129520887/2a36a2d2-e1af-4262-9f03-7bbd0dea2f47)
 
 #### 发布coze 
-复制下面url，后面会用到
+上面我们拿到了token和public key ，填入对应下面配置中，然后最后记得复制下面url，后面会用到
 
 ![image](https://github.com/bdsdc/bdsdc.github.io/assets/129520887/23ae9477-d450-420d-9e86-c1aab9c25d48)
 
