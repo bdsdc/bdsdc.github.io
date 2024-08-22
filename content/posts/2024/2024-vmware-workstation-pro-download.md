@@ -3,8 +3,8 @@ title: "道草|个人免费使用vmware-workstation-pro"
 date: 2024-8-22
 author: 'bdsdc'
 linkToMarkdown: true
-categories: ['tools']
-tags: ['技术']
+categories: ['软件']
+tags: ['tools']
 ---
 
 ## VMware大调整
