@@ -172,6 +172,38 @@ typeit = false
     # Windows v8-10磁贴颜色
     tileColor = "#da532c"
  # Compatibility config
+[params.seo]
+    # 图片 URL
+    image = ""
+    # 缩略图 URL
+    thumbnailUrl = ""
+    # DoIt 新增 | 0.4.1
+    # Google 搜索结果中网站备用名字
+    alternateName = ["Hugo DoIt"]
+
+  # DoIt 新增 | 0.2.0 网站分析配置
+  [params.analytics]
+    enable = false
+    # Google Analytics
+    [params.analytics.google]
+      id = ""
+      # 是否匿名化用户 IP
+      anonymizeIP = true
+    # Fathom Analytics
+    [params.analytics.fathom]
+      id = ""
+      # 自行托管追踪器时的主机路径
+      server = ""
+    # DoIt 新增 | 0.2.13 Baidu Analytics
+    [params.analytics.baidu]
+      id = ""
+    # DoIt 新增 | 0.2.13 Umami Analytics
+    [params.analytics.umami]
+      data_website_id = "ae183bd6-8277-46d7-99cc-bdaab53a35da"
+      src = "https://cloud.umami.is/script.js"
+      data_host_url = "https://bdsdc.github.io"
+      data_domains = "bdsdc.github.io"
+
 # 兼容性设置
 [params.compatibility]
 # whether to use Polyfill.io to be compatible with older browsers
