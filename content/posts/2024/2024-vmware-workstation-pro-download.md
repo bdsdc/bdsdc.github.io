@@ -1,3 +1,12 @@
+---
+title: "道草|个人免费使用vmware-workstation-pro"
+date: 2024-8-22
+author: 'bdsdc'
+linkToMarkdown: true
+categories: ['tools']
+tags: ['技术']
+---
+
 ## VMware大调整
 近日，被博通收购后的VMware宣布将桌面虚拟化软件免费给个人用户用了，Windows端的Workstation Pro和Mac端的Fusion Pro统统免费！
 ## 个人虚拟化软件选择
