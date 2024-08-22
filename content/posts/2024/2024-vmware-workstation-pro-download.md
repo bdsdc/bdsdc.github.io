@@ -1,6 +1,7 @@
 ---
 title: "道草|个人免费使用vmware-workstation-pro"
-date: 2024-8-22
+date: 2024-08-22
+lastmod: 2024-08-22
 author: 'bdsdc'
 linkToMarkdown: true
 categories: ['软件']
