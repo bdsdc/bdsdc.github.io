@@ -203,8 +203,8 @@ typeit = false
     [params.analytics.umami]
       data_website_id = "ae183bd6-8277-46d7-99cc-bdaab53a35da"
       src = "https://cloud.umami.is/script.js"
-      data_host_url = "https://blog.bdser.cc"
-      data_domains = "blog.bdser.cc"
+      data_host_url = ""
+      data_domains = ""
 
 # 兼容性设置
 [params.compatibility]
