@@ -55,7 +55,7 @@ copyright = "This work is licensed under a Creative Commons Attribution-NonComme
     pre = ""
     post = ""
     name = "交易"
-    url = "/categories/trader"
+    url = "/categories/harmonic-trading"
     title = "交易为生"
     weight = 4
   [[menu.main]]
