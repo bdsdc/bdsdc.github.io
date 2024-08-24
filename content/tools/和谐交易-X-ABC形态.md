@@ -6,6 +6,9 @@ author: 'bdsdc'
 linkToMarkdown: true
 categories: ['股票技术分析']
 tags: ['tools']
+toc:
+  enable: true
+  auto: true
 ---
 
 # X-ABC
