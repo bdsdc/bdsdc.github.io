@@ -1,6 +1,7 @@
 baseURL = "http://blog.bdser.cc/"
 # 更改使用 Hugo 构建网站时使用的默认主题
 theme = "DoIt"
+
 # 网站标题
 title = "道草站点"
 # 网站语言, 仅在这里 CN 大写 ["en", "zh-CN", "fr", "pl", ...]
@@ -18,6 +19,9 @@ copyright = "This work is licensed under a Creative Commons Attribution-NonComme
 # 作者配置
 [author]
   name = "bdsdc"
+[params]
+  # DoIt 主题版本
+  version = "0.3.X"
 
 # 菜单配置
 [menu]
