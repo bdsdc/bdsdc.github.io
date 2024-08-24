@@ -48,13 +48,22 @@ hasCJKLanguage = true
     url = "/categories/"
     title = ""
   [[menu.main]]
-    identifier = ""
+    identifier = "tools"
     pre = ""
     post = ""
     name = "「工具」"
     url = "/tools/"
     title = "软件和运维工具"
     weight = 4
+
+  [[menu.main]]
+    identifier = "about"
+    pre = ""
+    post = ""
+    name = "about"
+    url = "/about/"
+    title = "关于我的介绍"
+    weight = 5
 
 # Hugo 解析文档的配置
 [markup]
