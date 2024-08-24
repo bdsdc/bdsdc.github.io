@@ -55,7 +55,14 @@ hasCJKLanguage = true
     url = "/tools/"
     title = "软件和运维工具"
     weight = 4
-
+  [[menu.main]]
+    identifier = "导航"
+    pre = ""
+    post = ""
+    name = "导航"
+    url = "https://dao.bdser.cc"
+    title = "我的导航"
+    weight = 6
   [[menu.main]]
     identifier = "about"
     pre = ""
