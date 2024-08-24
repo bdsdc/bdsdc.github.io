@@ -49,6 +49,14 @@ copyright = "This work is licensed under a Creative Commons Attribution-NonComme
     url = "/categories/"
     title = ""
   [[menu.main]]
+    weight = 3
+    identifier = "series"
+    pre = ""
+    post = ""
+    name = "系列"
+    url = "/series/"
+    title = ""  
+  [[menu.main]]
     identifier = "tools"
     pre = ""
     post = ""
