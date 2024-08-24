@@ -1,0 +1,28 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Tools - Tag - 道草站点</title>
+        <link>http://localhost:14319/tags/tools/</link>
+        <description>Tools - Tag - 道草站点</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 23 Aug 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:14319/tags/tools/" rel="self" type="application/rss+xml" /><item>
+    <title>和谐交易|X-ABC</title>
+    <link>http://localhost:14319/posts/tools/%E5%92%8C%E8%B0%90%E4%BA%A4%E6%98%93-x-abc%E5%BD%A2%E6%80%81/</link>
+    <pubDate>Fri, 23 Aug 2024 00:00:00 &#43;0000</pubDate><author>
+        <name>bdsdc</name>
+    </author><guid>http://localhost:14319/posts/tools/%E5%92%8C%E8%B0%90%E4%BA%A4%E6%98%93-x-abc%E5%BD%A2%E6%80%81/</guid>
+    <description><![CDATA[X-ABC形态可以说是经常出现的一种反转形态，基本上所有的k线走势都会出现的，只不过你没有留意 下面我简单讲解下，你们就会发现的 确认反转首先我]]></description>
+</item><item>
+    <title>和谐交易|X-ABC</title>
+    <link>http://localhost:14319/tools/%E5%92%8C%E8%B0%90%E4%BA%A4%E6%98%93-x-abc%E5%BD%A2%E6%80%81/</link>
+    <pubDate>Fri, 23 Aug 2024 00:00:00 &#43;0000</pubDate><author>
+        <name>bdsdc</name>
+    </author><guid>http://localhost:14319/tools/%E5%92%8C%E8%B0%90%E4%BA%A4%E6%98%93-x-abc%E5%BD%A2%E6%80%81/</guid>
+    <description><![CDATA[X-ABC形态可以说是经常出现的一种反转形态，基本上所有的k线走势都会出现的，只不过你没有留意 下面我简单讲解下，你们就会发现的 确认反转首先我]]></description>
+</item><item>
+    <title>道草|个人免费使用vmware-workstation-pro</title>
+    <link>http://localhost:14319/posts/2024/2024-vmware-workstation-pro-download/</link>
+    <pubDate>Thu, 22 Aug 2024 00:00:00 &#43;0000</pubDate><author>
+        <name>bdsdc</name>
+    </author><guid>http://localhost:14319/posts/2024/2024-vmware-workstation-pro-download/</guid>
+    <description><![CDATA[VMware大调整近日，被博通收购后的VMware宣布将桌面虚拟化软件免费给个人用户用了，Windows端的Workstation Pro和M]]></description>
+</item></channel>
+</rss>

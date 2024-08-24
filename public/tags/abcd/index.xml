@@ -1,0 +1,14 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Ab=cd - Tag - 道草站点</title>
+        <link>http://localhost:14319/tags/abcd/</link>
+        <description>Ab=cd - Tag - 道草站点</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 31 Mar 2023 22:26:09 &#43;0800</lastBuildDate><atom:link href="http://localhost:14319/tags/abcd/" rel="self" type="application/rss+xml" /><item>
+    <title>和谐交易-AB=CD</title>
+    <link>http://localhost:14319/posts/2023/2023-fib-tutorial-01/</link>
+    <pubDate>Fri, 31 Mar 2023 22:26:09 &#43;0800</pubDate><author>
+        <name>bdsdc</name>
+    </author><guid>http://localhost:14319/posts/2023/2023-fib-tutorial-01/</guid>
+    <description><![CDATA[AB=CDAB的长度等于CD的长度 fib = 斐波那契 ： 后面文中fib代表斐波那契 首先关注几个终点斐波那契数列的重点几个百分数 0.382 0.618 0.5 0.786 0.886 我们通过AB]]></description>
+</item></channel>
+</rss>

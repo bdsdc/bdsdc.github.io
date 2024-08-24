@@ -1,0 +1,14 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>ETF - Category - 道草站点</title>
+        <link>http://localhost:14319/categories/etf/</link>
+        <description>ETF - Category - 道草站点</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 11 Apr 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:14319/categories/etf/" rel="self" type="application/rss+xml" /><item>
+    <title>道草|0412-ETF-分析</title>
+    <link>http://localhost:14319/posts/etf/2023-etf/</link>
+    <pubDate>Tue, 11 Apr 2023 00:00:00 &#43;0000</pubDate><author>
+        <name>bdsdc</name>
+    </author><guid>http://localhost:14319/posts/etf/2023-etf/</guid>
+    <description><![CDATA[0412 -ETF-每日分析 仅仅作为建议分享，不作为投资建议，请大家谨慎投资 医药目前上方存在压力，底部支撑在0.471附近 农业目前来到一个底部支撑位]]></description>
+</item></channel>
+</rss>

@@ -1,0 +1,14 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>记账 - Tag - 道草站点</title>
+        <link>http://localhost:14319/tags/%E8%AE%B0%E8%B4%A6/</link>
+        <description>记账 - Tag - 道草站点</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 21 Apr 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:14319/tags/%E8%AE%B0%E8%B4%A6/" rel="self" type="application/rss+xml" /><item>
+    <title>道草|notion个人记账记录</title>
+    <link>http://localhost:14319/posts/2023/2023-notion-01/</link>
+    <pubDate>Fri, 21 Apr 2023 00:00:00 &#43;0000</pubDate><author>
+        <name>bdsdc</name>
+    </author><guid>http://localhost:14319/posts/2023/2023-notion-01/</guid>
+    <description><![CDATA[notion 个人记账和理财目前大公司都在进行开源节流，也迎来了大多公司的离职潮，基于现状的窘迫和收入的紧张不确定性，万一那天就失业了， 那么我们也要在大]]></description>
+</item></channel>
+</rss>

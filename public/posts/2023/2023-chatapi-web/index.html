@@ -1,0 +1,359 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=14319&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noodp" /><title>道草|轻松打造免费专属的ChatGPT网站给朋友 - 道草站点</title><meta name="Description" content="一个小村青年的记录网站"><meta property="og:url" content="http://localhost:14319/posts/2023/2023-chatapi-web/">
+  <meta property="og:site_name" content="道草站点">
+  <meta property="og:title" content="道草|轻松打造免费专属的ChatGPT网站给朋友">
+  <meta property="og:description" content="前言介绍在中国大陆境内域名提供商购买的域名，需要实名认证才能开启 DNS 解析。而在国外域名提供商买的域名则不用。 指向中国大陆内的云服务器的域名提供">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-04-21T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-04-21T00:00:00+00:00">
+    <meta property="article:tag" content="ChatGPT">
+    <meta property="og:image" content="http://localhost:14319/logo.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:14319/logo.png">
+  <meta name="twitter:title" content="道草|轻松打造免费专属的ChatGPT网站给朋友">
+  <meta name="twitter:description" content="前言介绍在中国大陆境内域名提供商购买的域名，需要实名认证才能开启 DNS 解析。而在国外域名提供商买的域名则不用。 指向中国大陆内的云服务器的域名提供">
+      <meta name="twitter:site" content="@bdstravel22">
+<meta name="application-name" content="我的网站">
+<meta name="apple-mobile-web-app-title" content="我的网站">
+
+<meta name="theme-color" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><meta name="twitter:creator" content="@bdstravel22" /><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<link rel="canonical" href="http://localhost:14319/posts/2023/2023-chatapi-web/" /><link rel="prev" href="http://localhost:14319/posts/etf/2023-etf/" /><link rel="next" href="http://localhost:14319/posts/2023/2023-notion-01/" />
+<link rel="stylesheet" href="/css/main.min.css"><link rel="stylesheet" href="/css/style.min.css"><script type="application/ld+json">{"@context": "https://schema.org","@type": "BlogPosting",
+        "headline": "道草|轻松打造免费专属的ChatGPT网站给朋友",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http://localhost:14319/posts/2023/2023-chatapi-web/"
+        },"genre": "posts","keywords":["ChatGPT"],"wordcount":  2079 ,
+        "url": "http://localhost:14319/posts/2023/2023-chatapi-web/","datePublished": "2023-04-21T00:00:00+00:00","dateModified": "2023-04-21T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "bdsdc"},"author": {
+                "@type": "Person",
+                "name": "bdsdc",
+                "url": "/"
+            },"description": ""
+    }</script></head>
+
+
+<body data-instant-intensity="viewport" ><script type="text/javascript">
+        function setTheme(theme) {
+          document.body.setAttribute('theme', theme); 
+          document.documentElement.className = theme;
+          document.documentElement.style.setProperty('color-scheme', theme === 'light' ? 'light' : 'dark');
+          if (theme === 'light') {
+            document.documentElement.classList.remove('tw-dark')
+          } else {
+            document.documentElement.classList.add('tw-dark')
+          }
+          window.theme = theme;   
+          window.isDark = window.theme !== 'light' 
+        }
+        function saveTheme(theme) {window.localStorage && localStorage.setItem('theme', theme);}
+        function getMeta(metaName) {const metas = document.getElementsByTagName('meta'); for (let i = 0; i < metas.length; i++) if (metas[i].getAttribute('name') === metaName) return metas[i]; return '';}
+        if (window.localStorage && localStorage.getItem('theme')) {
+            let theme = localStorage.getItem('theme');
+            if (theme === 'light' || theme === 'dark') {
+            setTheme(theme);
+            } else {
+                if ((window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                    setTheme('dark');
+                } else {
+                    setTheme('light');
+                }
+            }
+         } else { 
+            if ('auto' === 'light' || 'auto' === 'dark') 
+                setTheme('auto'), saveTheme('auto'); 
+            else saveTheme('auto'), window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light');
+        }
+        let metaColors = {'light': '#f8f8f8','dark': '#161b22'}
+        getMeta('theme-color').content = metaColors[document.body.getAttribute('theme')];
+        window.switchThemeEventSet = new Set()
+    </script>
+    <div id="back-to-top"></div>
+    <div id="mask"></div><div class="wrapper"><header class="desktop print:!tw-hidden" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="道草站点">道草站点</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item"
+                    href="/posts/"  title="道草站点" > 文章 </a><a class="menu-item"
+                    href="/tags/" > 标签 </a><a class="menu-item"
+                    href="/categories/" > 分类 </a><a class="menu-item"
+                    href="/tools"  title="软件和运维工具" > 「工具」 </a><a class="menu-item"
+                    href="/about/"  title="关于我的介绍" > about </a><a class="menu-item"
+                    href="https://dao.bdser.cc"  title="我的导航" 
+                    rel="noopener noreferrer" target="_blank" > 导航 </a><span class="menu-item delimiter"></span><button class="menu-item theme-switch" aria-label="Switch Theme">
+                    <svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M8 256c0 136.966 111.033 248 248 248s248-111.034 248-248S392.966 8 256 8 8 119.033 8 256zm248 184V72c101.705 0 184 82.311 184 184 0 101.705-82.311 184-184 184z"/></svg>
+                </button></div>
+        </div>
+    </div>
+</header><header class="mobile print:!tw-hidden" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="道草站点">道草站点</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="道草站点" >文章</a><a class="menu-item" href="/tags/" title="" >标签</a><a class="menu-item" href="/categories/" title="" >分类</a><a class="menu-item" href="/tools" title="软件和运维工具" >「工具」</a><a class="menu-item" href="/about/" title="关于我的介绍" >about</a><a class="menu-item" href="https://dao.bdser.cc" title="我的导航" 
+                rel="noopener noreferrer" target="_blank" >导航</a><button class="menu-item theme-switch tw-w-full" aria-label="Switch Theme">
+                <svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M8 256c0 136.966 111.033 248 248 248s248-111.034 248-248S392.966 8 256 8 8 119.033 8 256zm248 184V72c101.705 0 184 82.311 184 184 0 101.705-82.311 184-184 184z"/></svg>
+            </button></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div><main class="main">
+            <div class="container"><article class="page single print:!tw-w-full print:!tw-max-w-none print:!tw-m-0 print:!tw-p-0"><h1 class="single-title">道草|轻松打造免费专属的ChatGPT网站给朋友</h1><div class="post-meta">
+            <div class="post-meta-line">
+                <span class="post-author"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm0 96c48.6 0 88 39.4 88 88s-39.4 88-88 88-88-39.4-88-88 39.4-88 88-88zm0 344c-58.7 0-111.3-26.6-146.5-68.2 18.8-35.4 55.6-59.8 98.5-59.8 2.4 0 4.8.4 7.1 1.1 13 4.2 26.6 6.9 40.9 6.9 14.3 0 28-2.7 40.9-6.9 2.3-.7 4.7-1.1 7.1-1.1 42.9 0 79.7 24.4 98.5 59.8C359.3 421.4 306.7 448 248 448z"/></svg><a href="/" title="Author" rel=" author" class="author">bdsdc</a>
+                </span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/ai/"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M464 128H272l-54.63-54.63c-6-6-14.14-9.37-22.63-9.37H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V176c0-26.51-21.49-48-48-48zm0 272H48V112h140.12l54.63 54.63c6 6 14.14 9.37 22.63 9.37H464v224z"/></svg>AI</a></span></div>
+            <div class="post-meta-line"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M148 288h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm108-12v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 96v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm192 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96-260v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h48V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h128V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h48c26.5 0 48 21.5 48 48zm-48 346V160H48v298c0 3.3 2.7 6 6 6h340c3.3 0 6-2.7 6-6z"/></svg>&nbsp;<time datetime="2023-04-21">2023-04-21</time>&nbsp;<svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M402.3 344.9l32-32c5-5 13.7-1.5 13.7 5.7V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h273.5c7.1 0 10.7 8.6 5.7 13.7l-32 32c-1.5 1.5-3.5 2.3-5.7 2.3H48v352h352V350.5c0-2.1.8-4.1 2.3-5.6zm156.6-201.8L296.3 405.7l-90.4 10c-26.2 2.9-48.5-19.2-45.6-45.6l10-90.4L432.9 17.1c22.9-22.9 59.9-22.9 82.7 0l43.2 43.2c22.9 22.9 22.9 60 .1 82.8zM460.1 174L402 115.9 216.2 301.8l-7.3 65.3 65.3-7.3L460.1 174zm64.8-79.7l-43.2-43.2c-4.1-4.1-10.8-4.1-14.8 0L436 82l58.1 58.1 30.9-30.9c4-4.2 4-10.8-.1-14.9z"/></svg>&nbsp;<time datetime="2023-04-21">2023-04-21</time>&nbsp;<svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"/></svg>&nbsp;2079 words&nbsp;<svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5 0-200-89.5-200-200S145.5 56 256 56s200 89.5 200 200-89.5 200-200 200zm61.8-104.4l-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6 0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg>&nbsp;5 minutes&nbsp;</div>
+        </div><div class="content" id="content"><h1 id="前言介绍" class="headerLink">
+    <a href="#%e5%89%8d%e8%a8%80%e4%bb%8b%e7%bb%8d" class="header-mark" aria-label="Header mark for '前言介绍'"></a>前言介绍</h1><p>在中国大陆境内域名提供商购买的域名，需要实名认证才能开启 DNS 解析。而在国外域名提供商买的域名则不用。
+指向中国大陆内的云服务器的域名提供的网站，必须备案才能正常被访问。但是任何指向国外服务器的域名却可以不受此规则的限制。可以利用这一点，绕过 __ 的限制。
+Vercel 是一个无需云服务器即可快速部署现代 Web 应用程序的平台。
+Vercel. App 本身是被墙了的网站，但是它的服务器 IP 却没有被墙。可以利用这点，让你的域名直接指向 Vercel 服务器，从而访问 Vercel 提供的服务。
+此文章采用 github 的 Yidadaa/ChatGPT-Next-Web 项目来搭建 ChatGPT 网页服务</p>
+<ul>
+<li>使用 vercel 一键部署 chatGPT 服务，项目使用的 Github 上的 ChatGPT-Next-Web 或者 chatbat-ui 项目</li>
+<li>申请一个域名，然后通过 cloudflare 为该域名设置一个 CNAME，在 vercel 启用该域名访问</li>
+</ul>
+<h1 id="前期准备" class="headerLink">
+    <a href="#%e5%89%8d%e6%9c%9f%e5%87%86%e5%a4%87" class="header-mark" aria-label="Header mark for '前期准备'"></a>前期准备</h1><ul>
+<li>需要一个 GitHub 账户，正常登录 GIthub</li>
+<li>需要一个 Vercel 账户，正常登录 Vercel</li>
+<li>需要一个 Cloudflare 账户，正常登录 Cloudflare</li>
+<li>需要一个 ChatGPT 账户，正常登录 ChatGPT</li>
+<li>需要一个免费域名（或者便宜的收费域名）</li>
+<li>需要一个访问外面的工具（可有可无）</li>
+</ul>
+<h2 id="github-配置" class="headerLink">
+    <a href="#github-%e9%85%8d%e7%bd%ae" class="header-mark" aria-label="Header mark for 'GitHub 配置'"></a>GitHub 配置</h2><p>项目地址：<a href="https://github.com/Yidadaa/ChatGPT-Next-Web/blob/main/README_CN.md" target="_blank" rel="noopener noreferrer">github</a></p>
+<h3 id="fork-chatgpt-next-web-github-仓库" class="headerLink">
+    <a href="#fork-chatgpt-next-web-github-%e4%bb%93%e5%ba%93" class="header-mark" aria-label="Header mark for 'Fork ChatGPT-Next-Web github 仓库'"></a>Fork ChatGPT-Next-Web github 仓库</h3><blockquote>
+<p>由于 Vercel 会默认为你创建一个新项目而不是 fork 本项目，这会导致无法正确地检测更新，项目方的<em>readm. Md</em>文件有说明</p>
+</blockquote>
+<blockquote>
+<p>所以我们需要先 fork 本项目到我们的自己的 github 仓库中</p>
+</blockquote>
+<p><img class="tw-inline" loading="lazy" src="https://fastly.jsdelivr.net/gh/filess/img7@main/2023/04/21/1682057464464-879fa58c-9c12-4604-af2a-4cf02696423f.png"     ></p>
+<p>创建 fork</p>
+<p><img class="tw-inline" loading="lazy" src="https://fastly.jsdelivr.net/gh/filess/img13@main/2023/04/21/1682058001657-b993f6b3-e14f-4694-a792-2a388ced78d6.png"     ></p>
+<h3 id="通过-actions-启用-workflow-自动更新" class="headerLink">
+    <a href="#%e9%80%9a%e8%bf%87-actions-%e5%90%af%e7%94%a8-workflow-%e8%87%aa%e5%8a%a8%e6%9b%b4%e6%96%b0" class="header-mark" aria-label="Header mark for '通过 actions 启用 workflow 自动更新'"></a>通过 actions 启用 workflow 自动更新</h3><p>切换到 <code>Actions</code>，点击 <code>I understand my workflows, go ahead and enable them</code> 按钮：</p>
+<p><img class="tw-inline" loading="lazy" src="https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20230421202004.png"   alt="image.png"  ></p>
+<p>切换到 <code>Upstream Sync</code>，点击 <code>Enable workflow</code>：
+<img class="tw-inline" loading="lazy" src="https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20230421202018.png"   alt="image.png"  ></p>
+<p>显示如下代表成功
+本网页上左上角有 <code>success</code></p>
+<h2 id="vercel-部署" class="headerLink">
+    <a href="#vercel-%e9%83%a8%e7%bd%b2" class="header-mark" aria-label="Header mark for 'Vercel 部署'"></a>Vercel 部署</h2><p>网站地址： <a href="https://vercel.com/" target="_blank" rel="noopener noreferrer">https://vercel.com/</a></p>
+<p>我们可以通过邮件进行注册 vercel 网站，然后 vercel 绑定 github 账户，这样能够读取 github 项目中的仓库，从而把仓库代码部署在 vercel 上
+<img class="tw-inline" loading="lazy" src="https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20230421202803.png"   alt="image.png"  ></p>
+<p>首先查看 vercel 网站绑定的 github 账户
+<img class="tw-inline" loading="lazy" src="https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20230421202820.png"   alt="image.png"  ></p>
+<p>在 vercel 上进入 <code>dashboard</code>
+<img class="tw-inline" loading="lazy" src="https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20230421202912.png"   alt="image.png"  ></p>
+<p>新建 <code>project</code> 项目
+<img class="tw-inline" loading="lazy" src="https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20230421202936.png"   alt="image.png"  ></p>
+<p>然后目前已经识别到了 github 账号，然后找到 Fork 的代码仓库（ChatGPT-Next-Web），点击 <code>import</code>
+<img class="tw-inline" loading="lazy" src="https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20230421203102.png"   alt="image.png"  ></p>
+<p>添加环境变量（需要填入下面俩个变量）</p>
+<ul>
+<li>CODE： 建议填入，用户访问密码，想要给多少个用户分配访问码，需要用英文逗号分隔 <code>,</code> ,不要有空格</li>
+<li>OPENAI_API_KEY： 填写 chatapi 的 key ，前提是有了 chatgpt 账户，并且账户内有试用的额度，一般是 5$, 用完了可以换另外的号</li>
+</ul>
+<p>范例如下</p>
+<p>NAME： <code>CODE</code><br>
+VALUE: code 1, code 2, code 3</p>
+<p>NAME: <code>OPENAI_API_KEY</code><br>
+VALUE: xxxxxxxx</p>
+<p>然后更改名字，输入环境变量，开始准备部署 <code>deploy</code></p>
+<p><img class="tw-inline" loading="lazy" src="https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20230421203952.png"   alt="image.png"  ></p>
+<p>需要稍等个几分钟，正在部署，如下部署成功, 然后点击 <code>continue to daashboard</code>
+<img class="tw-inline" loading="lazy" src="https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20230421204105.png"   alt="image.png"  ></p>
+<p>点击 <code>visit</code> 就可以在线访问体验了 （但是现在还没配置自定义域名，还需要翻墙才能进去）
+<img class="tw-inline" loading="lazy" src="https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20230421204058.png"   alt="image.png"  ></p>
+<h2 id="配置自定义域名" class="headerLink">
+    <a href="#%e9%85%8d%e7%bd%ae%e8%87%aa%e5%ae%9a%e4%b9%89%e5%9f%9f%e5%90%8d" class="header-mark" aria-label="Header mark for '配置自定义域名'"></a>配置自定义域名</h2><h3 id="域名说明" class="headerLink">
+    <a href="#%e5%9f%9f%e5%90%8d%e8%af%b4%e6%98%8e" class="header-mark" aria-label="Header mark for '域名说明'"></a>域名说明</h3><blockquote>
+<p>如果现有域名，可以不需要购买，或者其他平台可以进行购买，我这里用的是纯数字域名，因为比较便宜，免费域名不确定的因素可能会比较多，花点小钱吧，还可以忍受</p>
+</blockquote>
+<h3 id="域名购买流程" class="headerLink">
+    <a href="#%e5%9f%9f%e5%90%8d%e8%b4%ad%e4%b9%b0%e6%b5%81%e7%a8%8b" class="header-mark" aria-label="Header mark for '域名购买流程'"></a>域名购买流程</h3><ul>
+<li>购买地址 ： <a href="https://name.com" target="_blank" rel="noopener noreferrer">https://name.com</a>  ，注册和登录 (国外老牌域名注册商，纯数字域名比较便宜)</li>
+<li>搜索： 直接搜索想要的域名，最好是数字+xyz 后缀，因为在搞活动便宜，目前. xyz 域名已经支持在工信部稳定</li>
+<li>价格： 一般是 1 美金用一年，如果比较贵的话，可以试试其他的数字</li>
+<li>支付： 加入购物车，可以通过支付宝进行支付</li>
+</ul>
+<h3 id="网站注册" class="headerLink">
+    <a href="#%e7%bd%91%e7%ab%99%e6%b3%a8%e5%86%8c" class="header-mark" aria-label="Header mark for '网站注册'"></a>网站注册</h3><p><img class="tw-inline" loading="lazy" src="https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20230421204552.png"   alt="image.png"  ></p>
+<h3 id="搜索购买域名" class="headerLink">
+    <a href="#%e6%90%9c%e7%b4%a2%e8%b4%ad%e4%b9%b0%e5%9f%9f%e5%90%8d" class="header-mark" aria-label="Header mark for '搜索购买域名'"></a>搜索购买域名</h3><p><img class="tw-inline" loading="lazy" src="https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20230421204706.png"   alt="image.png"  ></p>
+<h3 id="购物车提交" class="headerLink">
+    <a href="#%e8%b4%ad%e7%89%a9%e8%bd%a6%e6%8f%90%e4%ba%a4" class="header-mark" aria-label="Header mark for '购物车提交'"></a>购物车提交</h3><p>进入购物车界面，附加商品我们取消删除掉，然后我们就可以点击付款
+<img class="tw-inline" loading="lazy" src="https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20230421204812.png"   alt="image.png"  ></p>
+<h3 id="付款支付" class="headerLink">
+    <a href="#%e4%bb%98%e6%ac%be%e6%94%af%e4%bb%98" class="header-mark" aria-label="Header mark for '付款支付'"></a>付款支付</h3><p><img class="tw-inline" loading="lazy" src="https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20230421204746.png"   alt="image.png"  ></p>
+<p>付款之后，等待页面跳转。域名购买成功之后，在我的域名列表就会看到刚刚购买的域名，可以取消勾选自动续费：</p>
+<p><img class="tw-inline" loading="lazy" src="https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20230421204935.png"   alt="image.png"  ></p>
+<h3 id="进入详情页" class="headerLink">
+    <a href="#%e8%bf%9b%e5%85%a5%e8%af%a6%e6%83%85%e9%a1%b5" class="header-mark" aria-label="Header mark for '进入详情页'"></a>进入详情页</h3><p>点击这里进入域名详情页</p>
+<p><img class="tw-inline" loading="lazy" src="https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20230421204955.png"   alt="image.png"  ></p>
+<h2 id="cloudflare-配置" class="headerLink">
+    <a href="#cloudflare-%e9%85%8d%e7%bd%ae" class="header-mark" aria-label="Header mark for 'Cloudflare 配置'"></a>Cloudflare 配置</h2><p>注册地址：<a href="https://www.cloudflare.com/zh-cn" target="_blank" rel="noopener noreferrer">https://www.cloudflare.com/zh-cn</a>
+右上角可以选简体中文
+登录进去以后，，点击 <code>添加站点</code></p>
+<h3 id="添加站点" class="headerLink">
+    <a href="#%e6%b7%bb%e5%8a%a0%e7%ab%99%e7%82%b9" class="header-mark" aria-label="Header mark for '添加站点'"></a>添加站点</h3><p><img class="tw-inline" loading="lazy" src="https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20230421205031.png"   alt="image.png"  ></p>
+<h3 id="选择-free-免费计划" class="headerLink">
+    <a href="#%e9%80%89%e6%8b%a9-free-%e5%85%8d%e8%b4%b9%e8%ae%a1%e5%88%92" class="header-mark" aria-label="Header mark for '选择 FREE 免费计划'"></a>选择 FREE 免费计划</h3><p><img class="tw-inline" loading="lazy" src="https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20230421205055.png"   alt="image.png"  ></p>
+<h3 id="添加-dns-记录" class="headerLink">
+    <a href="#%e6%b7%bb%e5%8a%a0-dns-%e8%ae%b0%e5%bd%95" class="header-mark" aria-label="Header mark for '添加 DNS 记录'"></a>添加 DNS 记录</h3><p>Vercel. App 因为被大量使用，自然而然被墙掉了，不过好在 Vercel 官方提供了单独的 IP 和 CNAME 地址给大家，对于国内的用户来说，配置一下单独的解析，依然可以享受 Vercel 提供的服务。将上述步骤中用到的 ip 和 cname 地址替换成以下内容即可：</p>
+<ul>
+<li>A 记录地址：76.223.126.88 或 76.76.21.98 等</li>
+<li>CNAME 记录地址：cname-china.vercel-dns.com</li>
+</ul>
+<p><img class="tw-inline" loading="lazy" src="https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20230421205129.png"   alt="image.png"  ></p>
+<h3 id="复制-cloudflare-名称服务器" class="headerLink">
+    <a href="#%e5%a4%8d%e5%88%b6-cloudflare-%e5%90%8d%e7%a7%b0%e6%9c%8d%e5%8a%a1%e5%99%a8" class="header-mark" aria-label="Header mark for '复制 cloudflare 名称服务器'"></a>复制 cloudflare 名称服务器</h3><p><img class="tw-inline" loading="lazy" src="https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20230421205150.png"   alt="image.png"  ></p>
+<h3 id="进入name-com-域名详情页点击管理域名服务器" class="headerLink">
+    <a href="#%e8%bf%9b%e5%85%a5name-com-%e5%9f%9f%e5%90%8d%e8%af%a6%e6%83%85%e9%a1%b5%e7%82%b9%e5%87%bb%e7%ae%a1%e7%90%86%e5%9f%9f%e5%90%8d%e6%9c%8d%e5%8a%a1%e5%99%a8" class="header-mark" aria-label="Header mark for '进入name. Com 域名详情页，点击	&lt;code&gt;管理域名服务器&lt;/code&gt;'"></a>进入name. Com 域名详情页，点击	<code>管理域名服务器</code></h3><p><img class="tw-inline" loading="lazy" src="https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20230421205230.png"   alt="image.png"  ></p>
+<h3 id="替换-cloudflare-名称服务器和检测" class="headerLink">
+    <a href="#%e6%9b%bf%e6%8d%a2-cloudflare-%e5%90%8d%e7%a7%b0%e6%9c%8d%e5%8a%a1%e5%99%a8%e5%92%8c%e6%a3%80%e6%b5%8b" class="header-mark" aria-label="Header mark for '替换 cloudflare 名称服务器和检测'"></a>替换 cloudflare 名称服务器和检测</h3><p>把原来的四个地址删除掉，把刚刚提示俩个需要复制的 cloudflare 名称服务器地址，替换到这里，
+<img class="tw-inline" loading="lazy" src="https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20230421205449.png"   alt="image.png"  ></p>
+<p>回到 cloudflare 界面，进行检测名称服务器，大概需要半个小时
+<img class="tw-inline" loading="lazy" src="https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20230421205459.png"   alt="image.png"  ></p>
+<h3 id="状态正常完成" class="headerLink">
+    <a href="#%e7%8a%b6%e6%80%81%e6%ad%a3%e5%b8%b8%e5%ae%8c%e6%88%90" class="header-mark" aria-label="Header mark for '状态正常完成'"></a>状态正常完成</h3><p>我们进入 cloudlfare，点击网站，看到主页显示网站有效</p>
+<p><img class="tw-inline" loading="lazy" src="https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20230421205538.png"   alt="image.png"  ></p>
+<p><strong>状态更新后，域名服务器已经从 name.com 转到由 cloudflare 来进行维护，DNS 也指向了 Vercel 的服务器</strong></p>
+<h2 id="使用购买的域名" class="headerLink">
+    <a href="#%e4%bd%bf%e7%94%a8%e8%b4%ad%e4%b9%b0%e7%9a%84%e5%9f%9f%e5%90%8d" class="header-mark" aria-label="Header mark for '使用购买的域名'"></a>使用购买的域名</h2><p>打开 Vercel 控制台，点击部署的项目，点击 Settings，侧边栏点击 Domains，把域名输入进去，点击 Add：</p>
+<p><img class="tw-inline" loading="lazy" src="https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20230421205641.png"   alt="image.png"  ></p>
+<p>选择 Add xxxxx. Xyz and redirect <a href="https://www.xxxxx.xyz" target="_blank" rel="noopener noreferrer">www.xxxxx.xyz</a> to it，然后 Add：
+<img class="tw-inline" loading="lazy" src="https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20230421205650.png"   alt="image.png"  ></p>
+<p>因为在上一步中，DNS 已经修改并应用成功，等待刷新一会（或者手动刷新），就会看到域名成功添加，也可以点击 Edit，将默认的域名也可以删掉：</p>
+<p><img class="tw-inline" loading="lazy" src="https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20230421205727.png"   alt="image.png"  ></p>
+<p>此时就可以用新的域名访问啦~</p>
+<p><img class="tw-inline" loading="lazy" src="https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20230421205803.png"   alt="image.png"  ></p>
+<h2 id="chatgpt-设置" class="headerLink">
+    <a href="#chatgpt-%e8%ae%be%e7%bd%ae" class="header-mark" aria-label="Header mark for 'ChatGPT 设置'"></a>ChatGPT 设置</h2><p>网站可以访问后，需要进行一些简单的设置，如果你部署的时候加了访问码（CODE），填进去就可以了，其它的可以根据自己喜好设置：
+<img class="tw-inline" loading="lazy" src="https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20230421205926.png"   alt="image.png"  >
+丰富的 prompt 提示
+<img class="tw-inline" loading="lazy" src="https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20230421205948.png"   alt="image.png"  ></p>
+<h2 id="补充更换-code-或者-api-key" class="headerLink">
+    <a href="#%e8%a1%a5%e5%85%85%e6%9b%b4%e6%8d%a2-code-%e6%88%96%e8%80%85-api-key" class="header-mark" aria-label="Header mark for '补充更换 code 或者 api key'"></a>补充更换 code 或者 api key</h2><blockquote>
+<p>配置更改后，我们需要重新进行部署应用。</p>
+</blockquote>
+<p>打开 vercel dashboard 页面，选择 setting ，选择 environment variables</p>
+<p><img class="tw-inline" loading="lazy" src="https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20230421210109.png"   alt="image.png"  ></p>
+<p>通过编辑来进行更改 Value 的值
+<img class="tw-inline" loading="lazy" src="https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20230421210325.png"   alt="image.png"  ></p>
+<p>我们更改好配置后，肯定是需要重新发布一下，让网站应用我们的最新配置，针对最新的部署记录进行<code>Redeploy</code>
+<img class="tw-inline" loading="lazy" src="https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20230421210706.png"   alt="image.png"  ></p>
+<p>这里我们选择使用代码缓存构建，不更新代码，只更新我们变更的配置，部署更快，点击 <code>Redeploy </code>
+<img class="tw-inline" loading="lazy" src="https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20230421210559.png"   alt="image.png"  ></p>
+<h2 id="手机快捷方式方便" class="headerLink">
+    <a href="#%e6%89%8b%e6%9c%ba%e5%bf%ab%e6%8d%b7%e6%96%b9%e5%bc%8f%e6%96%b9%e4%be%bf" class="header-mark" aria-label="Header mark for '手机快捷方式方便'"></a>手机快捷方式方便</h2><p><img class="tw-inline" loading="lazy" src="https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20230421215024.png"     ></p>
+<h2 id="手机使用" class="headerLink">
+    <a href="#%e6%89%8b%e6%9c%ba%e4%bd%bf%e7%94%a8" class="header-mark" aria-label="Header mark for '手机使用'"></a>手机使用</h2><p>选择设置
+<img class="tw-inline" loading="lazy" src="https://user-images.githubusercontent.com/129520887/233653469-9053a1c5-e17a-46b6-af35-a1394a84e42a.png"   alt="image"  ></p>
+<p>把我给你的授权密码填进去</p>
+<p><img class="tw-inline" loading="lazy" src="https://user-images.githubusercontent.com/129520887/233653486-e76582cf-4e4c-4f50-bde6-a0a7baf42d1f.png"   alt="image"  ></p>
+<p><code>over</code></p>
+</div>
+
+        <div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2023-04-21</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line print:!tw-hidden">
+            <div class="post-info-md"></div>
+            <div class="post-info-share"></div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M497.941 225.941L286.059 14.059A48 48 0 0 0 252.118 0H48C21.49 0 0 21.49 0 48v204.118a48 48 0 0 0 14.059 33.941l211.882 211.882c18.744 18.745 49.136 18.746 67.882 0l204.118-204.118c18.745-18.745 18.745-49.137 0-67.882zM112 160c-26.51 0-48-21.49-48-48s21.49-48 48-48 48 21.49 48 48-21.49 48-48 48zm513.941 133.823L421.823 497.941c-18.745 18.745-49.137 18.745-67.882 0l-.36-.36L527.64 323.522c16.999-16.999 26.36-39.6 26.36-63.64s-9.362-46.641-26.36-63.64L331.397 0h48.721a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882z"/></svg>&nbsp;<a href="/tags/chatgpt/">ChatGPT</a></section>
+        <section class="print:!tw-hidden">
+            <span><button class="tw-text-fgColor-link-muted hover:tw-text-fgColor-link-muted-hover" onclick="window.history.back();">Back</button></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav print:tw-hidden"><a href="/posts/etf/2023-etf/" class="prev" rel="prev" title="道草|0412-ETF-分析"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"/></svg>道草|0412-ETF-分析</a>
+            <a href="/posts/2023/2023-notion-01/" class="next" rel="next" title="道草|notion个人记账记录">道草|notion个人记账记录<svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"/></svg></a></div>
+</div>
+</article></div>
+        </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">
+                    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.133.0">Hugo</a>&nbsp;|&nbsp;Theme - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreferrer" title="DoIt 0.4.0"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M402.3 344.9l32-32c5-5 13.7-1.5 13.7 5.7V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h273.5c7.1 0 10.7 8.6 5.7 13.7l-32 32c-1.5 1.5-3.5 2.3-5.7 2.3H48v352h352V350.5c0-2.1.8-4.1 2.3-5.6zm156.6-201.8L296.3 405.7l-90.4 10c-26.2 2.9-48.5-19.2-45.6-45.6l10-90.4L432.9 17.1c22.9-22.9 59.9-22.9 82.7 0l43.2 43.2c22.9 22.9 22.9 60 .1 82.8zM460.1 174L402 115.9 216.2 301.8l-7.3 65.3 65.3-7.3L460.1 174zm64.8-79.7l-43.2-43.2c-4.1-4.1-10.8-4.1-14.8 0L436 82l58.1 58.1 30.9-30.9c4-4.2 4-10.8-.1-14.9z"/></svg> DoIt</a>
+                </div><div class="footer-line"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M256 8C119.033 8 8 119.033 8 256s111.033 248 248 248 248-111.033 248-248S392.967 8 256 8zm0 448c-110.532 0-200-89.451-200-200 0-110.531 89.451-200 200-200 110.532 0 200 89.451 200 200 0 110.532-89.451 200-200 200zm107.351-101.064c-9.614 9.712-45.53 41.396-104.065 41.396-82.43 0-140.484-61.425-140.484-141.567 0-79.152 60.275-139.401 139.762-139.401 55.531 0 88.738 26.62 97.593 34.779a11.965 11.965 0 0 1 1.936 15.322l-18.155 28.113c-3.841 5.95-11.966 7.282-17.499 2.921-8.595-6.776-31.814-22.538-61.708-22.538-48.303 0-77.916 35.33-77.916 80.082 0 41.589 26.888 83.692 78.277 83.692 32.657 0 56.843-19.039 65.726-27.225 5.27-4.857 13.596-4.039 17.82 1.738l19.865 27.17a11.947 11.947 0 0 1-1.152 15.518z"/></svg>2019 - 2024<span class="author">&nbsp;<a href="/" target="_blank" rel="noopener noreferrer">bdsdc</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+            <div class="footer-line"></div>
+            <div class="footer-line">
+            </div>
+        </div></footer></div>
+
+    <div id="fixed-buttons" class="print:!tw-hidden"><a href="#back-to-top" id="back-to-top-button" class="fixed-button tw-transition-opacity tw-opacity-0" title="Back to Top">
+            <svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M34.9 289.5l-22.2-22.2c-9.4-9.4-9.4-24.6 0-33.9L207 39c9.4-9.4 24.6-9.4 33.9 0l194.3 194.3c9.4 9.4 9.4 24.6 0 33.9L413 289.4c-9.5 9.5-25 9.3-34.3-.4L264 168.6V456c0 13.3-10.7 24-24 24h-32c-13.3 0-24-10.7-24-24V168.6L69.2 289.1c-9.3 9.8-24.8 10-34.3.4z"/></svg>
+        </a></div>
+<script>window.config={"comment":{}};</script><script
+    src="/js/theme.min.js"
+    
+      defer
+    
+  ></script>
+    
+    <script type="speculationrules">
+        {
+          "prerender": [
+            {
+              "where": { "href_matches": "/*" },
+              "eagerness": "moderate"
+            }
+          ]
+        }
+    </script>
+      
+</body>
+
+</html>

@@ -1,0 +1,77 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>All Posts - 道草站点</title>
+        <link>http://localhost:14319/posts/</link>
+        <description>All Posts | 道草站点</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 23 Aug 2024 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://localhost:14319/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>和谐交易|X-ABC</title>
+    <link>http://localhost:14319/posts/tools/%E5%92%8C%E8%B0%90%E4%BA%A4%E6%98%93-x-abc%E5%BD%A2%E6%80%81/</link>
+    <pubDate>Fri, 23 Aug 2024 00:00:00 &#43;0000</pubDate><author>
+        <name>bdsdc</name>
+    </author><guid>http://localhost:14319/posts/tools/%E5%92%8C%E8%B0%90%E4%BA%A4%E6%98%93-x-abc%E5%BD%A2%E6%80%81/</guid>
+    <description><![CDATA[X-ABC形态可以说是经常出现的一种反转形态，基本上所有的k线走势都会出现的，只不过你没有留意 下面我简单讲解下，你们就会发现的 确认反转首先我]]></description>
+</item><item>
+    <title>道草|个人免费使用vmware-workstation-pro</title>
+    <link>http://localhost:14319/posts/2024/2024-vmware-workstation-pro-download/</link>
+    <pubDate>Thu, 22 Aug 2024 00:00:00 &#43;0000</pubDate><author>
+        <name>bdsdc</name>
+    </author><guid>http://localhost:14319/posts/2024/2024-vmware-workstation-pro-download/</guid>
+    <description><![CDATA[VMware大调整近日，被博通收购后的VMware宣布将桌面虚拟化软件免费给个人用户用了，Windows端的Workstation Pro和M]]></description>
+</item><item>
+    <title>道草|反向抓去GPTs关键指令，学习他人的prompt</title>
+    <link>http://localhost:14319/posts/2023/2023-gpts-prompt/</link>
+    <pubDate>Tue, 19 Dec 2023 00:00:00 &#43;0000</pubDate><author>
+        <name>bdsdc</name>
+    </author><guid>http://localhost:14319/posts/2023/2023-gpts-prompt/</guid>
+    <description><![CDATA[前言最近GPTs正在暗流涌动的潜移默化的发展着，包括前面分享的 GPTs Hunter 网站都已经更新了好多功能，增加了搜索的功能，并且每天上传量还在持续的增长 而]]></description>
+</item><item>
+    <title>道草|白嫖GPTs和Dalle3，免费体验要趁早</title>
+    <link>http://localhost:14319/posts/2023/2023-coze-discord-chatgpt/</link>
+    <pubDate>Mon, 18 Dec 2023 00:00:00 &#43;0000</pubDate><author>
+        <name>bdsdc</name>
+    </author><guid>http://localhost:14319/posts/2023/2023-coze-discord-chatgpt/</guid>
+    <description><![CDATA[前言Coze是由字节跳动在海外推出的一个AL聊天机器人和应用程序编辑开发平台，可以理解为字节跳动版的GPTS。无论用户是否有编程经验，都可以]]></description>
+</item><item>
+    <title>道草|0517-股票分析</title>
+    <link>http://localhost:14319/posts/stock/2023-05-17-mimi/</link>
+    <pubDate>Wed, 17 May 2023 00:00:00 &#43;0000</pubDate><author>
+        <name>bdsdc</name>
+    </author><guid>http://localhost:14319/posts/stock/2023-05-17-mimi/</guid>
+    <description><![CDATA[股票分析今日我们重点分析下面几只股票 三一重工 整体趋势处于下跌中的位置，目前来看，整体还是偏弱势阶段，底部不断新低，顶部没有新高 下面图片中，红]]></description>
+</item><item>
+    <title>道草|notion个人记账记录</title>
+    <link>http://localhost:14319/posts/2023/2023-notion-01/</link>
+    <pubDate>Fri, 21 Apr 2023 00:00:00 &#43;0000</pubDate><author>
+        <name>bdsdc</name>
+    </author><guid>http://localhost:14319/posts/2023/2023-notion-01/</guid>
+    <description><![CDATA[notion 个人记账和理财目前大公司都在进行开源节流，也迎来了大多公司的离职潮，基于现状的窘迫和收入的紧张不确定性，万一那天就失业了， 那么我们也要在大]]></description>
+</item><item>
+    <title>道草|轻松打造免费专属的ChatGPT网站给朋友</title>
+    <link>http://localhost:14319/posts/2023/2023-chatapi-web/</link>
+    <pubDate>Fri, 21 Apr 2023 00:00:00 &#43;0000</pubDate><author>
+        <name>bdsdc</name>
+    </author><guid>http://localhost:14319/posts/2023/2023-chatapi-web/</guid>
+    <description><![CDATA[前言介绍在中国大陆境内域名提供商购买的域名，需要实名认证才能开启 DNS 解析。而在国外域名提供商买的域名则不用。 指向中国大陆内的云服务器的域名提供]]></description>
+</item><item>
+    <title>道草|0412-ETF-分析</title>
+    <link>http://localhost:14319/posts/etf/2023-etf/</link>
+    <pubDate>Tue, 11 Apr 2023 00:00:00 &#43;0000</pubDate><author>
+        <name>bdsdc</name>
+    </author><guid>http://localhost:14319/posts/etf/2023-etf/</guid>
+    <description><![CDATA[0412 -ETF-每日分析 仅仅作为建议分享，不作为投资建议，请大家谨慎投资 医药目前上方存在压力，底部支撑在0.471附近 农业目前来到一个底部支撑位]]></description>
+</item><item>
+    <title>bybit注册教程</title>
+    <link>http://localhost:14319/posts/2023/2023-bybit-register/</link>
+    <pubDate>Fri, 31 Mar 2023 22:26:09 &#43;0800</pubDate><author>
+        <name>bdsdc</name>
+    </author><guid>http://localhost:14319/posts/2023/2023-bybit-register/</guid>
+    <description><![CDATA[Bybit目前bybit交易所在国内还不算是出名，但是国外大V和一些交易up主很喜欢用，尤其是合约，流行性比较好，插针比较少，也很少出现断网]]></description>
+</item><item>
+    <title>和谐交易-AB=CD</title>
+    <link>http://localhost:14319/posts/2023/2023-fib-tutorial-01/</link>
+    <pubDate>Fri, 31 Mar 2023 22:26:09 &#43;0800</pubDate><author>
+        <name>bdsdc</name>
+    </author><guid>http://localhost:14319/posts/2023/2023-fib-tutorial-01/</guid>
+    <description><![CDATA[AB=CDAB的长度等于CD的长度 fib = 斐波那契 ： 后面文中fib代表斐波那契 首先关注几个终点斐波那契数列的重点几个百分数 0.382 0.618 0.5 0.786 0.886 我们通过AB]]></description>
+</item></channel>
+</rss>
