@@ -1,3 +1,13 @@
+---
+title: "和谐交易|X-ABC"
+date: 2024-08-23
+lastmod: 2024-08-23
+author: 'bdsdc'
+linkToMarkdown: true
+categories: ['股票技术分析']
+tags: ['tools']
+---
+
 # X-ABC
 形态可以说是经常出现的一种反转形态，基本上所有的k线走势都会出现的，只不过你没有留意
 下面我简单讲解下，你们就会发现的
