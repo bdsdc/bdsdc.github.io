@@ -19,9 +19,6 @@ copyright = "This work is licensed under a Creative Commons Attribution-NonComme
 # 作者配置
 [author]
   name = "bdsdc"
-[params]
-  # DoIt 主题版本
-  version = "0.3.X"
 
 # 菜单配置
 [menu]
