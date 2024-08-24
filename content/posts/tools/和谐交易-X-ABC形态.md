@@ -9,6 +9,7 @@ tags: ['tools']
 toc:
   enable: true
   auto: true
+
 ---
 
 # X-ABC
@@ -24,8 +25,10 @@ X-A  是经历了一波上涨行情，出现了反转AB的走势，上节课AB=C
 ## fib寻找C点位置
 如图，我们可以等B点确认，出现拐头，然后我们通过AB 寻找目标0.618的位置 ，图中的C点位置
 首先要记住X-ABC一般作为反转形态 ，所以注意 
+{{< admonition success >}}
+**C点位置：可以考虑做空（ k线反转信号确认） ，这个也可以有点类似头肩顶的形态**
+{{< /admonition >}}
 
-`C点位置：可以考虑做空（ k线反转信号确认） ，这个也可以有点类似头肩顶的形态`
 
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202408241630355.png)
 
