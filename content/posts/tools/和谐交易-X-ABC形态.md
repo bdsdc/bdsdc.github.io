@@ -1,15 +1,14 @@
 ---
-title: "和谐交易|X-ABC"
+title: "和谐交易|fib-course02-X-ABC"
 date: 2024-08-23
 lastmod: 2024-08-23
 author: 'bdsdc'
 linkToMarkdown: true
-categories: ['trader']
-tags: ['tools']
+categories: ['harmonic-trading']
+tags: ['trader']
 toc:
   enable: true
   auto: true
-
 ---
 
 # X-ABC
