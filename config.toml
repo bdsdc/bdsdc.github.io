@@ -53,7 +53,7 @@ copyright = "This work is licensed under a Creative Commons Attribution-NonComme
     pre = ""
     post = ""
     name = "「工具」"
-    url = "/categories/tools"
+    url = "/posts/tools"
     title = "软件和运维工具"
     weight = 4
   [[menu.main]]
