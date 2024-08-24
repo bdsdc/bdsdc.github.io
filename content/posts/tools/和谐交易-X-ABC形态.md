@@ -4,7 +4,7 @@ date: 2024-08-23
 lastmod: 2024-08-23
 author: 'bdsdc'
 linkToMarkdown: true
-categories: ['股票技术分析']
+categories: ['trader']
 tags: ['tools']
 toc:
   enable: true
