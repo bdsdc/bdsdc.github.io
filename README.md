@@ -9,26 +9,21 @@ const my = {
   tags: ['Web Developer','Photog','Cycling enthusiast', 'INFJ'],
   adress: 'NeiMengGu - TongLiao',
   email: 'bdstravel@126.com',
-  introduce: 'Hi, I’m a frontend developer. This is my spot on the web for writing, projects, tutorials and anything else I want to put out there. check out the blog, or of my weekly.',
   github: 'https://github.com/bdsdc',
   blog: 'https://bdsdc.github.io/',
   RSSReader: 'https://bdsdc.github.io/rss/',
 }
 ```
 
-<h2 align=center>Web Developer/ Photog/ Work at NanJing</h2>
+<h2 align=center>ops/ trader / Work at Shanghai</h2>
 
 
 ### 基础使用
 
     新建博客: hugo new site NewBolgSite
-
     新建文章: hugo new blog/xxx-文章名.md
-
     启动博客: hugo server -D
-
     编译博客：hugo -D
-
 
     ---
     title: Git 仓库的分支 (Branch) 规范
@@ -96,4 +91,4 @@ Modifying the default configuration. Then push it to your repository.
 
 ## Special Thanks
 
--   Hugo Ladder is inspired by [hugo-paperMod](https://github.com/adityatelange/hugo-PaperMod)
+-   Hugo Ladder is inspired by [DoIt](https://github.com/HEIGE-PCloud/DoIt)
