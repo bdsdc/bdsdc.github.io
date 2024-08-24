@@ -54,12 +54,12 @@ copyright = "This work is licensed under a Creative Commons Attribution-NonComme
     title = ""
  
   [[menu.main]]
-    identifier = "tools"
+    identifier = "trader"
     pre = ""
     post = ""
-    name = "「工具」"
-    url = "/tools"
-    title = "软件和运维工具"
+    name = "交易"
+    url = "/categories/trader"
+    title = "交易为生"
     weight = 4
   [[menu.main]]
     identifier = "导航"
