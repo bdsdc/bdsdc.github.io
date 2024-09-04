@@ -13,4 +13,5 @@ tags: ['tools']
 - Authing
 - authentik
 
-## 
+## 新技术
+- RPA+AI： 无人自动化
