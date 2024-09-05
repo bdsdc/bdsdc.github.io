@@ -26,4 +26,5 @@ tags: ['tools']
 
 # dig命令
 - dig ns bdsdc.com @114.114.114.114
+
 ```
