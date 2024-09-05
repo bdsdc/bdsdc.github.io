@@ -15,3 +15,15 @@ tags: ['tools']
 
 ## 新技术
 - RPA+AI： 无人自动化
+
+
+
+## 命令 
+```
+# nmap命令
+- nmap -sT 10.1.1.1
+- nmap --script ssl-enum-ciphers -p 443 www.bdsdc.com
+
+# dig命令
+- dig ns bdsdc.com @114.114.114.114
+```
