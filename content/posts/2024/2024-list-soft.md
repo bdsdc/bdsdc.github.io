@@ -16,7 +16,9 @@ tags: ['tools']
 ## 新技术
 - RPA+AI： 无人自动化
 
-
+## windows
+-  激活软件：https://cmwtat.cloudmoe.com/cn.html
+-  纯净版系统下载： https://next.itellyou.cn
 
 ## 命令 
 ```
