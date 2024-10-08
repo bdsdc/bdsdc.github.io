@@ -22,7 +22,7 @@ r_src_dir=$1
 # create date dir 
 project_dir="/gri-ziyandata-0"
 current_date=$(date +%Y%m%d%H%M) 
-volue="/share/ZFS530_DATA"
+value="/share/ZFS530_DATA"
 
 r_src_dest="$project_dir/${current_date}-tmp"
 mkdir -pv  ${r_src_dest}
@@ -33,7 +33,7 @@ echo "Start_time: $start_time"
 echo "Rsync task started..."
 
 #data_size=`df -h |grep "share"|grep "extarnel" |grep "/sdb"|awk '{print $2}' `
-disk_size=`df |grep "/share/ZFS530_DATA" |awk '{print $2}' `
+disk_size=`df |grep $value |awk '{print $2}' `
 
 echo "disk_size: $disk_size"
 
@@ -46,7 +46,7 @@ echo "Rsync task completed."
 # mv date dir 
 if [ $? -eq 0 ];then 
 	cd ${project_dir}
-	chown 1000.1000  ${current_date}-tmp  
+	chown 1000.1000  -R ${current_date}-tmp  
 	wait
 #	mv ${current_date}-tmp  ${current_date}
 fi 
