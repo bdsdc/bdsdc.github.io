@@ -29,4 +29,7 @@ tags: ['tools']
 # dig命令
 - dig ns bdsdc.com @114.114.114.114
 
+# curl
+curl -L http://ip.iizone.com.cn/47.92.2.126
 ```
+
