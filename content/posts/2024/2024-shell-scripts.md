@@ -64,3 +64,24 @@ printf  "transmission time: %d s\n"      ${transmission_time}
 printf  "transmission rate: %03.2f g/s\n"  ${transmission_rate}
 
 ```
+## glusterfs 创建卷存储
+```
+#!/bin/bash
+v=$1
+if [[ $# -eq 0 ]] ;then
+	echo "pls input $0 volume"
+	exit 3
+fi
+echo "create volume ${v}"
+gluster volume create ${v} replica 2  10.43.76.85:/data/gfs/${v}  10.43.76.86:/data/gfs/${v} 
+echo "set volume timeout 6"
+gluster volume set    ${v} network.ping-timeout 6
+echo "start volume ${v}"
+gluster volume start  ${v}
+echo "Please mount"
+echo "mount -t glusterfs -o backupvolfile-server=10.43.76.86 10.43.76.85:/${v} 'mount_dir_name'"
+
+```
+
+
+
