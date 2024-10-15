@@ -19,7 +19,8 @@ tags: ['tools']
 ## windows
 -  激活软件：https://cmwtat.cloudmoe.com/cn.html
 -  纯净版系统下载： https://next.itellyou.cn
-
+## clash
+-  clash: https://clashverge.net/
 ## 命令 
 ```
 # nmap命令
