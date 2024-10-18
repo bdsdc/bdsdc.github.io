@@ -33,4 +33,6 @@ tags: ['tools']
 # curl
 curl -L http://ip.iizone.com.cn/47.92.2.126
 ```
-
+```
+wget -qO- ifconfig.me
+```
