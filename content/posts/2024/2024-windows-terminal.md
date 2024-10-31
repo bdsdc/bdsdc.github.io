@@ -1,3 +1,12 @@
+---
+title: "运维|Windows的terminal终端优化"
+date: 2024-09-24
+lastmod: 2024-09-24
+author: 'bdsdc'
+linkToMarkdown: true
+categories: ['运维']
+tags: ['Linux']
+---
 
 
 to-my-cosh 
