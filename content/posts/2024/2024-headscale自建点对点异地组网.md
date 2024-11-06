@@ -12,6 +12,13 @@ tags: ['headscale']
 
 Headscale是Tailscale的一个开源服务端，通过go语言完整地支持了绝大多数Tailscale的基础功能，使Tailscale能够完全工作于独立自建的服务端之上。近期恰逢Parsec受到干扰，对未来ZeroTier官方服务在大陆的稳定性有了一些担忧，于是研究了一下自建Headscale服务器的流程。整个过程都是手动安装，在此做一些简单的记录。
 ## 原理阐述
+
+同类型工具
+- ZeroTier
+- Netbird 
+- frp
+- rustdesk 
+ 
 Tailscale服务器端分为两部分，包括负责通信与认证的Headscale服务器和负责打洞和转发的DERP服务器，其工作模式细节可以参考官方博客（点击前往）。以两台计算机为例，它们首先分别通过Tailscale客户端注册至Headscale服务器，在建立通信时先通过Headscale服务器交换握手信息，随后分配到合适的DERP服务器进行中继连接和STUN打洞。若打洞成功，两端将在Headscale服务器引导下绕过服务器建立点对点的直连隧道；若打洞失败，两端将保持通过DERP服务器中继的互联模式。
 
 Tailscale、ZeroTier和Netbird都是功能相似的优秀异地组网工具，且均支持自建服务器。与ZeroTier相比，Tailscale功能更丰富、自建更为简便，同时WireGuard效率更高；缺点是Tailscale客户端资源占用略高（要求RAM＞512M）。与Netbird相比，Tailscale起步较早实践资料和可用插件更多（如OpenWRT Luci-UI，点击前往），并且不强制要求独占80与443端口；缺点是WireGuard在go下性能略逊于内核态，同时Headscale并非Netbird一样由官方支持。权衡之后，博主认为Headscale是目前自建比较简单、易用的选择。
