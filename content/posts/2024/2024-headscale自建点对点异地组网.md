@@ -36,12 +36,12 @@ tags: ['headscale']
 目前最新版本是v0.23.0 ，看官网介绍，本次版本改动比较大，有多个地方进行重构，本次以最新版本进行安装
  
 ```
-最新版本配置文件example下载地址：
+# 最新版本配置文件example下载地址：
 wget -O /usr/local/bin/headscael  https://github.com/juanfont/headscale/releases/download/v0.23.0/headscale_0.23.0_linux_amd64
 # 有些老系统的 PATH 里没 /usr/local/bin/ ，可以放其他路径里
 chmod a+x /usr/local/bin/headscale
 mkdir /etc/headscale/
-#下载二进制同版本的示例配置文件
+# 下载二进制同版本的示例配置文件
 curl -o config.yaml https://raw.githubusercontent.com/juanfont/headscale/v0.23.0/config-example.yaml
 ```
 ### 创建后台启动文件
@@ -87,7 +87,7 @@ useradd \
 
 mkdir -p /var/run/headscale/
 
-#创建空的 SQLite 数据库文件和 derp 文件：
+# 创建空的 SQLite 数据库文件和 derp 文件：
 touch /var/lib/headscale/db.sqlite /etc/headscale/derp.yaml
 chown -R headscale:headscale /var/run/headscale/ /var/lib/headscale
 chmod a+r /etc/headscale/config.yaml /etc/headscale/derp.yaml
@@ -99,7 +99,7 @@ chmod a+r /etc/headscale/config.yaml /etc/headscale/derp.yaml
 ```
 # grep -v "[[:space:]]#" /etc/headscale/config.yaml |grep -v "^#" |grep -v "^$"
 
-#配置如下
+# 配置如下
 server_url: https://xxx.domain.com # 对外接受访问的域名，通过反向代理支持ssl证书
 listen_addr: 0.0.0.0:8080
 metrics_listen_addr: 127.0.0.1:9090
@@ -511,15 +511,3 @@ tailscale up
 
 - https://arthurchiao.art/blog/how-nat-traversal-works-zh/
 - https://kiprey.github.io/2023/11/tailscale-derp/
-
-
-
-
-
-
-
-
-
-
-
-
