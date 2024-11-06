@@ -30,10 +30,13 @@ tags: ['headscale']
 ### headscale安装
 
 官方github地址：https://github.com/juanfont/headscale
+
 参考官方文档： https://headscale.net/setup/requirements/#assumptions
+
 目前最新版本是v0.23.0 ，看官网介绍，本次版本改动比较大，有多个地方进行重构，本次以最新版本进行安装
-最新版本配置文件example下载地址： 
+ 
 ```
+最新版本配置文件example下载地址：
 wget -O /usr/local/bin/headscael  https://github.com/juanfont/headscale/releases/download/v0.23.0/headscale_0.23.0_linux_amd64
 # 有些老系统的 PATH 里没 /usr/local/bin/ ，可以放其他路径里
 chmod a+x /usr/local/bin/headscale
