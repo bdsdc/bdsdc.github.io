@@ -44,7 +44,13 @@ server {
 }
 
 ```
+测试下nginx配置 
+```
+[root@bdser ~]# nginx -c /etc/nginx/nginx.conf -t 
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
 
+```
 
 ### certbot生成证书
 ```
@@ -88,7 +94,7 @@ server {
 }
 
 ```
-测试下nginx配置 
+在测试下nginx配置 
 ```
 [root@bdser ~]# nginx -c /etc/nginx/nginx.conf -t 
 nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
