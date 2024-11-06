@@ -508,6 +508,6 @@ tailscale up
 这里只介绍异地组网部分，其他的去看官方文档。
 
 ## 参考
-
+- https://zhangguanzhang.github.io/2024/07/25/headscale/#/%E6%89%93%E9%80%9A%E5%86%85%E7%BD%91
 - https://arthurchiao.art/blog/how-nat-traversal-works-zh/
 - https://kiprey.github.io/2023/11/tailscale-derp/
