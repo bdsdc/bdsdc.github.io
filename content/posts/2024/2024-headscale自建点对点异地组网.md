@@ -307,8 +307,8 @@ map $http_upgrade $connection_upgrade {
     ''           close;
 }
 server {
-  server_name        headscale.budongshu.cn;
-  access_log         /data/nginx/logs/headscale-budongshu-cn-access.log;
+  server_name        xxx.domain.com;
+  access_log         /data/nginx/logs/access.log;
   client_header_timeout 1200s;
   client_body_timeout   1200s;
   client_max_body_size  500m;
@@ -327,43 +327,21 @@ server {
         proxy_pass http://127.0.0.1:8080;
   
   }
- location /admin {
-
-    proxy_pass http://127.0.0.1:5000/admin;
-    proxy_set_header Host $server_name;
-    proxy_set_header X-Real-IP $remote_addr;
-    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-    proxy_set_header X-Forwarded-Proto $http_x_forwarded_proto;
-
- }
- 
- location /headscale {
-
-    proxy_pass http://127.0.0.1:8008;
-    proxy_set_header Host $server_name;
-    proxy_set_header X-Real-IP $remote_addr;
-    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-    proxy_set_header X-Forwarded-Proto $http_x_forwarded_proto;
-
- }
- 
-
-
     listen 443 ssl; # managed by Certbot
-    ssl_certificate /etc/letsencrypt/live/headscale.budongshu.cn/fullchain.pem; # managed by Certbot
-    ssl_certificate_key /etc/letsencrypt/live/headscale.budongshu.cn/privkey.pem; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/xxx.domain.com/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/xxx.domain.com/privkey.pem; # managed by Certbot
     include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
 
 }
 server {
-    if ($host = headscale.budongshu.cn) {
+    if ($host = xxx.doamin.com) {
         return 301 https://$host$request_uri;
     } # managed by Certbot
 
 	
   listen 80;
-  server_name        headscale.budongshu.cn;
+  server_name        xxx.domain.com;
     return 404; # managed by Certbot
 
 
