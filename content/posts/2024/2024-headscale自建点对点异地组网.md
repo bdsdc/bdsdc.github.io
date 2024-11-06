@@ -430,6 +430,15 @@ windows安装包下载好，一路点点点安装
 tailscale up --login-server=https://xxx.domain.com  --accept-routes=true --hostname bdser-windows --accept-dns=false --authkey 3333.... 
 
 ```
+### 查看注册节点
+```
+[root@bdser ~]# headscale nodes list
+ID | Hostname       | Name           | MachineKey | NodeKey | User    | IP addresses | Ephemeral | Last seen           | Expiration          | Connected | Expired
+1  | laptop         | laptop         | [A2o6t]    | [JLp63] | default | 100.64.0.1,  | false     | 2024-11-06 03:08:07 | 0001-01-01 00:00:00 | online    | no
+2  | ecs-aliyun     | ecs-aliyun     | [jn3a7]    | [rJB9J] | default | 100.64.0.3,  | false     | 2024-11-06 03:02:39 | 0001-01-01 00:00:00 | online    | no
+3  | office-windows | office-windows | [3WiZk]    | [v1YSb] | default | 100.64.0.4,  | false     | 2024-11-06 10:37:03 | 0001-01-01 00:00:00 | online    | no
+
+```
 
 ## 查看网络情况
 
