@@ -29,12 +29,70 @@ tags: ['headscale']
 
 ### headscale安装
 
-(下载链接)[https://github.com/juanfont/headscale/releases/download/v0.23.0/headscale_0.23.0_linux_amd64]
+官方github地址：https://github.com/juanfont/headscale
+参考官方文档： https://headscale.net/setup/requirements/#assumptions
+目前最新版本是v0.23.0 ，看官网介绍，本次版本改动比较大，有多个地方进行重构，本次以最新版本进行安装
+最新版本配置文件example下载地址： 
+```
+wget -O /usr/local/bin/headscael  https://github.com/juanfont/headscale/releases/download/v0.23.0/headscale_0.23.0_linux_amd64
+# 有些老系统的 PATH 里没 /usr/local/bin/ ，可以放其他路径里
+chmod a+x /usr/local/bin/headscale
+mkdir /etc/headscale/
+#下载二进制同版本的示例配置文件
+curl -o config.yaml https://raw.githubusercontent.com/juanfont/headscale/v0.23.0/config-example.yaml
+```
+### 创建后台启动文件
+```
+cat > /etc/systemd/system/headscale.service << EOF
+[Unit]
+Description=headscale controller
+After=syslog.target
+After=network.target
 
+[Service]
+Type=simple
+User=headscale
+Group=headscale
+ExecStart=/usr/local/bin/headscale serve
+Restart=always
+RestartSec=5
 
+# Optional security enhancements
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=yes
+WorkingDirectory=/var/lib/headscale
+ReadWritePaths=/var/lib/headscale /var/run/headscale
+AmbientCapabilities=CAP_NET_BIND_SERVICE
+RuntimeDirectory=headscale
+
+[Install]
+WantedBy=multi-user.target
+EOF
+```
+### 创建用户和目录
+因为 headscale 是一个控制中心，不需要特权，我们运行在非 root 用户下，添加用户
+```
+useradd \
+  --create-home \
+  --home-dir /var/lib/headscale/ \
+  --system \
+  --user-group \
+  --shell /usr/sbin/nologin \
+  headscale
+
+mkdir -p /var/run/headscale/
+
+#创建空的 SQLite 数据库文件和 derp 文件：
+touch /var/lib/headscale/db.sqlite /etc/headscale/derp.yaml
+chown -R headscale:headscale /var/run/headscale/ /var/lib/headscale
+chmod a+r /etc/headscale/config.yaml /etc/headscale/derp.yaml
+
+```
 
 ### headscale配置文件
-
+接下来 vi /etc/headscale/config.yaml 修改配置文件一些内容：
 ```
 # grep -v "[[:space:]]#" /etc/headscale/config.yaml |grep -v "^#" |grep -v "^$"
 
@@ -173,7 +231,7 @@ dns:
   # `base_domain` must be a FQDN, without the trailing dot.
   # The FQDN of the hosts will be
   # `hostname.base_domain` (e.g., _myhost.example.com_).
-  base_domain: aliyun.budongshu.cn
+  base_domain: aliyun.xxx.com  # 设置为你自己的标识
   # List of DNS servers to expose to clients.
   nameservers:
     global:
@@ -223,6 +281,242 @@ logtail:
   enabled: false
 randomize_client_port: true  #配置改成true，支持多个端口
 ```
+### headscale 启动
+```
+# 测试文件
+headscale configtest
+
+# 配置文件没问题就 ctrl +c 取消掉使用 systemd 启动
+chown -R headscale:headscale /var/lib/headscale
+systemctl daemon-reload
+systemctl enable --now headscale
+```
+### derper
+headscale已经内嵌derper，在上面配置中已经启用了内嵌derper，最后我们看下运行效果
+
+## nginx反向代理
+上一篇文章，我们介绍了SSL的证书自动续签，不清楚的，可以看下上一篇文章，本次我们采用certbot 和 nginx做反向代理
+nginx 要支持反向代理http和websocket 俩个洗协议哈 （这个配置很重要，不懂得不要自己随意更改，直接copy）
+
+```
+map $http_upgrade $connection_upgrade {
+    default      upgrade;
+    ''           close;
+}
+server {
+  server_name        headscale.budongshu.cn;
+  access_log         /data/nginx/logs/headscale-budongshu-cn-access.log;
+  client_header_timeout 1200s;
+  client_body_timeout   1200s;
+  client_max_body_size  500m;
+
+  location / {
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection $connection_upgrade;
+        proxy_set_header Host $server_name;
+        proxy_redirect http:// https://;
+        proxy_buffering off;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        add_header Strict-Transport-Security "max-age=15552000; includeSubDomains" always;
+        proxy_pass http://127.0.0.1:8080;
+  
+  }
+ location /admin {
+
+    proxy_pass http://127.0.0.1:5000/admin;
+    proxy_set_header Host $server_name;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $http_x_forwarded_proto;
+
+ }
+ 
+ location /headscale {
+
+    proxy_pass http://127.0.0.1:8008;
+    proxy_set_header Host $server_name;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $http_x_forwarded_proto;
+
+ }
+ 
+
+
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/headscale.budongshu.cn/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/headscale.budongshu.cn/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+}
+server {
+    if ($host = headscale.budongshu.cn) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+	
+  listen 80;
+  server_name        headscale.budongshu.cn;
+    return 404; # managed by Certbot
+
+
+}
+```
+加载nginx ，使配置生效
+
+```
+systemctl reload nginx 
+```
+
+访问下面俩个地址，如果能正常打开，代表配置成功 
+下面俩个地址会提示俩种终端的接入提示文档，windows接入我们在后面会讲
+
+https://xxx.domain.com/windows 和https://xxx.domain.com/apple 
+
+
+## 客户端接入
+需要把 ecs 的公网 IP 设置成直连不走代理，以及如果是家里宽带，可以把 Upnp 打开，这样打洞直连成功率会高些。
+
+
+### 创建authkeys 
+Tailscale 中有一个概念叫 tailnet，你可以理解成租户，租户与租户之间是相互隔离的，具体看参考 Tailscale 的官方文档： What is a tailnet。
+Headscale 也有类似的实现叫 user，即用户。我们需要先创建一个 user，以便后续客户端接入，例如：
+```
+headscale user create default
+# 生成一个过期时间 365d 且可以重复使用的 authkey
+$ headscale preauthkeys --user default create --reusable --expiration 365d 
+# 查看已经生成keys
+[root@bdser ~]# headscale preauthkeys --user default list
+ID | Key                                              | Reusable | Ephemeral | Used | Expiration          | Created             | Tags
+1  | 8616f01720ea4c219b2b26a340cca593a20a5d091ef74ed5 | true     | false     | true | 2025-11-05 17:08:02 | 2024-11-05 17:08:02 | 
+```
+### 客户端tailscale介绍
+tailscale 也是分为 tailscaled 的 daemon 和 tailscale 的 cli 工具，windows、Linux 以及安卓的 Magisk 模块等都可以使用 cli 工具操作和排查，这点很重要。
+
+下面是 tailscale up 时候一些常用通用选项：
+
+- --login-server: 指定使用的中央服务器地址(必填)
+- --advertise-routes: 向中央服务器报告当前客户端处于哪个内网网段下, 便于中央服务器让同内网设备直接内网直连(可选的)或者将其他设备指定流量路由到当前内网(可选)，多条路由英文逗号隔开
+- --accept-routes: 是否接受中央服务器下发的用于路由到其他客户端内网的路由规则(可选)
+- --accept-dns: 是否使用中央服务器下发的 DNS 相关配置(可选, 推荐关闭)
+- --hostname: 设置 machine name，否则默认会以 hostname 注册上去，特别安卓的 hostname 无法修改
+tailscale cli 官方文档 https://tailscale.com/kb/1080/cli，也可以自己 tailscale --help 看命令帮助。
+
+### linux接入
+linux本机接入，也就是安装headscale服务端这台机器,hostname一定要提前想好，一旦注册，不知道怎么修改。
+Download地址： https://tailscale.com/download/linux 
+
+```
+#直接一键安装
+curl -fsSL https://tailscale.com/install.sh | sh
+#客户端发起登录注册，这个很重要 ,最后刚刚生成authkey
+tailscale up --login-server=https://xxx.domain.com  --accept-routes=false --hostname ecs-aliyum --accept-dns=false --authkey 3333.... 
+
+```
+
+### windows接入
+windows下载地址： https://tailscale.com/download/windows
+windows安装包下载好，一路点点点安装
+ 
+安装好tailscale后，右下角logo图标点击，如果之前有login登录，可以先退出，或者选择Add annother count，然后在终端命令行，通过cli注册
+
+```
+# 通过打开powershell终端，进入安装tailscale目录的文件夹,里面有tailscale二进制文件可执行
+# tailscale --help 看命令帮助
+# 客户端发起登录注册
+tailscale up --login-server=https://xxx.domain.com  --accept-routes=false --hostname bdser-windows --accept-dns=false --authkey 3333.... 
+
+```
+
+## 查看网络情况
+
+
+查看derper情况
+```
+[root@bdser ~]# tailscale netcheck 
+
+Report:
+	* UDP: true
+	* IPv4: yes, 47.98.179.216:41925
+	* IPv6: no, but OS has support
+	* MappingVariesByDestIP: 
+	* PortMapping: 
+	* Nearest DERP: Headscale Embedded DERP
+	* DERP latency:
+		- headscale: 4.4ms   (Headscale Embedded DERP)
+
+```
+查看status
+
+```
+[root@bdser ~]# tailscale status
+100.x.x.x      ecs-aliyun           default      linux   -
+100.x.x.x      laptop               default      windows -
+100.x.x.x      office-windows       default      windows -
+```
+查看ping
+这里先是通过derper建立连接，如果一直打洞失败，就一直走derper中继 
+
+```
+[root@bdser ~]# tailscale ping office-windows
+pong from office-windows (100.64.0.4) via DERP(headscale) in 21ms
+pong from office-windows (100.64.0.4) via DERP(headscale) in 20ms
+pong from office-windows (100.64.0.4) via DERP(headscale) in 20ms
+pong from office-windows (100.64.0.4) via DERP(headscale) in 23ms
+pong from office-windows (100.64.0.4) via DERP(headscale) in 22ms
+pong from office-windows (100.64.0.4) via DERP(headscale) in 20ms
+pong from office-windows (100.64.0.4) via DERP(headscale) in 21ms
+pong from office-windows (100.64.0.4) via DERP(headscale) in 19ms
+pong from office-windows (100.64.0.4) via DERP(headscale) in 23ms
+pong from office-windows (100.64.0.4) via DERP(headscale) in 21ms
+direct connection not established
+```
+我把公司和家里的俩个windows都接入了headscale中，看下ping延迟情况
+大概延迟在40ms内，看起来网速还是可以的，使用一段时间，看看稳定性如何把~ 
+```
+PS C:\Users\dongshu.bu> tailscale.exe ping laptop
+pong from laptop (100.64.0.1) via DERP(headscale) in 38ms
+pong from laptop (100.64.0.1) via DERP(headscale) in 37ms
+pong from laptop (100.64.0.1) via DERP(headscale) in 35ms
+pong from laptop (100.64.0.1) via DERP(headscale) in 34ms
+pong from laptop (100.64.0.1) via DERP(headscale) in 33ms
+pong from laptop (100.64.0.1) via DERP(headscale) in 34ms
+pong from laptop (100.64.0.1) via DERP(headscale) in 34ms
+```
+### 修改节点信息
+
+修改注册名称
+```
+tailscale set --hostname=xxx
+```
+重启tailscale ,使之生效 
+```
+tailscale down 
+tailscale up 
+```
+### 打通内网
+后面更新
+
+## 总结
+这里只介绍异地组网部分，其他的去看官方文档。
+
+## 参考
+
+- https://arthurchiao.art/blog/how-nat-traversal-works-zh/
+- https://kiprey.github.io/2023/11/tailscale-derp/
+
+
+
+
+
+
+
+
+
 
 
 
