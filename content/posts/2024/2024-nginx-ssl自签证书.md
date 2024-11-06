@@ -57,7 +57,7 @@ nginx: configuration file /etc/nginx/nginx.conf test is successful
 certbot --nginx -d xxx.domain.com  #会自动识别nginx配置位置，帮你配置好nginx ssl
 certbot certonly --nginx -d xxx.domain.com  #只会生成ssl证书，后面自己配置到nginx中
 ```
-我们这里用第一种方式，自动帮忙配置，生成的配置看下
+我们这里用第一种方式，自动帮忙配置，生成的配置看下，前提nginx配置通过测试是ok的
 ```
 server {
   listen 443 ssl;
