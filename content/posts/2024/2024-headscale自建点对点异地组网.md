@@ -299,7 +299,8 @@ headscale已经内嵌derper，在上面配置中已经启用了内嵌derper，�
 
 ## nginx反向代理
 上一篇文章，我们介绍了SSL的证书自动续签，不清楚的，可以看下上一篇文章，本次我们采用certbot 和 nginx做反向代理
-nginx 要支持反向代理http和websocket 俩个洗协议哈 （这个配置很重要，不懂得不要自己随意更改，直接copy）
+
+nginx 要支持反向代理http和websocket 俩个协议哈 （这个配置很重要，不懂得不要自己随意更改，直接copy）
 
 ```
 map $http_upgrade $connection_upgrade {
@@ -385,10 +386,11 @@ tailscale 也是分为 tailscaled 的 daemon 和 tailscale 的 cli 工具，wind
 - --accept-routes: 是否接受中央服务器下发的用于路由到其他客户端内网的路由规则(可选)
 - --accept-dns: 是否使用中央服务器下发的 DNS 相关配置(可选, 推荐关闭)
 - --hostname: 设置 machine name，否则默认会以 hostname 注册上去，特别安卓的 hostname 无法修改
-tailscale cli 官方文档 https://tailscale.com/kb/1080/cli，也可以自己 tailscale --help 看命令帮助。
+tailscale cli 官方文档 https://tailscale.com/kb/1080/cli , 也可以自己 tailscale --help 看命令帮助。
 
 ### linux接入
 linux本机接入，也就是安装headscale服务端这台机器,hostname一定要提前想好，一旦注册，不知道怎么修改。
+
 Download地址： https://tailscale.com/download/linux 
 
 ```
@@ -401,6 +403,7 @@ tailscale up --login-server=https://xxx.domain.com  --accept-routes=true --hostn
 
 ### windows接入
 windows下载地址： https://tailscale.com/download/windows
+
 windows安装包下载好，一路点点点安装
  
 安装好tailscale后，右下角logo图标点击，如果之前有login登录，可以先退出，或者选择Add annother count，然后在终端命令行，通过cli注册
@@ -457,6 +460,7 @@ pong from office-windows (100.64.0.4) via DERP(headscale) in 21ms
 direct connection not established
 ```
 我把公司和家里的俩个windows都接入了headscale中，看下ping延迟情况
+
 大概延迟在40ms内，看起来网速还是可以的，使用一段时间，看看稳定性如何把~ 
 ```
 PS C:\Users\dongshu.bu> tailscale.exe ping laptop
