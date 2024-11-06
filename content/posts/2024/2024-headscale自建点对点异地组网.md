@@ -373,7 +373,7 @@ $ headscale preauthkeys --user default create --reusable --expiration 365d
 # 查看已经生成keys
 [root@bdser ~]# headscale preauthkeys --user default list
 ID | Key                                              | Reusable | Ephemeral | Used | Expiration          | Created             | Tags
-1  | 8616f01720ea4c219b2b26a340cca593a20a5d091ef74ed5 | true     | false     | true | 2025-11-05 17:08:02 | 2024-11-05 17:08:02 | 
+1  | 8616f01720ea4c219b2b2................ | true     | false     | true | 2025-11-05 17:08:02 | 2024-11-05 17:08:02 | 
 ```
 ### 客户端tailscale介绍
 tailscale 也是分为 tailscaled 的 daemon 和 tailscale 的 cli 工具，windows、Linux 以及安卓的 Magisk 模块等都可以使用 cli 工具操作和排查，这点很重要。
