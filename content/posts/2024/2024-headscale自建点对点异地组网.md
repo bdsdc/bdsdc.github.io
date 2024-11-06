@@ -417,7 +417,7 @@ Download地址： https://tailscale.com/download/linux
 #直接一键安装
 curl -fsSL https://tailscale.com/install.sh | sh
 #客户端发起登录注册，这个很重要 ,最后刚刚生成authkey
-tailscale up --login-server=https://xxx.domain.com  --accept-routes=false --hostname ecs-aliyum --accept-dns=false --authkey 3333.... 
+tailscale up --login-server=https://xxx.domain.com  --accept-routes=true --hostname ecs-aliyum --accept-dns=false --authkey 3333.... 
 
 ```
 
@@ -431,7 +431,7 @@ windows安装包下载好，一路点点点安装
 # 通过打开powershell终端，进入安装tailscale目录的文件夹,里面有tailscale二进制文件可执行
 # tailscale --help 看命令帮助
 # 客户端发起登录注册
-tailscale up --login-server=https://xxx.domain.com  --accept-routes=false --hostname bdser-windows --accept-dns=false --authkey 3333.... 
+tailscale up --login-server=https://xxx.domain.com  --accept-routes=true --hostname bdser-windows --accept-dns=false --authkey 3333.... 
 
 ```
 
@@ -502,7 +502,36 @@ tailscale down
 tailscale up 
 ```
 ### 打通内网
-后面更新
+Linux 端都要开启转发，windows 和安卓转发自行查找怎么配置。
+```
+echo 'net.ipv4.ip_forward = 1' | tee /etc/sysctl.d/ipforwarding.conf
+echo 'net.ipv6.conf.all.forwarding = 1' | tee -a /etc/sysctl.d/ipforwarding.conf
+sysctl -p /etc/sysctl.d/ipforwarding.conf
+```
+```
+ID | Hostname       | Name           | MachineKey | NodeKey | User    | IP addresses | Ephemeral | Last seen           | Expiration          | Connected | Expired
+1  | laptop         | laptop         | [A2o6t]    | [JLp63] | default | 100.64.0.1,  | false     | 2024-11-06 03:08:07 | 0001-01-01 00:00:00 | online    | no
+2  | ecs-aliyun     | ecs-aliyun     | [jn3a7]    | [rJB9J] | default | 100.64.0.3,  | false     | 2024-11-06 03:02:39 | 0001-01-01 00:00:00 | online    | no
+3  | office-windows | office-windows | [3WiZk]    | [v1YSb] | default | 100.64.0.4,  | false     | 2024-11-06 10:37:03 | 0001-01-01 00:00:00 | online    | no
+
+```
+设 ID==1 的局域网是 192.168.31.0/24 网段，我们希望其他 ID 设备上能访问到，先查看路由：
+
+```
+headscale routes list
+headscale routes enable -r 1
+ip route show table 52 | grep "192.168.31.0/24"
+```
+
+其他节点启动时需要增加 --accept-routes=true 选项来声明 “我接受外部其他节点发布的路由”。
+
+现在你在任何一个 Tailscale 客户端所在的节点都可以 ping 通家庭内网的机器了，你在公司或者星巴克也可以像在家里一样用同样的 IP 随意访问家中的任何一个设备。
+
+一个正在运行的节点增加路由可以使用 set 命令：
+```
+# 多条用英文逗号间隔
+tailscale set --advertise-routes xx.xx.xx.0/24,xx,xxx.xxx.00.00/16
+```
 
 ## 总结
 这里只介绍异地组网部分，其他的去看官方文档。
