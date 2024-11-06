@@ -289,7 +289,7 @@ randomize_client_port: true  #配置改成true，支持多个端口
 # 测试文件
 headscale configtest
 
-# 配置文件没问题就 ctrl +c 取消掉使用 systemd 启动
+# 配置文件没问题就使用 systemd 启动
 chown -R headscale:headscale /var/lib/headscale
 systemctl daemon-reload
 systemctl enable --now headscale
