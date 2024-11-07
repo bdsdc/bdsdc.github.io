@@ -40,10 +40,11 @@ PS C:\Windows\system32> dism.exe /online /enable-feature /featurename:Microsoft-
  dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
 ```
 1.3 更新WSL
+```
 wsl --update
 ## 将 wsl 版本设置为 wsl2
 wsl --set-default-version 2
-
+```
 
 ## WSL安装ubuntu
 
