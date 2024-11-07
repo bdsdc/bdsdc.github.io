@@ -87,11 +87,14 @@ docker镜像地址配置
     	
 }
 ```
+加载配置，启动docker
+```
 systemctl daemon-reload
 systemctl start docker
 ```
 
 ### ubuntu用ssh访问 
+
 ```
 重新生成key
 sudo ssh-keygen -A
@@ -100,8 +103,10 @@ sudo vim /etc/ssh/sshd_config
 启动服务
 sudo service ssh start
 ```
+
 ## 安装Hyper-v和管理器
 这个可以通过图像界面方便的管理虚拟网络等
+
 ```
 # 方法一：
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All 
