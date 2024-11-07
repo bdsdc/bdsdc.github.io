@@ -1,7 +1,7 @@
 ---
 title: "运维| Windows子系统wsl安装ubuntu"
-date: 2024-10-20
-lastmod: 2024-10-20
+date: 2024-11-07
+lastmod: 2024-11-07
 author: 'bdsdc'
 linkToMarkdown: true
 categories: ['运维']
