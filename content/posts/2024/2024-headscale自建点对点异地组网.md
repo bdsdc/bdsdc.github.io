@@ -1,5 +1,5 @@
 ---
-title: "运维|headscale自建点对点异地组网"
+title: "运维| headscale自建点对点异地组网"
 date: 2024-11-06
 lastmod: 2024-11-06
 author: 'bdsdc'
