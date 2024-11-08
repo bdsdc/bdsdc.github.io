@@ -20,6 +20,7 @@ draft: false
 - https://lilu.org.cn/
 - https://www.lixueduan.com/
 - https://www.imsyy.top/
+- https://www.newverse.wiki/knows/
 
 ## 联系我
 - 微博
