@@ -1,7 +1,16 @@
-
+---
+title: "运维| Windows安装和激活"
+date: 2024-11-12
+lastmod: 2024-11-12
+author: 'bdsdc'
+linkToMarkdown: true
+categories: ['windows']
+tags: ['tools']
+---
 
 ## 前言
-
+家庭信息化系统服务，要体现麻雀虽小五脏俱全，打造只我们自己小家的系统信息化
+比如备份照片，存储资料，影视电影，文档分享，财务，理财，以及慢慢积累我们家庭的生活成长，为我们的生活留下岁月痕迹
 
 ## 面板
 我们需要一个强大的运维面板，能够支持web界面部署和查看 ，方便我们运维和管理
@@ -58,6 +67,9 @@ docker run -itd \
 cloudreve/cloudreve:3.8.3 
 
 ```
+## 照片 
+
+
 ## qt下载
 - 开源方案： qbittorrent
 - 部署方式： 通过1panel 应用商店
