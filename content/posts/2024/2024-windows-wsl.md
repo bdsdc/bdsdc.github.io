@@ -46,7 +46,7 @@ wsl --update
 wsl --set-default-version 2
 ```
 
-## WSL安装ubuntu
+## WSL安装ubuntu和使用
 
 打开powershell 管理员权限执行
 ```
@@ -104,7 +104,7 @@ sudo vim /etc/ssh/sshd_config
 sudo service ssh start
 ```
 
-## 安装Hyper-v和管理器
+### 安装Hyper-v和管理器
 这个可以通过图像界面方便的管理虚拟网络等
 
 ```
@@ -114,7 +114,7 @@ Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
 DISM /Online /Enable-Feature /All /FeatureName:Microsoft-Hyper-V
 ```
 
-## ubuntu开启镜像网络模式
+### ubuntu开启镜像网络模式
 在运行 Windows 11 22H2 及更高版本的计算机上，可以在 .wslconfig 文件中的 [wsl2] 下设置 networkingMode=mirrored，以启用镜像模式网络。 启用此功能会将 WSL 更改为全新的网络体系结构，其目标是将 Windows 上的网络接口“镜像”到 Linux 中，以添加新的网络功能并提高兼容性
 
 
@@ -154,7 +154,7 @@ Set-NetFirewallHyperVVMSetting -Name '{40E0AC32-46A5-438A-A0B2-2B479E8F2E90}' -D
 New-NetFirewallHyperVRule -Name "MyWebServer" -DisplayName "My Web Server" -Direction Inbound -VMCreatorId '{40E0AC32-46A5-438A-A0B2-2B479E8F2E90}' -Protocol TCP -LocalPorts 80
 ```
 
-### 开机自启动
+## 开机启动
 使用`文件资源管理器`添加自定义启动项，如果有脚本的话，可以编写好脚本放入启动文件夹中
 
 - 打开“文件资源管理器”：按下“Win + E”快捷键，打开“文件资源管理器”。
@@ -162,6 +162,19 @@ New-NetFirewallHyperVRule -Name "MyWebServer" -DisplayName "My Web Server" -Dire
 - 添加快捷方式：将您希望开机启动的程序的快捷方式拖放到此文件夹中。这样，程序将在下次开机时自动启动。
 - 注意事项：确保您添加的程序是可信的，以免影响系统安全
 
+### WSL开机启动
+方法如下：
+
+- WIN+R 运行 shell:startup 打开启动目录
+- 在此目录中创建文件 wsl-startup.vbs
+- 在 wsl-startup.vbs 中填充如下内容，需替换为你使用的发行版名称。
+
+查看wsl-startup.vbc脚本内容
+```
+Set ws = WScript.CreateObject("WScript.Shell")        
+ws.run "wsl -d ubuntu",0 
+```
+后面再开机的时候，就会自动启动Ubuntu系统，放到后台启动 
 
 ## 补充
 要想要ubuntu系统里面的docker服务，被本地主机能访问到，需要在docker配置中 ，增加配置`"iptables": false`
