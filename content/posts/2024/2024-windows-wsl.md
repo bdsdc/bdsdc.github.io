@@ -153,6 +153,28 @@ Set-NetFirewallHyperVVMSetting -Name '{40E0AC32-46A5-438A-A0B2-2B479E8F2E90}' -D
 或 
 New-NetFirewallHyperVRule -Name "MyWebServer" -DisplayName "My Web Server" -Direction Inbound -VMCreatorId '{40E0AC32-46A5-438A-A0B2-2B479E8F2E90}' -Protocol TCP -LocalPorts 80
 ```
+
+## 补充
+要想要ubuntu系统里面的docker服务，被本地主机能访问到，需要在docker配置中 ，增加配置`"iptables": false`
+
+全部配置如下
+```
+vi /etc/docker/daemon.json
+{
+	
+	"iptables": false,
+	"log-driver": "json-file",
+	"log-opts": {
+		"max-file": "3",
+		"max-size": "50m"
+	},
+	"registry-mirrors": [
+                "https://dockerpull.com",
+	        "https://docker.1ms.run",
+		"https://docker.1panelproxy.com"
+	]
+}
+```
 ## ubuntu安装服务 
 
 ## ubuntu安装1panel面板
