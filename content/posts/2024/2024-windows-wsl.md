@@ -61,7 +61,7 @@ wsl --list -v
 wsl --unregister ubuntu-24.04
 
 ```
-当然，也可以打开Microsoft Store，安装最新的Ubuntu 22.04的发行版本
+当然，也可以打开Microsoft Store，安装最新的Ubuntu 24.04的发行版本
 
 ### ubuntu更改镜像源
 ubuntu 24.0版本更换源的方式有更新，所以之前版本请自行百度参考下
