@@ -215,18 +215,7 @@ vi /etc/docker/daemon.json
 	]
 }
 ```
-## ubuntu安装服务 
-
-## ubuntu安装1panel面板
-
-### 安装photoprism 
-
-### 安装cloudreve 
-
-### 安装openAI UI平替平台
-
-### 安装视频影音平台
-
-
+## 总结
+后面我们可以体验下ubuntu给我们带来的方便，轻轻体验把~
 
 
