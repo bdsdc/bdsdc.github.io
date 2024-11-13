@@ -64,6 +64,24 @@ wsl --unregister ubuntu-24.04
 当然，也可以打开Microsoft Store，安装最新的Ubuntu 22.04的发行版本
 
 ### ubuntu更改镜像源
+ubuntu 24.0版本更换源的方式有更新，所以之前版本请自行百度参考下
+
+```
+# 备份系统默认源
+sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
+# 替换成阿里云源（/etc/apt/sources.list）
+deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse
+```
+更新源
 
 ```
 sudo apt update
