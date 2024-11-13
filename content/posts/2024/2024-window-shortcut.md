@@ -1,3 +1,13 @@
+---
+title: "运维| windows-快捷键"
+date: 2024-11-13
+lastmod: 2024-11-13
+author: 'bdsdc'
+linkToMarkdown: true
+categories: ['windows']
+tags: ['tools']
+---
+
 ## [打开窗口快捷键](http://www.xionglilong.com/others/windows/shortcut.html#打开窗口快捷键)
 
 | 功能 | 操作 |
