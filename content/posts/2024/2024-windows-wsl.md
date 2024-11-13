@@ -154,6 +154,15 @@ Set-NetFirewallHyperVVMSetting -Name '{40E0AC32-46A5-438A-A0B2-2B479E8F2E90}' -D
 New-NetFirewallHyperVRule -Name "MyWebServer" -DisplayName "My Web Server" -Direction Inbound -VMCreatorId '{40E0AC32-46A5-438A-A0B2-2B479E8F2E90}' -Protocol TCP -LocalPorts 80
 ```
 
+### 开机自启动
+使用`文件资源管理器`添加自定义启动项，如果有脚本的话，可以编写好脚本放入启动文件夹中
+
+- 打开“文件资源管理器”：按下“Win + E”快捷键，打开“文件资源管理器”。
+- 导航到启动文件夹：在地址栏中输入“shell:startup”并按下回车键，进入用户启动文件夹。
+- 添加快捷方式：将您希望开机启动的程序的快捷方式拖放到此文件夹中。这样，程序将在下次开机时自动启动。
+- 注意事项：确保您添加的程序是可信的，以免影响系统安全
+
+
 ## 补充
 要想要ubuntu系统里面的docker服务，被本地主机能访问到，需要在docker配置中 ，增加配置`"iptables": false`
 
