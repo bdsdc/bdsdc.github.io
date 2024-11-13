@@ -1,5 +1,5 @@
 ---
-title: "运维| Windows安装和激活"
+title: "运维| ubuntu搭建服务"
 date: 2024-11-12
 lastmod: 2024-11-12
 author: 'bdsdc'
