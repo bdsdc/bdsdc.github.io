@@ -289,6 +289,7 @@ server {
 }
 
 ```
-
+### 访问
+网页访问: [https://wiki.budongshu.cn](https://wiki.budongshu.cn)
 
 
