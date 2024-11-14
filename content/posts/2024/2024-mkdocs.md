@@ -1,7 +1,7 @@
 ---
 title: "运维| mkdocs文档博客搭建"
-date: 2024-11-06
-lastmod: 2024-11-06
+date: 2024-11-14
+lastmod: 2024-11-14
 author: 'bdsdc'
 linkToMarkdown: true
 categories: ['web']
