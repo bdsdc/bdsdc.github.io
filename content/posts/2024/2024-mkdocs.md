@@ -6,6 +6,7 @@ author: 'bdsdc'
 linkToMarkdown: true
 categories: ['web']
 tags: ['blog']
+comments: true 
 ---
 ## 前言
 - centos7 系统
