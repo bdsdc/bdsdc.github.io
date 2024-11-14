@@ -8,7 +8,7 @@ categories: ['windows']
 tags: ['tools']
 ---
 
-## [打开窗口快捷键](http://www.xionglilong.com/others/windows/shortcut.html#打开窗口快捷键)
+## [打开窗口快捷键]
 
 | 功能 | 操作 |
 | --- | --- |
@@ -24,7 +24,7 @@ tags: ['tools']
 | 打开“通知” | Win+A |
 | 打开“蓝牙设备和无线显示器” | Win+K |
 
-## [窗口操作快捷键](http://www.xionglilong.com/others/windows/shortcut.html#窗口操作快捷键)
+## [窗口操作快捷键]
 
 | 功能 | 操作 |
 | --- | --- |
@@ -43,7 +43,7 @@ tags: ['tools']
 | 关闭当前虚拟桌面 | Win+Ctrl+F4 |
 | 切换虚拟桌面 | Win+Ctrl+左/右 |
 
-## [文件操作快捷键](http://www.xionglilong.com/others/windows/shortcut.html#文件操作快捷键)
+## [文件操作快捷键]
 
 | 功能 | 操作 |
 | --- | --- |
@@ -52,7 +52,7 @@ tags: ['tools']
 | 以管理员身份打开 | Ctrl+Shift+左键 |
 | 右键菜单 | Shift+F10 |
 
-## [系统操作快捷键](http://www.xionglilong.com/others/windows/shortcut.html#系统操作快捷键)
+## [系统操作快捷键]
 
 | 功能 | 操作 |
 | --- | --- |
@@ -60,7 +60,7 @@ tags: ['tools']
 |  |  |
 |  |  |
 
-## [浏览器快捷键](http://www.xionglilong.com/others/windows/shortcut.html#浏览器快捷键)
+## [浏览器快捷键]
 
 | 功能 | 操作 |
 | --- | --- |
