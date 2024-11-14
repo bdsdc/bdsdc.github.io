@@ -133,13 +133,13 @@ theme:
 ├── mkdocs.yml
 
 ```
-### gisus绑定github
+#### gisus绑定github
 建议github仓库中，新建库，选择公开
 [https://github.com/apps/giscus](https://github.com/apps/giscus)
 
 然后访问绑定仓库 - settings - Discussions（勾选启用），本仓库 Discussions 添加成功
 
-### comments.html代码
+#### comments.html代码
 ```
 {% if page.meta.comments %}
   <h2 id="__comments">{{ lang.t("meta.comments") }}</h2>
@@ -202,7 +202,7 @@ theme:
 ```
 
 
-### 生成giscus评论配置
+#### 生成giscus评论配置
 打开https://giscus.app/zh-CN 走完这个页面的流程就会得到(这会在你的Github创建新的仓库，建议自己先去新建个 Discussions)
 ```
 <script src="https://giscus.app/client.js"
@@ -222,8 +222,9 @@ theme:
 </script>
 ```
 复制将此代码，替换最上面👆🏻comments.html中高亮的代码
-### 评论生效
+#### 评论生效
 每次编写markdown博客的时候，我们需要再开头编写元信息，需要加入如下元数据说明
+
 ```
 ---
 title: 留言板 
