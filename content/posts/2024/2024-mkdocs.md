@@ -231,6 +231,22 @@ title: 留言板
 comments: true #开启评论
 ---
 ```
+### 图片放大
+安装插件glightbox
+```
+pip install mkdocs-glightbox -i  https://pypi.tuna.tsinghua.edu.cn/simple/
+```
+配置mkdocs.yml
+```
+plugins:
+  - search
+  - glightbox   #加载插件
+  - tags:
+      tags_file: tags.md
+```
+重新启动，生效
+
+
 ### 添加404页面
 docs/overrides文件下新建404.html即可
 
