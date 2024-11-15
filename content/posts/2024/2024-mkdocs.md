@@ -245,7 +245,27 @@ plugins:
       tags_file: tags.md
 ```
 重新启动，生效
+### 添加TAG标签
 
+```yaml title=mkdocs.yml 
+plugins:
+  - search
+  - glightbox    
+  - tags:                   #增加如下俩行
+      tags_file: tags.md
+......
+
+nav:
+  - 标签: tags.md 
+```
+把下面复制到tags.md文件中
+```shell title=docs/tags.md 
+# Tags
+
+Following is a list of relevant tags:
+
+<!-- material/tags -->
+```
 
 ### 添加404页面
 docs/overrides文件下新建404.html即可
