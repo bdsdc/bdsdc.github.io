@@ -139,7 +139,7 @@ cf9659426c11   rustdesk/rustdesk-server    "hbbr"                   3 hours ago 
 
 ### 安卓手机
 跟windows配置项一样，同上
-![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202411192359128.png)
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202411200001148.png)
 
 ## 演示
 我们用windows访问另外一台windows,俩台电脑都需要安装客户端，并且配置服务器IP和Key 
