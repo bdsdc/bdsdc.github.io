@@ -84,7 +84,9 @@ sudo docker run --name hbbr -p 21117:21117 -p 21119:21119 -v `pwd`:/root -td --n
 **据我所知，–net=host 仅适用于 Linux，它让 hbbs/hbbr 可以看到对方真实的ip, 而不是固定的容器ip (172.17.0.1)。 如果–net=host运行正常，-p选项就不起作用了, 可以去掉。**
 
 ### 确认服务启动
+
 查看服务器是否都已经正常启动 
+
 ```shell
 docker ps -a
 [root@bdser hbbs]# docker ps -a
@@ -94,7 +96,6 @@ cf9659426c11   rustdesk/rustdesk-server    "hbbr"                   3 hours ago 
 ```
 
 查看key 
-
 第一种通过日志
 ```
 [root@bdser hbbs]# docker logs -f hbbs
@@ -115,6 +116,7 @@ cf9659426c11   rustdesk/rustdesk-server    "hbbr"                   3 hours ago 
 
 ```
 第二种通过查看pub文件
+
 ```shell
 [root@bdser hbbs]# cat /data/rustdesk/hbbs/id_ed25519.pub 
 ```
@@ -122,14 +124,18 @@ cf9659426c11   rustdesk/rustdesk-server    "hbbr"                   3 hours ago 
 下载window客户端地址: [rustdesk客户端](https://github.com/rustdesk/rustdesk/releases/tag/1.3.2)
 
 ### windows客户端安装
+
 客户端双击安装即可，安装好后，所有客户端都这样配置，配置如下：
+
 #### 客户端配置
+
 - 填写服务器外网IP （端口如果是默认，可以不填）
 - 填写key 
 
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202411192348986.png)
 
 确认状态是就绪状态（很重要），代表正常
+
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202411192353676.png)
 
 #### 设置永久固定密码
@@ -139,6 +145,7 @@ cf9659426c11   rustdesk/rustdesk-server    "hbbr"                   3 hours ago 
 
 ### 安卓手机
 跟windows配置项一样，同上
+
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202411200001148.png)
 
 ## 演示
@@ -147,6 +154,7 @@ cf9659426c11   rustdesk/rustdesk-server    "hbbr"                   3 hours ago 
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202411192355852.png)
 
 安卓访问windows
+
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202411192359422.png)
 
 ## 总结
