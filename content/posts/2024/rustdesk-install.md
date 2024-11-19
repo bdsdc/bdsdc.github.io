@@ -95,7 +95,7 @@ CONTAINER ID   IMAGE                       COMMAND                  CREATED     
 cf9659426c11   rustdesk/rustdesk-server    "hbbr"                   3 hours ago    Up 3 hours          
 ```
 
-查看key 
+### 查看key 
 第一种通过日志
 ```
 [root@bdser hbbs]# docker logs -f hbbs
@@ -120,6 +120,9 @@ cf9659426c11   rustdesk/rustdesk-server    "hbbr"                   3 hours ago 
 ```shell
 [root@bdser hbbs]# cat /data/rustdesk/hbbs/id_ed25519.pub 
 ```
+### 防火墙或者安全组放行端口
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202411200022894.png)
+
 ## 客户端安装
 下载window客户端地址: [rustdesk客户端](https://github.com/rustdesk/rustdesk/releases/tag/1.3.2)
 
