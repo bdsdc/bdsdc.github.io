@@ -1,8 +1,13 @@
-![image](https://github.com/user-attachments/assets/8a49ac96-03d2-4678-901c-c860b6cf4593)# rustdesk部署
-
-
-
-
+---
+title: "运维| rustdesk自建可远程桌面服务器"
+date: 2024-11-12
+lastmod: 2024-11-12
+author: 'bdsdc'
+linkToMarkdown: true
+categories: ['windows']
+tags: ['tools']
+---
+# rustdesk 自建服务器和中继部署
 ## 前言
 正好想要一个可以远程访问windows电脑的软件，不想用windows自带的3389远程，可以跨网穿透访问，所以选择了rustdesk，开源免费还安全 
 
@@ -38,7 +43,7 @@
 现在云主机，一年100块钱， 腾讯和阿里以及华为，都有活动，还算是比较便宜，我们可以购买一台，有资源剩余，还可以部署其他平台玩玩
 
 
-## 安装
+## 服务器端安装
 安装hbbs 和 hbbr 俩个服务，我们通过docker来安装  
 - hbbs: 对应前面说的 ID Server，用于分配和注册ID；
 - hbbr: 对应前面说的Relay Server，如果P2P无法连接，会使用hbbr进行流量中继。
@@ -108,16 +113,42 @@ cf9659426c11   rustdesk/rustdesk-server    "hbbr"                   3 hours ago 
 [2024-11-19 13:12:52.139401 +00:00] INFO [src/rendezvous_server.rs:185] Start
 [2024-11-19 13:12:52.139440 +00:00] INFO [libs/hbb_common/src/udp.rs:36] Receive buf size of udp [::]:0: Ok(212992)
 
-
 ```
 第二种通过查看pub文件
 ```shell
 [root@bdser hbbs]# cat /data/rustdesk/hbbs/id_ed25519.pub 
 ```
-## 演示
-下载window客户端地址: 
+## 客户端安装
+下载window客户端地址: [rustdesk客户端](https://github.com/rustdesk/rustdesk/releases/tag/1.3.2)
 
+### windows客户端安装
+客户端双击安装即可，安装好后，所有客户端都这样配置，配置如下：
+#### 客户端配置
+- 填写服务器外网IP （端口如果是默认，可以不填）
+- 填写key 
+
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202411192348986.png)
+
+确认状态是就绪状态（很重要），代表正常
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202411192353676.png)
+
+#### 设置永久固定密码
+
+这个里面还有其他安全策略选项，也可以作为参考，还支持MFA 
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202411192356965.png)
+
+### 安卓手机
+跟windows配置项一样，同上
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202411192359128.png)
+
+## 演示
+我们用windows访问另外一台windows,俩台电脑都需要安装客户端，并且配置服务器IP和Key 
+
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202411192355852.png)
+
+安卓访问windows
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202411192359422.png)
 
 ## 总结
-
+这样子，在放假或者过节在家，我们就可以通过手机或者电脑，实现互相远程访问另一端电脑了，后续其他功能，尽情期待~
 
