@@ -13,9 +13,9 @@
 并且WSL是windows打造的linux系统工具，跟windows结合非常好，用起来也很方便丝滑 
 - 基础环境：windows的WSL安装的ubuntu系统
 - 面板系统：1panel
-- 相册系统: photoprism 
-- 同步工具: syncthing 
-- 网盘系统: alist 
+- 相册系统： photoprism 
+- 同步工具：syncthing 
+- 网盘系统：alist 
 - 备份工具：rclone 
 - 穿透工具：cloudflare tunnel
 
