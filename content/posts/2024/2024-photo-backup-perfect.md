@@ -18,6 +18,10 @@
 - 网盘系统：alist 
 - 备份工具：rclone 
 - 穿透工具：cloudflare tunnel
+## ubuntu系统安装 
+参考之前文章来进行安装
+[https://wiki.budongshu.cn/homesystem/windows-wsl/#_1](https://wiki.budongshu.cn/homesystem/windows-wsl/#_1)
 
-
-
+## 1panel 
+参考之前来进行安装
+[https://wiki.budongshu.cn/homesystem/windows-ubuntu%E9%83%A8%E7%BD%B2%E6%9C%8D%E5%8A%A1/#_2](https://wiki.budongshu.cn/homesystem/windows-ubuntu%E9%83%A8%E7%BD%B2%E6%9C%8D%E5%8A%A1/#_2)
