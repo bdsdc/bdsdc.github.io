@@ -25,3 +25,40 @@
 ## 1panel 
 参考之前来进行安装
 [https://wiki.budongshu.cn/homesystem/windows-ubuntu%E9%83%A8%E7%BD%B2%E6%9C%8D%E5%8A%A1/#_2](https://wiki.budongshu.cn/homesystem/windows-ubuntu%E9%83%A8%E7%BD%B2%E6%9C%8D%E5%8A%A1/#_2)
+
+## photoprism 
+
+### 安装 
+```
+
+
+```
+### 配置 
+
+
+### 功能 
+
+
+### 上传照片
+
+### 索引建立
+
+### webdav
+
+### 删除照片
+
+## syncthing 
+
+
+
+
+
+## alist 
+
+
+
+
+## rclone 
+
+
+
