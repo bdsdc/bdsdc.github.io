@@ -49,7 +49,7 @@
 
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412052133126.png)
 
-安装配置
+安装配置，可以设置下资源配置
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412052144597.png)
 
 
