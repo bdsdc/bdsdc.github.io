@@ -121,6 +121,7 @@ Usage:     rar <command> -<switch 1> -<switch N> <archive> <files...>
   i[par]=<str>  Find string in archives
   k             Lock archive
 ......
+```
 
 ## unrar解压
 
