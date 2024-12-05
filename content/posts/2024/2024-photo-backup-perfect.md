@@ -24,7 +24,8 @@
 
 ## 1panel 
 ### 安装1panel 
-这里不在重复安装步骤，主要提供工具和思路，参考之前来进行安装
+不得不说下，1panel的应用商店，我觉得选品都非常优秀，都是一些流行且兼具实用的软件，之前有博客写过安装文件，这里不在重复安装步骤，主要提供工具和思路，参考之前来进行安装
+
 [https://wiki.budongshu.cn/homesystem/windows-ubuntu%E9%83%A8%E7%BD%B2%E6%9C%8D%E5%8A%A1/#_2](https://wiki.budongshu.cn/homesystem/windows-ubuntu%E9%83%A8%E7%BD%B2%E6%9C%8D%E5%8A%A1/#_2)
 
 ### 界面展示
@@ -45,7 +46,7 @@
 
 我们这里采用1panel面板来安装，有现成的轮子，我们当然要利用起来 
 
-安装MariaDB数据库，我们通过1panel面板来安装
+安装MariaDB数据库，我们通过1panel面板的应用商店来安装
 
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412052133126.png)
 
