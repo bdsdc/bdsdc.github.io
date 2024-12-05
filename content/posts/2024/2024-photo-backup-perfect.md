@@ -23,16 +23,61 @@
 [https://wiki.budongshu.cn/homesystem/windows-wsl/#_1](https://wiki.budongshu.cn/homesystem/windows-wsl/#_1)
 
 ## 1panel 
-参考之前来进行安装
+### 安装1panel 
+这里不在重复安装步骤，主要提供工具和思路，参考之前来进行安装
 [https://wiki.budongshu.cn/homesystem/windows-ubuntu%E9%83%A8%E7%BD%B2%E6%9C%8D%E5%8A%A1/#_2](https://wiki.budongshu.cn/homesystem/windows-ubuntu%E9%83%A8%E7%BD%B2%E6%9C%8D%E5%8A%A1/#_2)
 
+### 界面展示
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412052111988.png)
+
 ## photoprism 
+- 操作系统不限, Windows, MacOS以及Linux都支持
+- 系统配置要求最低：2c3g
+- 准备好docker环境和docker-compose环境
+- 准备好大存储目录
+- 使用Windows: 使用WSL Linux子系统ubuntu环境
+- 注意photoprism数据库使用的是MariaDB 
+### 安装数据库
 
-### 安装 
+首先我的windows电脑D盘是空闲盘，作为本次photoprism存储照片来使用，需要注意的是在ubuntu子系统（windows的WSL）中，通过`df -h`,可以看到`/mnt/d/`为对应windows的D盘，
+所以我这里使用`/mnt/d`作为本次相册系统的存储目录
+
+我们这里采用1panel面板来安装，有现成的轮子，我们当然要利用起来 
+
+安装MariaDB数据库，我们通过1panel面板来安装
+
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412052133126.png)
+
+安装配置
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412052144597.png)
+
+
+可以更改一下docker-compose，更改volume，比如我这里要改成`- /mnt/d/mariadb/data` 
+```
+mkdir -pv /mnt/d/mariadb/{data,conf}
+```
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412052145370.png)
+
+如果上面更改目录，造成部署错误，可以先按照1panel默认建议目录来安装，问题不大，此数据库占用空间不会太大
+
+### 安装photoprism服务
+
+```
+# 先创建主目录
+mkdir /mnt/d/photoprism 
+# 在这个目录下创建三个子目录,分别是import,originals,storage
+mkdir /mnt/d/photoprism/{import,originals,storage} 
 ```
 
+关于三个目录的作用
 
-```
+- originals: 原始照片目录, 你可以把你存在的照片放在这个目录
+- import: 待导入照片, 这个目录的照片会等待导入并被photoprism处理 (处理是指对照片做分析与索引,存入原始目录等)
+- storage: 这个目录是photoprism程序产生的各种文件,比如索引照片缩略图,缓存等
+
+
+
+
 ### 配置 
 
 
