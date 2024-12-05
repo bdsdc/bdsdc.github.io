@@ -37,6 +37,7 @@
 - 准备好大存储目录
 - 使用Windows: 使用WSL Linux子系统ubuntu环境
 - 注意photoprism数据库使用的是MariaDB 
+
 ### 安装数据库
 
 首先我的windows电脑D盘是空闲盘，作为本次photoprism存储照片来使用，需要注意的是在ubuntu子系统（windows的WSL）中，通过`df -h`,可以看到`/mnt/d/`为对应windows的D盘，
@@ -60,6 +61,11 @@ mkdir -pv /mnt/d/mariadb/{data,conf}
 
 如果上面更改目录，造成部署错误，可以先按照1panel默认建议目录来安装，问题不大，此数据库占用空间不会太大
 
+创建一个db数据库，给photoprism服务使用
+
+这里就很简单了，都是页面操作，按照提示输入相关信息，记住用户名和密码，后面在安装photoprism的时候，填入1panel配置中
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412052255273.png)
+
 ### 安装photoprism服务
 
 ```
@@ -70,11 +76,21 @@ mkdir /mnt/d/photoprism/{import,originals,storage}
 ```
 
 关于三个目录的作用
-
 - originals: 原始照片目录, 你可以把你存在的照片放在这个目录
 - import: 待导入照片, 这个目录的照片会等待导入并被photoprism处理 (处理是指对照片做分析与索引,存入原始目录等)
 - storage: 这个目录是photoprism程序产生的各种文件,比如索引照片缩略图,缓存等
 
+本次我们安装依然采用1panel来安装，下面我通过1panel如何来安装设置
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412052244915.png)
+选择我们刚刚创建的数据库，然后配置使用的db库，以及用户名和密码
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412052245922.png)
+
+选择资源配置cpu和内存，以及编辑docker-compose文件，更改volume配置 
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412052248495.png)
+
+最后更改volume配置后，可以先关注红色框的三个配置，其他的俩个volume可以先忽略，后面会讲
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412052253065.png)
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412052254950.png)
 
 
 
