@@ -180,22 +180,217 @@ docker logs -f photoprism
 还有一个通过web页面控制台，导入，如果有临时导入需求，也可以通过这个导入功能来进行导入 
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412052324028.png)
 
+### 中文
+支持设置语言，设置成中文语言
+
 ### webdav
+photoprism是支持webdav的，我们可以通过webdav客户端来访问我们已经导入的图片，此功能还是比较实用的
+这样其实我们也可以通过webdav工具，导入照片，这个导入的照片是放在前面说的 `originals`目录的
+导入后，我们需要手动执行下扫描，为了建立索引
 
 ### 删除照片
+首先删除的功能默认是关闭，需要我们手动打开，如下
+
+
+
+删除照片是通过归档的形式来删除，先选中要删除的照片，然后点击归档，在归档里面选择删除的照片 
+
+### 使用体会
+整体感觉眼前一亮，可以通过建立相册，分类整理我们的照片，但是操作功能和使用方便一般，
+UI方面还算挺不错的，该有的功能也都有，不过感觉有些操作功能过于繁琐，就比如删除照片，
+人脸识别和地图功能体验一般，对手机网页端适配比较友好
 
 ## syncthing 
+这里我们介绍一个神级同步工具，synthing 
+官网: [https://syncthing.net/](https://syncthing.net/)
+
+### 前言
+我们这里使用场景比较简单，该软件支持多对多或者中心媒介，多种方式来同步
+我们今天只考虑一种单向同步照片 
+
+我们熟悉了photoprism的俩个导入目录，其中我们是可以把新照片放在`originals`目录，然后在建立一个索引
+这个事情就搞定了，索引ok后，在照片里面就能看到最新的同步过去的照片
+
+但是对于新照片，我们怎么能更好的同步呢，最好是可以自动方便的同步，或者任意地点同步
+所以接下来我们用syncthing把手机照片同步到photoprism的`originals`目录 
+
+### 介绍
+
+💻 Syncthing是什么？
+Syncthing是一款去中心化的数据同步软件，适用于不同平台之间。它不需要通过云盘等中间服务器来传输数据，而是通过在线设备之间的点对点同步来实现。
+
+📂 Syncthing的用途
+我主要用Syncthing来处理以下几项任务：
+1️⃣ 在Windows和安卓手机上同步Obsidian本地笔记；
+2️⃣ 在Windows和安卓手机上同步本地歌曲；
+3️⃣ 将Windows上的文件无感发送到手机，或从手机发送到Windows，确保两端文件一致；
+4️⃣ 将手机端的通话录音自动备份到Windows，手动删除手机端文件不影响电脑端备份；
+5️⃣ 用手机拍照、录视频后，文件自动同步到Windows，方便进行创作；
+6️⃣ 在Windows上浏览摄影作品时，保存到电脑本地，并自动推送给手机；
+7️⃣ 将Windows上的相册、视频回忆录自动同步到安卓电视盒子，方便在大屏上观看
+
+### ubuntu 安装syncthing
+这里我们通过docker-compose部署安装
+```shell
+# 创建目录
+mkdir /mnt/d/syncthing
+```
+
+```shell
+# cat /mnt/d/syncthing/docker-compose.yml
+
+---
+version: "3"
+services:
+  syncthing:
+    image: syncthing/syncthing
+    container_name: syncthing
+    hostname: my-syncthing
+    environment:
+      - PUID=1000
+      - PGID=1000
+    volumes:
+      - /mnt/d/syncthing:/var/syncthing  #注意这里的目录
+    ports:
+      - 8384:8384 # Web UI
+      - 22000:22000/tcp # TCP file transfers
+      - 22000:22000/udp # QUIC file transfers
+      - 21027:21027/udp # Receive local discovery broadcasts
+    network_mode: host 
+    restart: unless-stopped
+    healthcheck:
+      test: curl -fkLsS -m 2 127.0.0.1:8384/rest/noauth/health | grep -o --color=never OK || exit 1
+      interval: 1m
+      timeout: 10s
+      retries: 3
+```
+### 启动syncthing 
+
+```shell
+cd /mnt/d/synthing 
+docker-compose up -d
+
+docker ps  |grep syncthing  
+```
+也可以访问1panel面板来查看，即使非面板应用商店的应有，面板也可以管理，面板是服务于机器的 
+只要是机器上的进程，容器，服务等，都也可以在面板被管理
 
 
 
+
+### 手机安装syncthing 
+手机安装包: 
+
+
+### 配置同步文件夹
+先添加远程设备，在ubuntu上，添加手机作为远程设备，通过ID或者二维码添加
+
+
+
+找到相机图片存储目录
 
 
 ## alist 
 
+### 安装alist 
+虽然1panel应用商店提供该软件，我们这次手动用docker来安装，因为也比较简单方便
+```shell
+# 这里我们还是要注意一下-v volume目录，要修改成自己的
+docker run -d --restart=unless-stopped -v /mnt/d/alist/data:/opt/alist/data -p 5244:5244 -e PUID=0 -e PGID=0 -e UMASK=022 --name="alist" xhofe/alist:latest
+```
+检查一下是否启动成功,看一下容器状态，也可以通过1panel面板来查看
+```shell
+docker ps  |grep alist  
+```
 
+### 访问alist
+其实默认第一次打开是没有存储后端的，会有报错，我们可以通过点击页面右下方`管理`进如管理控制台页面
+```shell
+# 控制台页面密码获取
+root@DESKTOP-CK75KU2:/mnt/d/alist# docker logs -f alist 
+INFO[2024-12-04 13:38:10] reading config file: data/config.json        
+INFO[2024-12-04 13:38:10] config file not exists, creating default config file 
+INFO[2024-12-04 13:38:10] load config from env with prefix:            
+INFO[2024-12-04 13:38:10] init logrus...                               
+INFO[2024-12-04 13:38:11] Successfully created the admin user and the initial password is: xxxxxxx  #密码在这里
+INFO[2024-12-04 13:38:11] init tool pikpak success: ok                 
+WARN[2024-12-04 13:38:11] init tool qBittorrent failed: Post "http://localhost:8080/api/v2/auth/login": dial tcp 127.0.0.1:8080: connect: connection refused 
+WARN[2024-12-04 13:38:11] init tool transmission failed: failed get transmission version: can't get session values: 'session-get' rpc method failed: failed to execute HTTP request: Post "http://localhost:9091/transmission/rpc": dial tcp 127.0.0.1:9091: connect: connection refused 
+INFO[2024-12-04 13:38:11] init tool 115 Cloud success: ok              
+WARN[2024-12-04 13:38:11] init tool aria2 failed: failed get aria2 version: Post "http://localhost:6800/jsonrpc": dial tcp 127.0.0.1:6800: connect: connection refused 
+INFO[2024-12-04 13:38:11] init tool SimpleHttp success: ok             
+INFO[2024-12-04 13:38:11] start HTTP server @ 0.0.0.0:5244 
+```
 
+访问网页地址： http://localhost:5244 或者http://IP:port
+用户名: admin
+密码： 如上方法获取
+
+### 密码重置
+```shell
+# 随机生成一个密码
+docker exec -it alist ./alist admin random
+# 手动设置一个密码,`NEW_PASSWORD`是指你需要设置的密码
+docker exec -it alist ./alist admin set NEW_PASSWORD
+```
+### 存储阿里云盘
+我这里用阿里云盘作为后端存储，其他网盘可以自行学习参考下
+官网地址: [https://alist-doc.nn.ci/docs/intro](https://alist-doc.nn.ci/docs/intro)
+我的配置如下：
+
+### alist阿里云盘webdav配置
+这个依然可以参考aliast官网
+[https://alist.nn.ci/zh/guide/webdav.html](https://alist.nn.ci/zh/guide/webdav.html)
+- Url： http[s]://domain:port/dav   #我们这里把domain替换成IP地址
+- Host： domain 
+- 路径： dav
+- 协议： http[s]
+- 端口： 与网页一致
+- WebDav用户名： 与网页端用户名一致
+- WebDav密码： 与网页端密码一致
+### 可以用来挂载WebDav的软件
+1. windows
+- Potplayer，kmplayer，RaiDrive，kodi，OneCommander，Mountain Duck，rclone，AIMP
+2. MAC 
+- VidHub，IINA，Mountain Duck，infuse，netdrive，rclone
+3. Android
+- Nplayer，kmplayer，ES文件管理器，kodi，nova魔改，reex，cx 文件管理器，Solid Explorer，X-plore File Manager，MiXplorer
+4. IOS 
+- VidHub，Nplayer，kmplayer，infuse，zFuse, Fileball文件管理器
+5. linux 
+- davfs , rclone 
+6. 电视TV
+- VidHub，Nplayer，kodi，nova魔改
 
 ## rclone 
+本文让我们来看一看如何使用强大的 rclone 命令行工具配置挂载 WebDAV 云盘
+```shell
 
 
+```
+
+
+```
+root@DESKTOP-CK75KU2:~# rclone config show 
+[aliyunpan]
+type = webdav
+url = http://192.168.31.239:5244/dav
+vendor = rclone
+user = admin
+pass = Tt2zB4jg2EIXHc8JYf3nXHdIvwua0HUC
+
+root@DESKTOP-CK75KU2:~# rclone config paths
+Config file: /root/.config/rclone/rclone.conf
+Cache dir:   /root/.cache/rclone
+Temp dir:    /tmp
+root@DESKTOP-CK75KU2:~# rclone listremotes 
+aliyunpan:
+root@DESKTOP-CK75KU2:~# rclone ls aliyunpan:  
+      375 aliyunopen/mkdocs_start.sh
+      335 aliyunopen/myopentoken.txt
+       32 aliyunopen/mytoken.txt
+ 22492286 aliyunopen/rclone-v1.68.2-linux-amd64.zip
+       40 aliyunopen/temp_transfer_folder_id.txt
+
+```
 
