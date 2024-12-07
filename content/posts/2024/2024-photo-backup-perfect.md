@@ -295,11 +295,20 @@ docker ps  |grep syncthing
 
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412070914397.png)
 
+通过浏览器访问服务器端ubuntu web-gui页面
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20241207174805246.png)
+第一次访问，会提示设置，为了安全
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20241207190740967.png)
+设置用户名和密码，其他默认，可以根据自己需要设置
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20241207190610541.png)
 
-### 手机安装syncthing 
-手机安装包: 
+
+### 手机安装包syncthing 
+手机安装包地址01: 
 donwload: [https://syncthing.en.softonic.com/android](https://syncthing.en.softonic.com/android)
 
+手机安装包地址02:
+[https://github.com/syncthing/syncthing-android/releases/](https://github.com/syncthing/syncthing-android/releases/)
 
 ### 配置同步文件夹
 先添加远程设备，在手机上，我们添加ubuntu作为远端设备，这里添加设备是通过唯一ID或者二维码来添加的
@@ -321,6 +330,16 @@ donwload: [https://syncthing.en.softonic.com/android](https://syncthing.en.softo
 - 监视更改：默认打开软件的时候，就会扫描最新图片
 - 版本控制： 可以选择垃圾桶或者简单方式 ，这个需要提前看一下官网文档，防止那天误删照片或者同步出现问题
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412071007861.png)
+
+### 演示添加windows设备
+1. 我们把windows作为源设备，ubuntu作为备份设备，查看ubuntu备份设备ID，并复制
+2. windows源设备，添加远程设备，并且粘贴ubuntu备份设备ID，填写设备名
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20241207193334978.png)
+3. 在ubuntu备份设备上，同意添加windows源设备发过来的申请 
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412071925795.png)
+4. 俩个机器，只要可以访问公网，就可以通过公网建立连接了，看状态已经ok
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20241207193557607.png)
+
 
 ## alist 
 一个支持多种存储，支持网页浏览和 WebDAV 的文件列表程序，由 gin 和 Solidjs 驱动
