@@ -1,4 +1,4 @@
----
+![image](https://github.com/user-attachments/assets/6a7ac90c-cd0c-4e66-a3d2-078ea2973aed)![image](https://github.com/user-attachments/assets/e9cc72b9-0726-415a-962d-da7733328a09)---
 title: "个人照片相册系统和备份完美解决方案"
 date: 2024-12-06
 lastmod: 2024-12-06
@@ -703,11 +703,65 @@ root@DESKTOP-CK75KU2:/mnt/d/images/定格时光相册×2# rclone lsl aliyunpan:a
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412071207549.png)
 这就是用windows WSL的ubuntu的好处，俩个系统相当于是互通的
 
+## 照片自动同步和备份
+重点来了，所有的工具都已经熟悉部署好了，我们把所有工具连动起来，看一下效果，那么接下来我们同步备份照片
 
 
 
 
+## 番外介绍-cloudflare tunnel
 
+通过cloudflare tunnel 我们把1panel和photoprism对外公布出来，这里是通过域名解析ipv4的方式来展示
 
+后面我们有机会我们会改成ddns和ipv6的方式来更新最新方案，前提这个需要把家里的猫改成旁路模式，而wifi路由器
+作为主拨号，然后开启ipv6 ，大概的思路是这样的，可能还有一些其他细节，这里不展开，我们还是按照上面方式进行
 
+目前cloudflare整套方案是免费的 
+
+### 前置条件
+
+- 首先，你要有一个Cloudflare的账号，并且添加了所需要使用的域名，同时，开通Cloudflare Zero Trust。
+- 本地内网有一台Linux服务器。CentOS、Ubuntu、Debian都无所谓，树莓派也没问题。Web网站正常跑，内网能正常访问
+- 域名： 因为对外访问，我们要有一个域名
+
+### 新建Zero Trust团队 
+- 域名导入： 域名导入到cloudflare中，被cloudflare接管起来，把dns解析改成cloudflare的地址
+- 选择Zero Trust： 选择这个，根据提示，新建一个团队组织名称，然后选择free plan方案，免费方案 
+
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20241207212906069.png)
+
+然后我们点击Zero Trust，会进入到这个页面里面，选择Access，设置tunnel 
+
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20241207210946439.png)
+
+tunnel名称
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20241207213423951.png)
+
+### 安装cloudflared客户端
+Cloudflared是Cloudflare Tunnel的一个本地cli客户端，可以实现管理功能和守护程序。
+
+需要再电脑服务端安装一个客户端agent，这里我们选择再windows上安装，根据提示安装就可以
+
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20241207213702327.png)
+
+因为之前我已经安装过，这里安装成功，会显示Success
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412072139451.png)
+
+然后回到cloudflare，可以看到状态变成 heathly 健康状态 
+
+### 配置外网服务域名
+这里比如我想把家里的网盘服务，让外网的所有人都可以访问到（photoprism照片服务同理），设置Public Hostname
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20241207214315059.png)
+
+增加一个hostname，这里很像nginx的配置项：server_name upstream 
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20241207214601010.png)
+
+回到刚刚页面，我们看下配置已经OK
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20241207214428250.png)
+
+一个 Tunnel 中可以添加多条三级域名来跳转到不同的内网服务，在 Tunnel 页面的 Public Hostname 中新增即可。
+### 外网访问
+cloudflare会给域名加上https证书 
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20241207215148698.png)
+### 安全
 
