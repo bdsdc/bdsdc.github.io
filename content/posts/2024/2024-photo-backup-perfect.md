@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/6a7ac90c-cd0c-4e66-a3d2-078ea2973aed)![image](https://github.com/user-attachments/assets/e9cc72b9-0726-415a-962d-da7733328a09)---
+---
 title: "个人照片相册系统和备份完美解决方案"
 date: 2024-12-06
 lastmod: 2024-12-06
