@@ -320,15 +320,20 @@ donwload: [https://syncthing.en.softonic.com/android](https://syncthing.en.softo
 
 然后打开手机，安装好syncthing app，然后我们按照如下图操作，先点击添加设备，通过扫描二维码方式来添加（比较方便）
 当然也可以通过ID来添加
+
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412071005442.png)
+
 点击二维码图标，可以扫描
+
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412071005862.png)
+
 添加同步文件夹，选择相机图片存储目录，下面列一下重点项目，其他可以默认
 - 填写一个名字，最好通俗易懂
 - 选择小米手机照片存储目录
 - 目录种类： 可以选择仅发送，代表单方向从手机到ubuntu 发送拷贝照片
 - 监视更改：默认打开软件的时候，就会扫描最新图片
 - 版本控制： 可以选择垃圾桶或者简单方式 ，这个需要提前看一下官网文档，防止那天误删照片或者同步出现问题
+
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412071007861.png)
 
 ### 演示添加windows设备
@@ -340,6 +345,22 @@ donwload: [https://syncthing.en.softonic.com/android](https://syncthing.en.softo
 4. 俩个机器，只要可以访问公网，就可以通过公网建立连接了，看状态已经ok
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20241207193557607.png)
 
+### 同步文件测试
+
+
+
+### windows开机自启动
+保存 syncthing.bat 脚本文件，复制脚本文件到 syncthing.exe 同级目录
+
+```shell
+start "Syncthing" syncthing.exe -no-console -no-browser
+```
+将脚本文件快捷方式添加到 `启动` 菜单
+
+- 选中 `syncthing.bat` 脚本文件，右键创建快捷方式
+- 按下 `win + R`,输入`shell:startup`打开 `启动` 文件夹
+- 将快捷方式复制到`启动`文件夹
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20241207200403452.png)
 
 ## alist 
 一个支持多种存储，支持网页浏览和 WebDAV 的文件列表程序，由 gin 和 Solidjs 驱动
