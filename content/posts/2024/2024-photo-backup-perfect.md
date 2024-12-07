@@ -357,9 +357,20 @@ docker exec -it alist ./alist admin random
 # 手动设置一个密码,`NEW_PASSWORD`是指你需要设置的密码
 docker exec -it alist ./alist admin set NEW_PASSWORD
 ```
+
 ### 存储阿里云盘
 我这里用阿里云盘作为后端存储，其他网盘可以自行学习参考下
 官网地址: [https://alist-doc.nn.ci/docs/intro](https://alist-doc.nn.ci/docs/intro)
+#### 获取fold ID
+我们在云盘里面创建一个目录，把这个目录作为跟Alist的挂载设备
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412071144423.png)
+
+#### Alist挂载路径
+新建存储，选择阿里云盘OPEN ，其他阿里都已经不能用了。这个路径后面在创建目录的时候很重要，后面会有演示
+其实我的理解，不一定对，相当于Alist把阿里云盘我们刚刚创建的目录`Homevideo`挂载到目录路径`aliyunopen`上 
+
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412071145164.png)
+
 我的配置如下：
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412070935280.png)
 
@@ -390,6 +401,8 @@ docker exec -it alist ./alist admin set NEW_PASSWORD
 ## rclone 
 本文让我们来看一看如何使用强大的 rclone 命令行工具配置挂载 WebDAV 云盘
 
+
+### rclone 对接Alist网盘WebDav协议
 我们通过rclone config配置，看起来复杂，其实很简单，只要根据提示，进行选择就好了
 ```shell
 root@DESKTOP-CK75KU2:/mnt/d/rclone# rclone config
@@ -557,4 +570,81 @@ root@DESKTOP-CK75KU2:~# rclone ls aliyunpan:
        40 aliyunopen/temp_transfer_folder_id.txt
 
 ```
+
+### rclone 挂载
+类似mount命令，把Alist存储的阿里云盘，通过WebDav挂载到机器上
+```shell
+mkdir /mnt/c/webdav 
+rclone mount aliyunpan: /mnt/c/webdav  --copy-links --no-gzip-encoding --no-check-certificate --allow-other --allow-non-empty --umask 022 --use-mmap --daemon
+```
+通过挂载命令，挂载到ubuntu机器上，基本上就可以作为linux系统存储目录了（类似mount）
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412071039989.png)
+
+### rclone 创建目录
+其实看到这里，你应该能够想到，我们如果备份照片，就可以通过rclone把数据或者照片直接拷贝同步到阿里云盘了，如果阿里云盘备份还不够，我们通过alist在接入多个网盘，达到多个网盘
+异地多备份的效果，充分保证数据或者照片的安全
+
+**注意：目录层次这里很重要，Alist接入阿里云盘的时候，挂载路径我写的是`aliyunopen`,跟阿里云盘里面目录`Homevideo`是相对应的，所以我们创建目录要在`aliyunopen`目录下创建**
+上面说的注意点，不知道大家能理解不，不理解可以先按照这么做
+
+```
+root@DESKTOP-CK75KU2:~# rclone mkdir aliyunpan:aliyunopen/wedding-photos
+root@DESKTOP-CK75KU2:/mnt/c/webdav/aliyunopen# rclone lsd aliyunpan: --max-depth 2
+          -1 2024-12-04 23:06:22        -1 aliyunopen
+          -1 2024-12-07 11:32:53        -1 aliyunopen/wedding-photos
+```
+我们通过查看挂载目录也可以看到
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412071133626.png)
+
+### rclone 同步数据(或照片)
+
+子命令 rsync 
+> Sync the source to the destination, changing the destination only. Doesn't transfer files that are identical on source and destination, testing by size and modification time or MD5SUM. Destination is updated to match source, including deleting files if necessary (except duplicate objects, see below). If you don't want to delete files from destination, use the copy command instead.
+
+阿里云盘： aliyunpan:aliyunopen/wedding-photos
+本地目录： /mnt/d/images/ 
+
+```shell
+root@DESKTOP-CK75KU2:/mnt/d/images# rclone sync 定格时光相册×2/ aliyunpan:aliyunopen/wedding-photos/
+root@DESKTOP-CK75KU2:/mnt/d/images/定格时光相册×2# rclone ls aliyunpan:aliyunopen/wedding-photos/  | wc -l
+35
+root@DESKTOP-CK75KU2:/mnt/d/images/定格时光相册×2# ls
+1L9A3615.jpg  1L9A3759.jpg  1L9A3899.jpg  1L9A3965.jpg  倾城相框1整张1L9A3825.jpg     定格时光摆台1L9A4036.jpg
+1L9A3629.jpg  1L9A3765.jpg  1L9A3925.jpg  1L9A4057.jpg  定格时光中框中上1L9A3678.jpg  定格时光摆台1L9A4048.jpg
+1L9A3648.jpg  1L9A3791.jpg  1L9A3935.jpg  1L9A4070.jpg  定格时光中框中下1L9A3927.jpg  定格时光边框1L9A3668.jpg
+1L9A3715.jpg  1L9A3822.jpg  1L9A3937.jpg  1L9A4092.jpg  定格时光中框中下1L9A4065.jpg  定格时光边框1L9A3833.jpg
+1L9A3743.jpg  1L9A3830.jpg  1L9A3944.jpg  1L9A4095.jpg  定格时光摆台1L9A3832.jpg      海报1L9A3992.jpg
+1L9A3751.jpg  1L9A3840.jpg  1L9A3948.jpg  1L9A4098.jpg  定格时光摆台1L9A3903.jpg
+root@DESKTOP-CK75KU2:/mnt/d/images/定格时光相册×2# rclone lsl aliyunpan:aliyunopen/wedding-photos/
+ 14442675 2024-12-07 11:57:53.000000000 1L9A3615.jpg
+ 14179640 2024-12-07 11:57:58.000000000 1L9A3629.jpg
+ 14143112 2024-12-07 11:58:06.000000000 1L9A3648.jpg
+```
+我们看一下阿里云盘，已经有照片了。很棒，同步备份成功，经过这么一番折腾，我们就可以把照片备份到阿里云盘了 
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412071200951.png)
+
+还有一个小Tips，需要说明下，其实/mnt/d/images 目录就是windows的D盘
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412071207549.png)
+这就是用windows WSL的ubuntu的好处，俩个系统相当于是互通的
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
