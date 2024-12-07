@@ -745,9 +745,11 @@ Cloudflared是Cloudflare Tunnel的一个本地cli客户端，可以实现管理�
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20241207213702327.png)
 
 因为之前我已经安装过，这里安装成功，会显示Success
-![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412072139451.png)
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412072211595.png)
 
 然后回到cloudflare，可以看到状态变成 heathly 健康状态 
+
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20241207221255195.png)
 
 ### 配置外网服务域名
 这里比如我想把家里的网盘服务，让外网的所有人都可以访问到（photoprism照片服务同理），设置Public Hostname
