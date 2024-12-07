@@ -182,18 +182,25 @@ docker logs -f photoprism
 
 ### 中文
 支持设置语言，设置成中文语言
-
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412070903181.png)
 ### webdav
 photoprism是支持webdav的，我们可以通过webdav客户端来访问我们已经导入的图片，此功能还是比较实用的
 这样其实我们也可以通过webdav工具，导入照片，这个导入的照片是放在前面说的 `originals`目录的
 导入后，我们需要手动执行下扫描，为了建立索引
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412070904087.png)
+
 
 ### 删除照片
 首先删除的功能默认是关闭，需要我们手动打开，如下
-
-
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412070903181.png)
 
 删除照片是通过归档的形式来删除，先选中要删除的照片，然后点击归档，在归档里面选择删除的照片 
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412070905781.png)
+
+在归档里面，才可以删除
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412070909345.png)
+如果是删除相册里面的照片，需要先移出相册
+
 
 ### 使用体会
 整体感觉眼前一亮，可以通过建立相册，分类整理我们的照片，但是操作功能和使用方便一般，
@@ -275,23 +282,37 @@ docker ps  |grep syncthing
 也可以访问1panel面板来查看，即使非面板应用商店的应有，面板也可以管理，面板是服务于机器的 
 只要是机器上的进程，容器，服务等，都也可以在面板被管理
 
-
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412070914397.png)
 
 
 ### 手机安装syncthing 
 手机安装包: 
+donwload: [https://syncthing.en.softonic.com/android](https://syncthing.en.softonic.com/android)
 
 
 ### 配置同步文件夹
-先添加远程设备，在ubuntu上，添加手机作为远程设备，通过ID或者二维码添加
+先添加远程设备，在手机上，我们添加ubuntu作为远端设备，这里添加设备是通过唯一ID或者二维码来添加的
 
+首先看查看ubuntu上syncthing服务的 ID 或者二维码
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412071002403.png)
 
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412071002532.png)
 
-找到相机图片存储目录
-
+然后打开手机，安装好syncthing app，然后我们按照如下图操作，先点击添加设备，通过扫描二维码方式来添加（比较方便）
+当然也可以通过ID来添加
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412071005442.png)
+点击二维码图标，可以扫描
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412071005862.png)
+添加同步文件夹，选择相机图片存储目录，下面列一下重点项目，其他可以默认
+- 填写一个名字，最好通俗易懂
+- 选择小米手机照片存储目录
+- 目录种类： 可以选择仅发送，代表单方向从手机到ubuntu 发送拷贝照片
+- 监视更改：默认打开软件的时候，就会扫描最新图片
+- 版本控制： 可以选择垃圾桶或者简单方式 ，这个需要提前看一下官网文档，防止那天误删照片或者同步出现问题
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412071007861.png)
 
 ## alist 
-
+一个支持多种存储，支持网页浏览和 WebDAV 的文件列表程序，由 gin 和 Solidjs 驱动
 ### 安装alist 
 虽然1panel应用商店提供该软件，我们这次手动用docker来安装，因为也比较简单方便
 ```shell
@@ -325,6 +346,9 @@ INFO[2024-12-04 13:38:11] start HTTP server @ 0.0.0.0:5244
 访问网页地址： http://localhost:5244 或者http://IP:port
 用户名: admin
 密码： 如上方法获取
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412070928713.png)
+
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412070929839.png)
 
 ### 密码重置
 ```shell
@@ -337,6 +361,7 @@ docker exec -it alist ./alist admin set NEW_PASSWORD
 我这里用阿里云盘作为后端存储，其他网盘可以自行学习参考下
 官网地址: [https://alist-doc.nn.ci/docs/intro](https://alist-doc.nn.ci/docs/intro)
 我的配置如下：
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412070935280.png)
 
 ### alist阿里云盘webdav配置
 这个依然可以参考aliast官网
@@ -364,13 +389,150 @@ docker exec -it alist ./alist admin set NEW_PASSWORD
 
 ## rclone 
 本文让我们来看一看如何使用强大的 rclone 命令行工具配置挂载 WebDAV 云盘
+
+我们通过rclone config配置，看起来复杂，其实很简单，只要根据提示，进行选择就好了
 ```shell
+root@DESKTOP-CK75KU2:/mnt/d/rclone# rclone config
+Current remotes:
 
+Name                 Type
+====                 ====
+aliyunpan            webdav
+
+e) Edit existing remote
+n) New remote
+d) Delete remote
+r) Rename remote
+c) Copy remote
+s) Set configuration password
+q) Quit config
+e/n/d/r/c/s/q> n
+
+Enter name for new remote.
+name> aliyunpan01
+
+Option Storage.
+Type of storage to configure.
+Choose a number from below, or type in your own value.
+ 1 / 1Fichier
+   \ (fichier)
+ 2 / Akamai NetStorage
+   \ (netstorage)
+ 3 / Alias for an existing remote
+   \ (alias)
+ 4 / Amazon S3 Compliant Storage Providers including AWS, Alibaba, ArvanCloud, Ceph, ChinaMobile, Cloudflare, DigitalOcean, Dreamhost, GCS, HuaweiOBS, IBMCOS, IDrive, IONOS, LyveCloud, Leviia, Liara, Linode, Magalu, Minio, Netease, Petabox, RackCorp, Rclone, Scaleway, SeaweedFS, StackPath, Storj, Synology, TencentCOS, Wasabi, Qiniu and others
+   \ (s3)
+......
+   \ (storj)
+50 / Sugarsync
+   \ (sugarsync)
+51 / Transparently chunk/split large files
+   \ (chunker)
+52 / Uloz.to
+   \ (ulozto)
+53 / Union merges the contents of several upstream fs
+   \ (union)
+54 / Uptobox
+   \ (uptobox)
+55 / WebDAV
+   \ (webdav)
+56 / Yandex Disk
+   \ (yandex)
+57 / Zoho
+   \ (zoho)
+58 / premiumize.me
+   \ (premiumizeme)
+59 / seafile
+   \ (seafile)
+Storage> 55
+
+Option url.
+URL of http host to connect to.
+E.g. https://example.com.
+Enter a value.
+url> http://192.168.31.239:5224/dav
+
+Option vendor.
+Name of the WebDAV site/service/software you are using.
+Choose a number from below, or type in your own value.
+Press Enter to leave empty.
+ 1 / Fastmail Files
+   \ (fastmail)
+ 2 / Nextcloud
+   \ (nextcloud)
+ 3 / Owncloud
+   \ (owncloud)
+ 4 / Sharepoint Online, authenticated by Microsoft account
+   \ (sharepoint)
+ 5 / Sharepoint with NTLM authentication, usually self-hosted or on-premises
+   \ (sharepoint-ntlm)
+ 6 / rclone WebDAV server to serve a remote over HTTP via the WebDAV protocol
+   \ (rclone)
+ 7 / Other site/service or software
+   \ (other)
+vendor> 6
+
+Option user.
+User name.
+In case NTLM authentication is used, the username should be in the format 'Domain\User'.
+Enter a value. Press Enter to leave empty.
+user> admin
+
+Option pass.
+Password.
+Choose an alternative below. Press Enter for the default (n).
+y) Yes, type in my own password
+g) Generate random password
+n) No, leave this optional password blank (default)
+y/g/n> y
+Enter the password:
+password:
+Confirm the password:
+password:
+
+Option bearer_token.
+Bearer token instead of user/pass (e.g. a Macaroon).
+Enter a value. Press Enter to leave empty.
+bearer_token>
+
+Edit advanced config?
+y) Yes
+n) No (default)
+y/n>
+
+Configuration complete.
+Options:
+- type: webdav
+- url: http://192.168.31.239:5224/dav
+- vendor: rclone
+- user: admin
+- pass: *** ENCRYPTED ***
+Keep this "aliyunpan01" remote?
+y) Yes this is OK (default)
+e) Edit this remote
+d) Delete this remote
+y/e/d> y
+
+Current remotes:
+
+Name                 Type
+====                 ====
+aliyunpan            webdav
+aliyunpan01          webdav
+
+e) Edit existing remote
+n) New remote
+d) Delete remote
+r) Rename remote
+c) Copy remote
+s) Set configuration password
+q) Quit config
+e/n/d/r/c/s/q>q
 
 ```
-
-
+### rclone相关命令
 ```
+# 查看配置信息
 root@DESKTOP-CK75KU2:~# rclone config show 
 [aliyunpan]
 type = webdav
@@ -378,13 +540,15 @@ url = http://192.168.31.239:5244/dav
 vendor = rclone
 user = admin
 pass = Tt2zB4jg2EIXHc8JYf3nXHdIvwua0HUC
-
+# 查看配置文件路径
 root@DESKTOP-CK75KU2:~# rclone config paths
 Config file: /root/.config/rclone/rclone.conf
 Cache dir:   /root/.cache/rclone
 Temp dir:    /tmp
+# 列出远程端设备
 root@DESKTOP-CK75KU2:~# rclone listremotes 
 aliyunpan:
+# 列出远程端设备比如网盘里面的文件列表
 root@DESKTOP-CK75KU2:~# rclone ls aliyunpan:  
       375 aliyunopen/mkdocs_start.sh
       335 aliyunopen/myopentoken.txt
