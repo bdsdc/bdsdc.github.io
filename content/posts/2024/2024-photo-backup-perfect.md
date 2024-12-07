@@ -1,3 +1,14 @@
+---
+title: "个人照片相册系统和备份完美解决方案"
+date: 2024-12-06
+lastmod: 2024-12-06
+author: 'bdsdc'
+linkToMarkdown: true
+categories: ['homesystem']
+tags: ['tools']
+---
+
+
 # 个人照片神级相册系统和备份完美解决方案
 
 ## 前言
