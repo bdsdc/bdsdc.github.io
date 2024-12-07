@@ -703,12 +703,6 @@ root@DESKTOP-CK75KU2:/mnt/d/images/定格时光相册×2# rclone lsl aliyunpan:a
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412071207549.png)
 这就是用windows WSL的ubuntu的好处，俩个系统相当于是互通的
 
-## 照片自动同步和备份
-重点来了，所有的工具都已经熟悉部署好了，我们把所有工具连动起来，看一下效果，那么接下来我们同步备份照片
-
-
-
-
 ## 番外介绍-cloudflare tunnel
 
 通过cloudflare tunnel 我们把1panel和photoprism对外公布出来，这里是通过域名解析ipv4的方式来展示
@@ -765,5 +759,63 @@ Cloudflared是Cloudflare Tunnel的一个本地cli客户端，可以实现管理�
 ### 外网访问
 cloudflare会给域名加上https证书 
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20241207215148698.png)
-### 安全
+
+### 增加安全防御
+通过通过applications 增加额外验证 ，这里不演示了
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20241207222257693.png)
+
+## 照片自动同步和备份
+重点来了，所有的工具都已经熟悉部署好了，我们把所有工具连动起来，看一下效果，那么接下来我们同步备份照片
+
+### 同步小米手机截图
+
+新建文件
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20241207223118878.png)
+
+文件创建好以后，syncthing自动扫描
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20241207223148540.png)
+
+去ubuntu端，根据提示，添加文件 
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412072233827.png)
+
+目录规划
+
+`/mnt/d/syncthing/screenshots`接受手机端小米手机截图的目录(参考上面`syncthing`容器启动volume映射)
+在把`/mnt/d/syncthing/screenshots`目录挂载给`photoprism`服务做映射
+
+**一句话，就相当于直接把手机截图照片同步到 photoprism的 originals目录中，最后记得点击扫描，创建索引**
+
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412072244616.png)
+
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412072248082.png)
+
+编辑photoprism 的docker-compose文件，增加卷目录映射，增加存放截图的目录
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20241207224135763.png)
+
+开始同步文件
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20241207224913524.png)
+
+手机端显示已经传输完成
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20241207225318890.png)
+
+电脑端也显示传输完成
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412072253369.png)
+
+### 备份照片到网盘
+
+首先已经通过syncthing服务，把手机照片同步到目标目录中，通过rclone再把目录中照片备份到网盘
+在ubuntu增加定时任务，每天会自动执行，前提是你这个机器要不关机哦
+```shell
+# 每天凌晨2点和5点 开始备份照片和截图照片到网盘
+0 3 * * *  rclone sync /mnt/d/syncthing/Photos aliyunpan:aliyunopen/wedding-photos/ --log-file=/mnt/d/rclone/.config/rclone/rclone-`date +\%Y\%m`.log
+0 5 * * *  rclone sync /mnt/d/synchting/screenshots aliyunapn:aliyunopen/screenshots/ --log-file=/mnt/d/rclone/.config/rclone/rclone-`date +\%Y\%m`.log
+```
+自动创建索引，因为同步完成后，我们会手动创建索引，也通过自动定时任务解决
+```shell
+# 每天凌晨1点，开始创建一次索引
+0 1 * * *  /usr/bin/docker exec photoprism photoprism index
+```
+## 总结
+这里基本
+
 
