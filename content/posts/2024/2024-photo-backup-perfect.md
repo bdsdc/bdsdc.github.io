@@ -76,6 +76,7 @@ mkdir -pv /mnt/d/mariadb/{data,conf}
 创建一个db数据库，给photoprism服务使用
 
 这里就很简单了，都是页面操作，按照提示输入相关信息，记住用户名和密码，后面在安装photoprism的时候，填入1panel配置中
+
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412052255273.png)
 
 ### 安装photoprism服务
@@ -93,15 +94,21 @@ mkdir /mnt/d/photoprism/{import,originals,storage}
 - storage: 这个目录是photoprism程序产生的各种文件,比如索引照片缩略图,缓存等
 
 本次我们安装依然采用1panel来安装，下面我通过1panel如何来安装设置
+
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412052244915.png)
+
 选择我们刚刚创建的数据库，然后配置使用的db库，以及用户名和密码
+
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412052245922.png)
 
 选择资源配置cpu和内存，以及编辑docker-compose文件，更改volume配置 
+
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412052248495.png)
 
 最后更改volume配置后，可以先关注红色框的三个配置，其他的俩个volume可以先忽略，后面会讲
+
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412052253065.png)
+
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412052254950.png)
 
 ### 启动
@@ -117,7 +124,9 @@ docker logs -f photoprism
 ```
 
 通过查看端口，通过本机IP地址，比如我的端口是12343（端口可以在上面配置自定义）访问地址是 http://localhost:12343 
+
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412052312122.png)
+
 使用刚刚1panel配置中的管理员用户名密码登录就可以了. 登录进去会发现什么都没有，这是因为我们没有还没有导入照片。
 
 
@@ -142,6 +151,7 @@ docker logs -f photoprism
 进入资料库, 然后点击索引页
 
 `import` 你也可以把存在的照片放到import目录下，然后在资料库的导入页中，选择你的目录，导入你的照片。
+
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412060015058.png)
 
 俩个目录区别与选择
@@ -193,22 +203,27 @@ docker logs -f photoprism
 
 ### 中文
 支持设置语言，设置成中文语言
+
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412070903181.png)
 ### webdav
 photoprism是支持webdav的，我们可以通过webdav客户端来访问我们已经导入的图片，此功能还是比较实用的
 这样其实我们也可以通过webdav工具，导入照片，这个导入的照片是放在前面说的 `originals`目录的
 导入后，我们需要手动执行下扫描，为了建立索引
+
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412070904087.png)
 
 
 ### 删除照片
 首先删除的功能默认是关闭，需要我们手动打开，如下
+
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412070903181.png)
 
 删除照片是通过归档的形式来删除，先选中要删除的照片，然后点击归档，在归档里面选择删除的照片 
+
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412070905781.png)
 
 在归档里面，才可以删除
+
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412070909345.png)
 如果是删除相册里面的照片，需要先移出相册
 
@@ -220,6 +235,7 @@ UI方面还算挺不错的，该有的功能也都有，不过感觉有些操作
 
 ## syncthing 
 这里我们介绍一个神级同步工具，synthing 
+
 官网: [https://syncthing.net/](https://syncthing.net/)
 
 ### 前言
@@ -296,10 +312,15 @@ docker ps  |grep syncthing
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412070914397.png)
 
 通过浏览器访问服务器端ubuntu web-gui页面
+
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20241207174805246.png)
+
 第一次访问，会提示设置，为了安全
+
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20241207190740967.png)
+
 设置用户名和密码，其他默认，可以根据自己需要设置
+
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20241207190610541.png)
 
 
@@ -314,6 +335,7 @@ donwload: [https://syncthing.en.softonic.com/android](https://syncthing.en.softo
 先添加远程设备，在手机上，我们添加ubuntu作为远端设备，这里添加设备是通过唯一ID或者二维码来添加的
 
 首先看查看ubuntu上syncthing服务的 ID 或者二维码
+
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412071002403.png)
 
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412071002532.png)
@@ -339,8 +361,10 @@ donwload: [https://syncthing.en.softonic.com/android](https://syncthing.en.softo
 ### 演示添加windows设备
 1. 我们把windows作为源设备，ubuntu作为备份设备，查看ubuntu备份设备ID，并复制
 2. windows源设备，添加远程设备，并且粘贴ubuntu备份设备ID，填写设备名
+   
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20241207193334978.png)
-3. 在ubuntu备份设备上，同意添加windows源设备发过来的申请 
+3. 在ubuntu备份设备上，同意添加windows源设备发过来的申请
+
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412071925795.png)
 4. 俩个机器，只要可以访问公网，就可以通过公网建立连接了，看状态已经ok
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20241207193557607.png)
@@ -360,6 +384,7 @@ start "Syncthing" syncthing.exe -no-console -no-browser
 - 选中 `syncthing.bat` 脚本文件，右键创建快捷方式
 - 按下 `win + R`,输入`shell:startup`打开 `启动` 文件夹
 - 将快捷方式复制到`启动`文件夹
+  
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20241207200403452.png)
 
 ## alist 
