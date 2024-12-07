@@ -37,7 +37,7 @@ tags: ['tools','share']
 ### 安装1panel 
 不得不说下，1panel的应用商店，我觉得选品都非常优秀，都是一些流行且兼具实用的软件，之前有博客写过安装步骤，这里不在重复，主要提供工具和思路，参考之前来进行安装
 
-[https://wiki.budongshu.cn/homesystem/windows-ubuntu%E9%83%A8%E7%BD%B2%E6%9C%8D%E5%8A%A1/#_2](https://wiki.budongshu.cn/homesystem/windows-ubuntu%E9%83%A8%E7%BD%B2%E6%9C%8D%E5%8A%A1/#_2)
+[https://wiki.budongshu.cn/homesystem/windows-ubuntu-install/#_2](https://wiki.budongshu.cn/homesystem/windows-ubuntu-install/#_2)
 
 ### 界面展示
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412052111988.png)
