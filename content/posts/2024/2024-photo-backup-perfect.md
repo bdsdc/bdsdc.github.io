@@ -807,15 +807,17 @@ cloudflare会给域名加上https证书
 在ubuntu增加定时任务，每天会自动执行，前提是你这个机器要不关机哦
 ```shell
 # 每天凌晨2点和5点 开始备份照片和截图照片到网盘
-0 3 * * *  rclone sync /mnt/d/syncthing/Photos aliyunpan:aliyunopen/wedding-photos/ --log-file=/mnt/d/rclone/.config/rclone/rclone-`date +\%Y\%m`.log
-0 5 * * *  rclone sync /mnt/d/synchting/screenshots aliyunapn:aliyunopen/screenshots/ --log-file=/mnt/d/rclone/.config/rclone/rclone-`date +\%Y\%m`.log
+0 3 * * *  rclone sync /mnt/d/syncthing/Photos aliyunpan:aliyunopen/wedding-photos/ --log-file=/mnt/d/rclone/.config/rclone/rclone-`date +\%Y\%m`.log > /dev/null
+0 5 * * *  rclone sync /mnt/d/synchting/screenshots aliyunapn:aliyunopen/screenshots/ --log-file=/mnt/d/rclone/.config/rclone/rclone-`date +\%Y\%m`.log > /dev/null
 ```
 自动创建索引，因为同步完成后，我们会手动创建索引，也通过自动定时任务解决
 ```shell
 # 每天凌晨1点，开始创建一次索引
-0 1 * * *  /usr/bin/docker exec photoprism photoprism index
+0 1 * * *  /usr/bin/docker exec photoprism photoprism index > /dev/null 
 ```
 ## 总结
-这里基本
+以上基本上完成一个照片展示，同步，备份，半自动化解决方案，如果能看到这里，能帮你有一个新思路
+也会得到一丝慰藉，我们可以一起更好打造属于我们自己的照片以及数据系统，如果你新想法，欢迎交流~
+
 
 
