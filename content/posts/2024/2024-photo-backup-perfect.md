@@ -25,7 +25,7 @@ tags: ['tools','share']
 
 - 基础环境：windows的WSL安装的ubuntu系统
 - 面板系统：1panel
-- 相册系统： photoprism 
+- 相册系统：photoprism 
 - 同步工具：syncthing 
 - 网盘系统：alist 
 - 备份工具：rclone 
@@ -261,6 +261,7 @@ Syncthing是一款去中心化的数据同步软件，适用于不同平台之�
 
 📂 Syncthing的用途
 我主要用Syncthing来处理以下几项任务：
+
 - 1️⃣ 在Windows和安卓手机上同步Obsidian本地笔记；
 - 2️⃣ 在Windows和安卓手机上同步本地歌曲；
 - 3️⃣ 将Windows上的文件无感发送到手机，或从手机发送到Windows，确保两端文件一致；
@@ -791,7 +792,6 @@ cloudflare会给域名加上https证书
 
 **一句话，就相当于直接把手机截图照片同步到 photoprism的 originals目录中，最后记得点击扫描，创建索引**
 
-![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412072244616.png)
 
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412072248082.png)
 
@@ -805,7 +805,10 @@ cloudflare会给域名加上https证书
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20241207225318890.png)
 
 电脑端也显示传输完成
-![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412072253369.png)
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412072253369.png) 
+
+### 建立索引
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412081452213.png)
 
 ### 备份照片到网盘
 
