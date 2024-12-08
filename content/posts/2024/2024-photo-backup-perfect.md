@@ -30,7 +30,9 @@ tags: ['tools','share']
 - 网盘系统：alist 
 - 备份工具：rclone 
 - 穿透工具：cloudflare tunnel
-  
+## 架构图
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20241208092014146.png)
+
 ## ubuntu系统安装 
 参考之前文章来进行安装
 [https://wiki.budongshu.cn/homesystem/windows-wsl/#_1](https://wiki.budongshu.cn/homesystem/windows-wsl/#_1)
