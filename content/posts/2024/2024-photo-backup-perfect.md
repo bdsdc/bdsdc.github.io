@@ -38,12 +38,15 @@ tags: ['tools','share']
 [https://wiki.budongshu.cn/homesystem/windows-wsl/#_1](https://wiki.budongshu.cn/homesystem/windows-wsl/#_1)
 
 ## 1panel 
-### 安装1panel 
-不得不说下，1panel的应用商店，我觉得选品都非常优秀，都是一些流行且兼具实用的软件，之前有博客写过安装步骤，这里不在重复，主要提供工具和思路，参考之前来进行安装
+1Panel 是新一代的 Linux 服务器运维管理面板
+### 1panel安装
+1panel的应用商店，我觉得选品都非常优秀，都是一些流行且兼具实用的软件，之前有博客写过安装步骤，这里不在重复，主要提供工具和思路，参考之前来进行安装
 
 [https://wiki.budongshu.cn/homesystem/windows-ubuntu-install/#_2](https://wiki.budongshu.cn/homesystem/windows-ubuntu-install/#_2)
 
-### 界面展示
+### 1panel界面展示
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20241208092200859.png)
+
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412052111988.png)
 
 ## photoprism 
