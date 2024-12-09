@@ -6,6 +6,7 @@ author: 'bdsdc'
 linkToMarkdown: true
 categories: ['homesystem']
 tags: ['tools','share']
+comments: true 
 ---
 
 
