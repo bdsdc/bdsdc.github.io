@@ -816,10 +816,12 @@ cloudflare会给域名加上https证书
 在ubuntu增加定时任务，每天会自动执行，前提是你这个机器要不关机哦
 
 网盘这里补充说明下，最近Alist最近幺蛾子比较多，因为各个云盘都上了限制和调整api，比如阿里云盘
+
 **一 IP 在 60 分钟内请求 10 次，会出现 Too Many Requests 🚫避免滥用，请勿滥用**
 **请勿将阿里云盘进行公开分享，禁止帐号被多IP访问，若进行分享后帐号被冻结后果自负**
 
-所以我们这里也可以通过自建云盘解决，云盘方案是自建cloudreve，如果你有其他方案也可以分享告知~  
+所以也可以通过自建云盘解决，云盘方案是自建cloudreve，如果你有其他方案也可以分享告知~
+cloudreve官网地址: [https://docs.cloudreve.org](https://docs.cloudreve.org/getting-started/install)
 cloudreve支持webdav，在rclone里面配置通过webdav接入 
 
 ```shell
