@@ -51,6 +51,23 @@ comments: true
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412052111988.png)
 
 ## photoprism 
+
+PhotoPrism 是一个开源的 AI 驱动照片管理工具，使用 Go 语言开发，提供了强大的照片组织和浏览功能。它诞生于2018年，由前 Google 工程师 Michael Mayer 发起，旨在创建一个既能提供强大功能，又能保护用户隐私的照片管理解决方案。
+
+- 开源透明
+- AI驱动
+- 去中心化，支持本地部署
+
+### 介绍
+- 支持AI识别，支持搜索，不过准确度一般。
+- 高级提取元数据。支持的字段包括标题、说明、日期、位置、相机、镜头、ISO、F 值、曝光、焦距、主题、艺术家、关键字和版权。
+- 支持地图和地点。
+- 拥有丰富的文件格式支持，支持索引、查看和转换最流行的图像、视频和 RAW 格式，包括 JPEG、PNG、GIF、BMP、HEIF、HEIC、MP4、MOV、WebP 和 WebM。我们的目标是为所有RAW 图像提供一流的支持，无论相机品牌和型号。
+- 支持重复检测。
+- 支持使用PhotoSync在后台安全地备份 iOS 和 Android 手机。Microsoft 的 Windows Explorer 和 Apple 的 Finder 等 WebDAV 客户端可以直接连接到 PhotoPrism，允许您从计算机打开、编辑和删除文件，就像它们在本地一样。
+  
+### 环境要求
+
 - 操作系统不限, Windows, MacOS以及Linux都支持
 - 系统配置要求最低：2c3g
 - 准备好docker环境和docker-compose环境
@@ -234,6 +251,15 @@ photoprism是支持webdav的，我们可以通过webdav客户端来访问我们�
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412070909345.png)
 如果是删除相册里面的照片，需要先移出相册
 
+### 照片多选
+按住shift 就可以选多个照片
+
+### 效果展示
+拍照地点地图
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412091524708.png)
+拍照摄影信息
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412091527293.png) 
+还有其他好多功能，等你去体验 
 
 ### 使用体会
 整体感觉眼前一亮，可以通过建立相册，分类整理我们的照片，但是操作功能和使用方便一般，
@@ -377,10 +403,6 @@ donwload: [https://syncthing.en.softonic.com/android](https://syncthing.en.softo
 4. 俩个机器，只要可以访问公网，就可以通过公网建立连接了，看状态已经ok
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20241207193557607.png)
 
-### 同步文件测试
-
-
-
 ### windows开机自启动
 保存 syncthing.bat 脚本文件，复制脚本文件到 syncthing.exe 同级目录
 
@@ -484,7 +506,6 @@ docker exec -it alist ./alist admin set NEW_PASSWORD
 
 ## rclone 
 本文让我们来看一看如何使用强大的 rclone 命令行工具配置挂载 WebDAV 云盘
-
 
 ### rclone 对接Alist网盘WebDav协议
 我们通过rclone config配置，看起来复杂，其实很简单，只要根据提示，进行选择就好了
@@ -810,6 +831,7 @@ cloudflare会给域名加上https证书
 
 ### 建立索引
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412081452213.png)
+
 
 ### 备份照片到网盘
 
