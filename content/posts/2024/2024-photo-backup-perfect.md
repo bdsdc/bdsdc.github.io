@@ -825,7 +825,7 @@ cloudreve官网地址: [https://docs.cloudreve.org](https://docs.cloudreve.org/g
 cloudreve支持webdav，在rclone里面配置通过webdav接入 
 
 ```shell
-# 每天凌晨2点和5点 开始备份照片和截图照片到网盘
+# 每天凌晨3点和5点 开始备份照片和截图照片到网盘
 0 3 * * *  rclone sync /mnt/d/syncthing/Photos cloudreve:/Photos/ --log-file=/mnt/d/rclone/.config/rclone/rclone-`date +\%Y\%m`.log > /dev/null
 0 5 * * *  rclone sync /mnt/d/synchting/screenshots cloudreve:/screenshots/ --log-file=/mnt/d/rclone/.config/rclone/rclone-`date +\%Y\%m`.log > /dev/null
 ```
