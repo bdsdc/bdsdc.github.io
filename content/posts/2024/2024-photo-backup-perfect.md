@@ -814,12 +814,21 @@ cloudflare会给域名加上https证书
 
 首先已经通过syncthing服务，把手机照片同步到目标目录中，通过rclone再把目录中照片备份到网盘
 在ubuntu增加定时任务，每天会自动执行，前提是你这个机器要不关机哦
+
+网盘这里补充说明下，最近Alist最近幺蛾子比较多，因为各个云盘都上了限制和调整api，比如阿里云盘
+**一 IP 在 60 分钟内请求 10 次，会出现 Too Many Requests 🚫避免滥用，请勿滥用**
+**请勿将阿里云盘进行公开分享，禁止帐号被多IP访问，若进行分享后帐号被冻结后果自负**
+
+所以我们这里也可以通过自建云盘解决，云盘方案是自建cloudreve，如果你有其他方案也可以分享告知~  
+cloudreve支持webdav，在rclone里面配置通过webdav接入 
+
 ```shell
 # 每天凌晨2点和5点 开始备份照片和截图照片到网盘
-0 3 * * *  rclone sync /mnt/d/syncthing/Photos aliyunpan:aliyunopen/wedding-photos/ --log-file=/mnt/d/rclone/.config/rclone/rclone-`date +\%Y\%m`.log > /dev/null
-0 5 * * *  rclone sync /mnt/d/synchting/screenshots aliyunapn:aliyunopen/screenshots/ --log-file=/mnt/d/rclone/.config/rclone/rclone-`date +\%Y\%m`.log > /dev/null
+0 3 * * *  rclone sync /mnt/d/syncthing/Photos cloudreve:/Photos/ --log-file=/mnt/d/rclone/.config/rclone/rclone-`date +\%Y\%m`.log > /dev/null
+0 5 * * *  rclone sync /mnt/d/synchting/screenshots cloudreve:/screenshots/ --log-file=/mnt/d/rclone/.config/rclone/rclone-`date +\%Y\%m`.log > /dev/null
 ```
 自动创建索引，因为同步完成后，我们会手动创建索引，也通过自动定时任务解决
+
 ```shell
 # 每天凌晨1点，开始创建一次索引
 0 1 * * *  /usr/bin/docker exec photoprism photoprism index > /dev/null 
