@@ -74,6 +74,8 @@ docker run -d -p 8186:8080 --add-host=host.docker.internal:host-gateway -v /mnt/
 ### 对话演示
 这里我们选择 ollama3 模型，进行对话，然后发现都是英文回复，后面我们在讲一下怎么中文
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412211305377.png)
+
+如果想探索更多功能可参考：[https://github.com/open-webui/open-webui](https://github.com/open-webui/open-webui)
 ## 调试中文模型
 
 ### 第一种要求中文回复
@@ -94,5 +96,5 @@ docker run -d -p 8186:8080 --add-host=host.docker.internal:host-gateway -v /mnt/
 
 
 
-如果想探索更多功能可参考：[https://github.com/open-webui/open-webui](https://github.com/open-webui/open-webui)
+
 
