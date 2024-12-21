@@ -91,7 +91,7 @@ docker run -d -p 8186:8080 --add-host=host.docker.internal:host-gateway -v /mnt/
 
 
 ### cpu使用率
-可以看出回答问题的时候占用的是你本地的CPU内存资源，当他结束后CPU瞬间得到释放
+可以看出回答问题的时候占用的是我们本地的CPU内存资源，当他结束后CPU瞬间得到释放
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412211338524.png)
 ## 调试中文模型
 
