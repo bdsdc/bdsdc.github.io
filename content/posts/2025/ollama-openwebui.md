@@ -1,4 +1,5 @@
-![image](https://github.com/user-attachments/assets/c531e9c4-1d5a-451c-ab97-dc49666f0347)
+
+# ollama-openwebui 
 
 ollama是一个开源项目，它提供了一个平台和工具集，用于部署和运行各种大型语言模型。 
 
