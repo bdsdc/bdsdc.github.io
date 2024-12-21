@@ -77,9 +77,9 @@ docker run -d -p 8186:8080 --add-host=host.docker.internal:host-gateway -v /mnt/
 ## 调试中文模型
 
 ### 第一种要求中文回复
-```
+只需要在我们问的时候，要求回复的时候，加上，请用中文回复
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412211317549.png)
-```
+
 ### 自定义模型配置
 
 ```
