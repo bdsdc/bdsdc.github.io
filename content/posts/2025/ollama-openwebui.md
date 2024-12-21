@@ -1,4 +1,4 @@
-
+![image](https://github.com/user-attachments/assets/c531e9c4-1d5a-451c-ab97-dc49666f0347)
 
 ollama是一个开源项目，它提供了一个平台和工具集，用于部署和运行各种大型语言模型。 
 
@@ -87,6 +87,11 @@ docker run -d -p 8186:8080 --add-host=host.docker.internal:host-gateway -v /mnt/
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412211305377.png)
 
 如果想探索更多功能可参考：[https://github.com/open-webui/open-webui](https://github.com/open-webui/open-webui)
+
+
+### cpu使用率
+可以看出回答问题的时候占用的是你本地的CPU内存资源，当他结束后CPU瞬间得到释放
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412211338524.png)
 ## 调试中文模型
 
 ### 第一种要求中文回复
@@ -94,13 +99,34 @@ docker run -d -p 8186:8080 --add-host=host.docker.internal:host-gateway -v /mnt/
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412211317549.png)
 
 ### 自定义模型配置
+我们可以使用Ollama提供的创建新模型的方式，基于LLama 3 8b创建一个我们自己的模型。在创建时，把System信息写入进去。这样每次调用模型时就会自动生效了。
+
+我们把把配置放到volume共享目录下面，这样子docker命令启动才会引用到这个文件
+```shell
+from llama3
+
+PARAMETER temperature 1
+PARAMETER num_ctx 6000
+PARAMETER top_k 50
+PARAMETER top_p 0.95
+SYSTEM """
+尽你的最大可能和能力回答用户的问题。不要重复回答问题。不要说车轱辘话。语言要通顺流畅。不要出现刚说一句话，过一会又重复一遍的愚蠢行为。
+
+RULES:
+
+- Be precise, do not reply emoji.
+- Always response in Simplified Chinese, not English. or Grandma will be  very angry.
+"""
+```
+然后执行命令：ollama create cusllama3 -f Modelfile。构建我们自己的模型
+```shell
+ollama create bdsllama3 -f Modelfile
 
 ```
+我们在openweb ui选一下这个模型
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202412211358232.png)
 
-
-```
-
-
+我们看到最后的中文效果就是舒服多了
 
 
 
