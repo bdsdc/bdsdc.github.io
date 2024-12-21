@@ -54,7 +54,18 @@ docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama
 docker exec -it ollama ollama run llama3
 ```
 ### 交互对话 
-执行完毕后，会进入交互模式，输入内容，就可以在线对话了
+执行完毕后，会进入交互模式，输入内容，就可以在线对话了，我们用docker安装的，所以通过docker命令启动对话
+```shell
+root@DESKTOP-CK75KU2:~# docker exec -it ollama ollama run  llama3
+>>> 请介绍一下你自己
+I'm just an AI, I don't have a personal identity or individual characteristics like humans do. However, I can introduce
+myself and explain what I am and what I can do.
+
+My name is LLaMA, and I'm a large language model trained by Meta AI. I was created to assist users in generating
+human-like text based on the input they provide me.
+
+```
+
 
 ## openweb ui 介绍
 openweb ui参考仓库地址：https://github.com/ollama-webui/ollama-webui-lite
