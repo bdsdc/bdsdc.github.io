@@ -1,4 +1,12 @@
-
+---
+title: "AI| ollama-openwebui "
+date: 2024-12-22
+lastmod: 2024-12-22
+author: 'bdsdc'
+linkToMarkdown: true
+categories: ['运维']
+tags: ['AI']
+---
 # ollama-openwebui 
 
 ollama是一个开源项目，它提供了一个平台和工具集，用于部署和运行各种大型语言模型。 
