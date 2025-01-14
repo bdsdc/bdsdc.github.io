@@ -155,10 +155,10 @@ const mediaMountPath = [""];
 
 // rclone/CD2 挂载的 alist 文件配置,根据实际情况修改下面的设置
 // 访问宿主机上 5244 端口的 alist 地址, 要注意 iptables 给容器放行端口
-const alistAddr = "http://192.168.31.239:5244";
+const alistAddr = "http://192.168.xx.xxx:5244";
 
 // alist token, 在 alist 后台查看
-const alistToken = "alist-4e440c66-3eac-4e77-9e08-906724122ea3OcuJ797zfyLR7YlZJIIB1VUzr9vWow2fQVvanyjqzSrmXa0mZ2FjdqIQWUGl1EVY";
+const alistToken = "alist-4e440c66-3eac-4e77-9e08-906724122ea3OcuJ797zfyLR7YlZ\xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxY";
 
 // alist 是否启用了 sign
 const alistSignEnable = true;
