@@ -1,5 +1,5 @@
 ---
-title: "个人云相册和照片备份解决方案"
+title: "home| 个人云相册和照片备份解决方案"
 date: 2024-12-06
 lastmod: 2024-12-06
 author: 'bdsdc'
