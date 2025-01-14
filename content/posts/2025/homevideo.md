@@ -1,7 +1,7 @@
 ---
 title: "home| emby+auto_symlink+sd2+alist+nginx直链播放"
-date: 2024-12-22
-lastmod: 2024-12-22
+date: 2025-01-13
+lastmod: 2025-01-13
 author: 'bdsdc'
 linkToMarkdown: true
 categories: ['运维']
