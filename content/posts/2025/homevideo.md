@@ -1,5 +1,5 @@
 ---
-title: "home| emby+auto_symlink+sd2+alist+nginx直链播放"
+title: "home| emby+auto_symlink+sd2+alist+nginx302直链播放"
 date: 2025-01-13
 lastmod: 2025-01-13
 author: 'bdsdc'
