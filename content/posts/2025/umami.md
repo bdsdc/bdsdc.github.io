@@ -1,7 +1,7 @@
 ---
 title: "运维| 本地部署umami网站统计"
-date: 2024-12-22
-lastmod: 2024-12-22
+date: 2025-02-10
+lastmod: 2025-02-10
 author: 'bdsdc'
 linkToMarkdown: true
 categories: ['运维']
