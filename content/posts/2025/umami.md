@@ -110,10 +110,10 @@ server {
 }
 ```
 ### 访问
-默认用户名：admin 
-默认密码：umami
-浏览器访问 http://127.0.0.1:8001
-通过域名访问 http://umami.xxx.cn 
+- 默认用户名：admin 
+- 默认密码：umami
+- 浏览器访问 http://127.0.0.1:8001
+- 通过域名访问 https://umami.xxx.cn 
 
 ## 网站设置
 通过umami网页，选择设置，添加网站 ，自定义名字 
