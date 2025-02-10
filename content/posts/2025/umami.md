@@ -72,6 +72,8 @@ services:
 ```
 ### 云主机上nginx代理
 首先我们现在阿里云上添加解析，前提拥有一个域名，通过certbot配置https证书
+
+这里有些人会奇怪，为啥是100开头的ip地址，这里我用了headscale内网打通，现在云主机和家里ubuntu是可以内网通信的
 ```shell
 certbot --nginx -d umami.xxx.cn 
 
