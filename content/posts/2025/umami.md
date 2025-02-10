@@ -121,7 +121,7 @@ server {
 
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/202502101701784.png)
 ## 博客接入
-由于我这里用的mkdocs，按照官网文档要求，需要在overside下面，新建一个main.html,然后把统计分析代码放在<head> ... </head>中
+由于我这里网站博客用的mkdocs，按照官网文档要求，需要在overside下面，新建一个main.html,然后把统计分析代码放在`<head> ... </head>`中
 
 地址：https://squidfunk.github.io/mkdocs-material/customization/#overriding-partials
 
