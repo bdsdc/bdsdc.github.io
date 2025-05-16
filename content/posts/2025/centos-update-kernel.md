@@ -1,7 +1,12 @@
-
-
-
-
+---
+title: "运维| Centos7升级内核"
+date: 2025-05-10
+lastmod: 2025-05-10
+author: 'bdsdc'
+linkToMarkdown: true
+categories: ['运维']
+tags: ['linux']
+---
 
 ## 手动升级内核
 ```
