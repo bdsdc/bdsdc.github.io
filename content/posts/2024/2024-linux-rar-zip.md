@@ -1,3 +1,13 @@
+---
+title: "运维| linux命令tar和zip解压"
+date: 2025-01-25
+lastmod: 2025-01-25
+author: 'bdsdc'
+linkToMarkdown: true
+categories: ['运维']
+tags: ['Linux']
+---
+
 ## unrar解压
 ### 解决rar版本问题
 ```
