@@ -134,7 +134,7 @@ esac
 ```
 
 ## 开始构建支持多平台镜像
-```
+```shell
 root@base:/data/project/debian# ./build.sh
 Building and pushing image:
 [+] Building 31.8s (14/14) FINISHED                                                                                                                              docker-container:container-builder
