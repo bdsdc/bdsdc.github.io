@@ -131,6 +131,51 @@ case "$1" in
     build_image
     ;;
 esac
+```
+
+## 开始构建支持多平台镜像
+```
+root@base:/data/project/debian# ./build.sh
+Building and pushing image:
+[+] Building 31.8s (14/14) FINISHED                                                                                                                              docker-container:container-builder
+ => [internal] load build definition from Dockerfile                                                                                                                                           0.0s
+ => => transferring dockerfile: 2.59kB                                                                                                                                                         0.0s
+ => resolve image config for docker-image://harbor.bdser.cc/library/docker/dockerfile:1                                                                                                        0.0s
+ => CACHED docker-image://harbor.bdser.cc/library/docker/dockerfile:1@sha256:32f69acadbadf7eee608be6ba9ce5dc13e22c7ef012aec6d45f36df890ec87ed                                                  0.0s
+ => => resolve harbor.bdser.cc/library/docker/dockerfile:1@sha256:32f69acadbadf7eee608be6ba9ce5dc13e22c7ef012aec6d45f36df890ec87ed                                                             0.0s
+ => [linux/amd64 internal] load metadata for docker.io/library/debian:bullseye-20250407-slim                                                                                                  30.2s
+ => [linux/arm64 internal] load metadata for docker.io/library/debian:bullseye-20250407-slim                                                                                                  30.3s
+ => [internal] load .dockerignore                                                                                                                                                              0.0s
+ => => transferring context: 2B                                                                                                                                                                0.0s
+ => [linux/arm64 1/3] FROM docker.io/library/debian:bullseye-20250407-slim@sha256:7aafeb23eaef5d5b1de26e967b9a78f018baaac81dd75246b99781eaaa2d59ef                                             0.0s
+ => => resolve docker.io/library/debian:bullseye-20250407-slim@sha256:7aafeb23eaef5d5b1de26e967b9a78f018baaac81dd75246b99781eaaa2d59ef                                                         1.4s
+ => [linux/amd64 1/3] FROM docker.io/library/debian:bullseye-20250407-slim@sha256:7aafeb23eaef5d5b1de26e967b9a78f018baaac81dd75246b99781eaaa2d59ef                                             0.0s
+ => => resolve docker.io/library/debian:bullseye-20250407-slim@sha256:7aafeb23eaef5d5b1de26e967b9a78f018baaac81dd75246b99781eaaa2d59ef                                                         0.0s
+ => CACHED [linux/arm64 2/3] WORKDIR /app                                                                                                                                                      0.0s
+ => CACHED [linux/arm64 3/3] RUN sed -i -e 's#deb.debian.org#mirrors.aliyun.com#g'            -e 's#security.debian.org#mirrors.aliyun.com#g'            -e 's#ftp.debian.org#mirrors.aliyun.  0.0s
+ => CACHED [linux/amd64 2/3] WORKDIR /app                                                                                                                                                      0.0s
+ => CACHED [linux/amd64 3/3] RUN sed -i -e 's#deb.debian.org#mirrors.aliyun.com#g'            -e 's#security.debian.org#mirrors.aliyun.com#g'            -e 's#ftp.debian.org#mirrors.aliyun.  0.0s
+ => exporting to image                                                                                                                                                                         1.4s
+ => => exporting layers                                                                                                                                                                        0.0s
+ => => exporting manifest sha256:3a3ab4018161715c3e3a5e0154406db9a7cdf86d6e2296e4f5f2c879d2b8df50                                                                                              0.0s
+ => => exporting config sha256:e95a2f585d151be4c2327811800a259e3afea1ab1ed2ed680bca5823e49c7864                                                                                                0.0s
+ => => exporting manifest sha256:c3bee880f949c6f85d84f7e95f100e8ebc8e5974e7a535ae49c40c2351cf593f                                                                                              0.0s
+ => => exporting config sha256:93add4641d7d38e60c9b96e9990c2abd776b40831522964b8f52c01a39d52da9                                                                                                0.0s
+ => => exporting manifest list sha256:202775a5abace9fe290932d3b2ddba9af106122e9fefbdd65f834bf6a7aa0b25                                                                                         0.0s
+ => => pushing layers                                                                                                                                                                          0.1s
+ => => pushing manifest for harbor.bdser.cc/common/os/debian:bullseye-20250407-slim@sha256:202775a5abace9fe290932d3b2ddba9af106122e9fefbdd65f834bf6a7aa0b25                                    0.1s
+ => => pushing manifest for harbor.bdser.cc/common/os/debian:bullseye@sha256:202775a5abace9fe290932d3b2ddba9af106122e9fefbdd65f834bf6a7aa0b25                                                  0.0s
+ => => pushing manifest for harbor.bdser.cc/common/os/debian:bullseye-slim@sha256:202775a5abace9fe290932d3b2ddba9af106122e9fefbdd65f834bf6a7aa0b25                                             0.0s
+ => [auth] common/os/debian:pull,push token for harbor.bdser.cc                                                                                                                                0.0s
+Build complete.
+
+```
+## 列出镜像
+```shell
+root@base:/data/project/debian# ./build.sh list-tags
+harbor.bdser.cc/common/os/debian:bullseye-20250407-slim
+harbor.bdser.cc/common/os/debian:bullseye
+harbor.bdser.cc/common/os/debian:bullseye-slim
 
 ```
 
