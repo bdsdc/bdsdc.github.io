@@ -51,7 +51,7 @@ data_volume：/data/harbor/harbor_data# 确保/data/harbor目录存在或有权�
 }
 
 systemctl daemon-reload
-systemctl start docker 
+systemctl restart docker 
 
 ```
 ### 安装harbor
@@ -60,8 +60,9 @@ systemctl start docker
 # install.sh 会根据harbor.yml 生成部署需要的docker-compose.yml 等文件
 bash ./install.sh --with-trivy 
 ```
-**只有首次安装时需要执行install.sh，后续升级或修改配置只需执行./prepare
---with-trivy&&dockercomposeup-d即可。**
+**只有首次安装时需要执行`install.sh`，后续升级或修改配置只需执行`./prepare
+--with-trivy && docker compose up-d` 即可。**
+
 ## 启动docker
 ```
 # 注意目录下面有刚刚生成docker-compose.yml 文件 ， 旧版本需要用 docker-compose up -d 
