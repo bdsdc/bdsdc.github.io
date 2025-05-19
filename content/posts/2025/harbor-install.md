@@ -164,6 +164,9 @@ docker push harbor.bdser.cc/library/nginx:1.27-alpine
 docker pull harbor.bdser.cc/library/nginx:1.27-alpine 
 ```
 
+## harbor 日常维护
+- 项目保留策略
+- 系统清理服务
 
 
 
