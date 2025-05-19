@@ -70,6 +70,22 @@ docker compose up -d
 # 查看状态
 docker compose ps  
 ```
+## Trivy 在线扫描配置
+需要修改Trivy 环境变量,下面这个文件是在上面执行./prepare命令后，会生成的
+
+```
+cd /data/harbor
+vim common/config/trivy-adapter/env 
+```
+添加或者修改下面
+```
+SCANNER_TRIVY_DB_REPOSITORY=ghcr.nju.edu.cn/ghcr.io/aquasecurity/trivy-db,m.daocloud.io/ghcr.io/aquasecurity/trivy-db,ghcr.io/aquasecurity/trivy-db
+SCANNER_TRIVY_JAVA_DB_REPOSITORY=ghcr.nju.edu.cn/ghcr.io/aquasecurity/trivy-java-db,m.daocloud.io/ghcr.io/aquasecurity/trivy-java-db,ghcr.io/aquasecurity/trivy-java-db
+```
+重启Trivy相关服务,让配置生效
+```
+docker compose restart trivy-adapter coze 
+```
 
 ## Trivy 离线扫描配置
 如果harbor无法访问外网，可以通过配置Trivy 进行离线扫描
