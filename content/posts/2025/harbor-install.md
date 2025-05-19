@@ -63,7 +63,7 @@ systemctl restart docker
 ```
 ### 安装harbor
 需要支持开启镜像扫描功能， Trivy 
-```
+```shell
 # install.sh 会根据harbor.yml 生成部署需要的docker-compose.yml 等文件
 bash ./install.sh --with-trivy 
 ```
@@ -71,7 +71,7 @@ bash ./install.sh --with-trivy
 --with-trivy && docker compose up-d` 即可。**
 
 ## 启动docker
-```
+```shell
 # 注意目录下面有刚刚生成docker-compose.yml 文件 ， 旧版本需要用 docker-compose up -d 
 docker compose up -d
 # 查看状态
@@ -80,17 +80,17 @@ docker compose ps
 ## Trivy 在线扫描配置
 需要修改Trivy 环境变量,下面这个文件是在上面执行./prepare命令后，会生成的
 
-```
+```shell
 cd /data/harbor
 vim common/config/trivy-adapter/env 
 ```
 添加或者修改下面
-```
+```shell
 SCANNER_TRIVY_DB_REPOSITORY=ghcr.nju.edu.cn/ghcr.io/aquasecurity/trivy-db,m.daocloud.io/ghcr.io/aquasecurity/trivy-db,ghcr.io/aquasecurity/trivy-db
 SCANNER_TRIVY_JAVA_DB_REPOSITORY=ghcr.nju.edu.cn/ghcr.io/aquasecurity/trivy-java-db,m.daocloud.io/ghcr.io/aquasecurity/trivy-java-db,ghcr.io/aquasecurity/trivy-java-db
 ```
 重启Trivy相关服务,让配置生效
-```
+```shell
 docker compose restart trivy-adapter coze 
 ```
 
@@ -98,13 +98,13 @@ docker compose restart trivy-adapter coze
 如果harbor无法访问外网，可以通过配置Trivy 进行离线扫描
 
 首先修改harbor.yml 
-```
+```shell
 trivy:
   skip_update: true
   skip_java_db_update: true 
 ```
 需要重新执行生效配置
-```
+```shell
 sudo ./prepare --with-trivy 
 ```
 
@@ -118,14 +118,14 @@ docker exec trivy-adapter trivy image --download-db-only --db-repository  ghcr.n
 docker exec trivy-adapter trivy image --download-java-db-only java-db-repository ghcr.nju.edu.cn/ghcr.io/aquasecurity/trivy-java-db
 ```
 重启服务
-```
+```shell
 docker compose up -d
 #或者重启trivy-adapter 和 core 服务
 docker compose restart trivy-adapter core
 ```
 ## harbor域名代理配置
 配置nginx代理
-```
+```shell
 server {
 	listen 80;
 	server_name harbor.bdser.cc;
@@ -147,7 +147,7 @@ server {
 }
 ```
 ### 加载nginx配置
-```
+```shell
 docker exec nginx-proxy sh -c "nginx -t && nginx -s reload" 
 ```
 ## 访问和使用harbor仓库
@@ -167,7 +167,7 @@ docker exec nginx-proxy sh -c "nginx -t && nginx -s reload"
 - prd： 用于存放生产的镜像，可以设置为 私有
 
 ### 命令行登录
-```
+```shell
 docker login harbor.bdser.cc 
 # docker login
 # docker login <IP地址>
@@ -176,14 +176,14 @@ docker login harbor.bdser.cc
 # 输入密码：
 ```
 ### 推送镜像
-```
+```shell
 # 给镜像打赏harbor 的标签 （ 格式： <harbor_hostname>/<项目名>/<镜像名>:<标签> 
 docker tag nginx:1.27-alpine harbor.bdser.cc/library/nginx:1.27-alpine 
 # 推送镜像到 harbor 的 library 项目
 docker push harbor.bdser.cc/library/nginx:1.27-alpine 
 ```
 ### 拉取镜像
-```
+```shell
 docker pull harbor.bdser.cc/library/nginx:1.27-alpine 
 ```
 
