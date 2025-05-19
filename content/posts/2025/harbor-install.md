@@ -71,8 +71,10 @@ docker compose up -d
 docker compose ps  
 ```
 
+## Trivy 离线扫描配置
+如果harbor无法访问外网，可以通过配置Trivy 进行离线扫描
 
-修改harbor.yml 
+首先修改harbor.yml 
 ```
 trivy:
   skip_update: true
