@@ -1,5 +1,12 @@
-
-
+---
+title: "运维| Harbor使用Docker方式安装部署"
+date: 2025-05-19
+lastmod: 2025-05-19
+author: 'bdsdc'
+linkToMarkdown: true
+categories: ['运维']
+tags: ['docker']
+---
 
 ## 安装harbor
 
