@@ -21,12 +21,12 @@ cd harbor
 ### 配置harbor
 
 复制配置文件模板
-```
+```shell
 cp harbor.yml.toml  harbor.yml 
 
 ```
 修改harbor.yml，需要修改的关键配置如下
-```
+```shell
 http:
   port:8080
 # 注意，这里不需要HTTPS，所以要注释掉 HTTPS 部分。
@@ -50,7 +50,7 @@ data_volume：/data/harbor/harbor_data# 确保/data/harbor目录存在或有权�
 ```
 如果没有配置https，那么需要Docker客户端新人这个HTTP Registry仓库 
 需要修改/etc/docker/daemon.json文件，添加`insecure-registries` 配置，在重启docker服务
-```
+```shell
 {
   "insecure-registries": ["harbor.bdser.cc"]
 
