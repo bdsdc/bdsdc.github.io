@@ -13,7 +13,7 @@
 ```shell
 root@base:~# mkdir /data/dependency-proxies/goproxy/cache -p 
 root@base:~# mkdir /data/dependency-proxies/verdaccio/{conf,storage,plugins} -p 
-root@base:~# mkdir /data/dependency-proxies/nexus/data -
+root@base:~# mkdir /data/dependency-proxies/nexus/data -p
 
 ```
 ### 准备Verdaccio配置文件
