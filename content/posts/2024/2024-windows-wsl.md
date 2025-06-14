@@ -39,12 +39,41 @@ PS C:\Windows\system32> dism.exe /online /enable-feature /featurename:Microsoft-
 ```
  dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
 ```
-1.3 更新WSL
+1.3 安装WSL 
+官方参考地址: https://learn.microsoft.com/zh-cn/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package
+新版现在只是安装一个命令，但是官方安装比较慢
+```
+# windows power shell 管理员运行
+wsl --install
+```
+我们可以去github下载最新版本
+https://github.com/microsoft/WSL/releases
+
+查看版本
+```
+PS C:\Users\bdser> wsl --version
+WSL 版本: 2.5.7.0
+内核版本: 6.6.87.1-1
+WSLg 版本: 1.0.66
+MSRDC 版本: 1.2.6074
+Direct3D 版本: 1.611.1-81528511
+DXCore 版本: 10.0.26100.1-240331-1435.ge-release
+Windows: 10.0.26100.4349
+```
+
+1.4 更新WSL
 ```
 wsl --update
 ## 将 wsl 版本设置为 wsl2
 wsl --set-default-version 2
 ```
+1.5 问题
+如果`wsl --install`或者`wsl --update`遇到禁止403 
+```
+PS C:\Users\32956> wsl --install
+已禁止(403)
+```
+这是开了代理，需要换成直连或者关掉代理。
 
 ## WSL安装ubuntu和使用
 
