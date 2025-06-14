@@ -119,10 +119,24 @@ sudo apt update
 sudo apt upgrade
 sudo apt full-upgrade
 ```
-
 ### ubuntu安装docker
 ```
-apt install docker
+sudo apt install -y apt-transport-https ca-certificates curl software-properties-common lsb_release 
+
+sudo curl -fsSL https://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg  > 1.gpg
+sudo apt-key add 1.gpg
+# 进入到/etc/apt/sources.list.d目录
+cd /etc/apt/sources.list.d
+# 在/etc/apt/sources.list.d目录下的docker.list文件中添加阿里云的镜像下载源
+sudo echo "deb [arch=amd64] https://mirrors.aliyun.com/docker-ce/linux/ubuntu $(lsb_release -cs) stable" > docker.list
+# 更新
+sudo apt update
+```
+
+
+安装最新版的docker 
+```
+sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin docker-compose
 ```
 docker镜像地址配置
 ```
