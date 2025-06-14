@@ -33,7 +33,7 @@ tags: ['tools']
 #执行脚本的要用bash执行，默认ubuntu是dash，脚本语法可能不兼容
 curl -sSL https://resource.fit2cloud.com/1panel/package/quick_start.sh -o quick_start.sh && bash quick_start.sh
 ```
-这里要注意： **由于WSL用的是微软的ubuntu内核，这里脚本匹配会有问题 ，因为平台是x86，所以你可以把脚本变量指定架构x86,平台是amd64**
+这里要注意： **由于WSL用的是微软的ubuntu内核，脚本匹配会有问题 ，因为平台是x86，所以你可以把脚本变量指定架构x86,平台是amd64**
 
 
 
