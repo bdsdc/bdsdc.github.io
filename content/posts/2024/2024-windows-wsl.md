@@ -90,7 +90,6 @@ wsl --set-default ubuntu-24.04
 wsl --list -v
 # 卸载旧版
 wsl --unregister ubuntu-24.04
-
 ```
 当然，也可以打开Microsoft Store，安装最新的Ubuntu 24.04的发行版本
 
@@ -101,16 +100,20 @@ ubuntu 24.0版本更换源的方式有更新，所以之前版本请自行百度
 # 备份系统默认源
 sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
 # 替换成阿里云源（/etc/apt/sources.list）
-deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse
-deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse
-deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse
-deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse
-deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse
+deb https://mirrors.aliyun.com/ubuntu/ noble main restricted universe multiverse
+deb-src https://mirrors.aliyun.com/ubuntu/ noble main restricted universe multiverse
+
+deb https://mirrors.aliyun.com/ubuntu/ noble-security main restricted universe multiverse
+deb-src https://mirrors.aliyun.com/ubuntu/ noble-security main restricted universe multiverse
+
+deb https://mirrors.aliyun.com/ubuntu/ noble-updates main restricted universe multiverse
+deb-src https://mirrors.aliyun.com/ubuntu/ noble-updates main restricted universe multiverse
+
+# deb https://mirrors.aliyun.com/ubuntu/ noble-proposed main restricted universe multiverse
+# deb-src https://mirrors.aliyun.com/ubuntu/ noble-proposed main restricted universe multiverse
+
+deb https://mirrors.aliyun.com/ubuntu/ noble-backports main restricted universe multiverse
+deb-src https://mirrors.aliyun.com/ubuntu/ noble-backports main restricted universe multiverse
 ```
 更新源
 
@@ -144,7 +147,7 @@ W: https://mirrors.aliyun.com/docker-ce/linux/ubuntu/dists/noble/InRelease: Key 
 密钥管理机制变更：Ubuntu 22.04+ 推荐使用 `/etc/apt/trusted.gpg.d/` 目录管理密钥，而非传统的 /etc/apt/trusted.gpg
 ```
 curl -fsSL https://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/docker-archive-keyring.gpg
-``
+```
 
 
 安装最新版的docker 
