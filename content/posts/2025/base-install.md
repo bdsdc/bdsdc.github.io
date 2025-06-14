@@ -41,7 +41,7 @@ apt-get update
 apt-get install  ca-certificates  gnupg lsb-release bash-completion
 
 #2. 添加Docker官方GPG密钥（使用阿里云镜像）
-wget -q0 - http://mirrors.aliyun.com/docker-ce/linux/debian/gpg I sudo apt-key add -
+wget -qO - http://mirrors.aliyun.com/docker-ce/linux/debian/gpg  | sudo apt-key add -
 
 #3. 设置Docker 的APT 仓库（使用阿里云镜像)
 echo "deb [trusted=yes] http://mirrors.aliyun.com/docker-ce/linux/debian $(lsb_releasecs) stable" > /etc/apt/sources.list.d/docker-ce.list
