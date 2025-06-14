@@ -27,9 +27,21 @@ python --version
 yum install python3-pip
 ```
 
+## 虚拟环境
+```
+sudo apt install python3-venv python3-full
+# 创建目录
+mkdir /data/project
+cd /data/project
+# 创建虚拟环境
+python3 -m venv mkdocs-venv
+# 激活环境 
+source mkdocs-env/bin/activate 
+```
+
 ## 安装
 ```
-python3 -m pip install mkdocs  -i https://pypi.tuna.tsinghua.edu.cn/simple/
+python3 -m pip install mkdocs  -i https://mirrors.aliyun.com/pypi/simple/
 # 先选择好目录，我这里把博客文档放到/data/blog下面，根据自己要求更改
 # 生成项目文档
 cd /data/blog
@@ -81,7 +93,9 @@ nav:
 
 ### 主题
 ```
-python3 -m pip   install mkdocs-material  -i https://pypi.tuna.tsinghua.edu.cn/simple/ 
+python3 -m pip   install mkdocs-material  -i https://mirrors.aliyun.com/pypi/simple/
+# markdown插件
+python3 -m pip install  mkdocs-markdown_checklist   -i https://mirrors.aliyun.com/pypi/simple/
 ```
 ```
 # 编辑mkdocs.yml
@@ -231,7 +245,7 @@ comments: true #开启评论
 ### 图片放大
 安装插件glightbox
 ```
-pip install mkdocs-glightbox -i  https://pypi.tuna.tsinghua.edu.cn/simple/
+python3 -m pip install  mkdocs-glightbox -i https://mirrors.aliyun.com/pypi/simple/
 ```
 配置mkdocs.yml
 ```
