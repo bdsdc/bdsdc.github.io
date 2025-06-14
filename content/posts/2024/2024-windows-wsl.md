@@ -121,8 +121,9 @@ sudo apt full-upgrade
 ```
 ### ubuntu安装docker
 ```
+# 解决安装依赖
 sudo apt install -y apt-transport-https ca-certificates curl software-properties-common lsb_release 
-
+# 导入密钥公钥
 sudo curl -fsSL https://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg  > 1.gpg
 sudo apt-key add 1.gpg
 # 进入到/etc/apt/sources.list.d目录
