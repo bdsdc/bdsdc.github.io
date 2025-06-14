@@ -40,7 +40,9 @@ PS C:\Windows\system32> dism.exe /online /enable-feature /featurename:Microsoft-
  dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
 ```
 1.3 安装WSL 
-官方参考地址: https://learn.microsoft.com/zh-cn/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package
+
+官方参考地址: <https://learn.microsoft.com/zh-cn/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package>
+
 新版现在只是安装一个命令，但是官方安装比较慢
 ```
 # windows power shell 管理员运行
