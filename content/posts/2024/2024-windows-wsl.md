@@ -137,18 +137,6 @@ sudo echo "deb [arch=amd64] https://mirrors.aliyun.com/docker-ce/linux/ubuntu $(
 sudo apt update
 ```
 
-### 解决密钥警告
-
-警告信息
-
-```
-W: https://mirrors.aliyun.com/docker-ce/linux/ubuntu/dists/noble/InRelease: Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg), see the DEPRECATION section in apt-key(8) for details.
-```
-密钥管理机制变更：Ubuntu 22.04+ 推荐使用 `/etc/apt/trusted.gpg.d/` 目录管理密钥，而非传统的 /etc/apt/trusted.gpg
-```
-curl -fsSL https://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/docker-archive-keyring.gpg
-```
-
 
 安装最新版的docker 
 ```
@@ -171,15 +159,29 @@ docker镜像地址配置
 systemctl daemon-reload
 systemctl start docker
 ```
+### 解决密钥警告
 
-### ubuntu用ssh访问 
+警告信息
 
 ```
-重新生成key
+W: https://mirrors.aliyun.com/docker-ce/linux/ubuntu/dists/noble/InRelease: Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg), see the DEPRECATION section in apt-key(8) for details.
+```
+密钥管理机制变更：Ubuntu 22.04+ 推荐使用 `/etc/apt/trusted.gpg.d/` 目录管理密钥，而非传统的 /etc/apt/trusted.gpg
+```
+curl -fsSL https://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/docker-archive-keyring.gpg
+```
+
+### ubuntu用ssh访问 
+需要安装sshd server服务
+```
+# 安装ssh server服务
+apt install openssh-server
+
+# 重新生成key
 sudo ssh-keygen -A
 sudo vim /etc/ssh/sshd_config  
-修改成PasswordAuthentication yes
-启动服务
+# 修改成PasswordAuthentication yes
+# 启动服务
 sudo service ssh start
 ```
 
