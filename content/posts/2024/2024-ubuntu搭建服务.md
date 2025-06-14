@@ -30,8 +30,13 @@ tags: ['tools']
 
 ```
 根据系统选择不同命令的执行方式
-curl -sSL https://resource.fit2cloud.com/1panel/package/quick_start.sh -o quick_start.sh && sh quick_start.sh
+#执行脚本的要用bash执行，默认ubuntu是dash，脚本语法可能不兼容
+curl -sSL https://resource.fit2cloud.com/1panel/package/quick_start.sh -o quick_start.sh && bash quick_start.sh
 ```
+这里要注意： **由于WSL用的是微软包装的ubuntu内核，这里脚本匹配会有问题 ，因为平台都是x86，所以你可以把脚本变量改成x86的 amd64**
+
+
+
 安装成功后，控制台会打印面板访问信息，可通过浏览器访问 1Panel：
 http://目标服务器 IP 地址:目标端口/安全入口
 
