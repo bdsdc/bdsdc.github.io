@@ -242,8 +242,7 @@ git clone https://huggingface.co/immich-app/XLM-Roberta-Large-Vit-B-16Plus
 ### 命令行备份
 可以npm 和 docker俩种形式安装 immich-cli终端命令
 ```
-docker run -it -v ./library/:/usr/src/app/upload:ro -e IMMICH_INSTANCE_URL=http://ip:port/api -e IMMICH_API_KEY=you-api-key  ghcr.io/immich-app/immich-cli:latest
-
+docker run -it -v /mnt/d/syncthing/image:/mnt:ro -e IMMICH_INSTANCE_URL=http://IP:port/api -e IMMICH_API_KEY=you-key-api  ghcr.io/immich-app/immich-cli:latest  upload /mnt/mmexport1726623504420.jpg
 ```
 
 
