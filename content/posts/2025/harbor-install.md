@@ -35,7 +35,7 @@ http:
 #certificate: /your/certificate/path
 #private_key: /your/private/key/path
 # Harbor 的访问地址(域名或 IP)
-hostname：harbor.leops.local#路径二用户使用域名；路径一用户使用localhost 或 IP
+hostname：harbor.bdser.cc #路径二用户使用域名；路径一用户使用localhost 或 IP
 # Harbor 的外部访问 URL (协议 + 主机名)
 # 如果不打算配置 HTTPS，保持 http。路径一用户同样修改域名部分。
 external_url: http://harbor.bdser.cc
