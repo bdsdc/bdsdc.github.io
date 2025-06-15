@@ -244,7 +244,12 @@ git clone https://huggingface.co/immich-app/XLM-Roberta-Large-Vit-B-16Plus
 ```
 docker run -it -v /mnt/d/syncthing/image:/mnt:ro -e IMMICH_INSTANCE_URL=http://IP:port/api -e IMMICH_API_KEY=you-key-api  ghcr.io/immich-app/immich-cli:latest  upload /mnt/mmexport1726623504420.jpg
 ```
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20250615234204.png)
 
+## 总结
+经过一番简单折腾，我们终于有了自己的开源本地相册，你感觉怎么样？我正在逐步使用起来，综合感觉还是不错，安卓手机开启备份，苹果手机上也能看到图片 也可以支持后台备份，设置定时任务，手机存储终于可以腾出来了
+
+所以，有兴趣就来试试吧！可以在动手前看看，建议再看看官方的文档
 
 
 
