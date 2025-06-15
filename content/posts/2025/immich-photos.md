@@ -1,4 +1,4 @@
-# 开源相册IMMICH私有化本地部署
+![image](https://github.com/user-attachments/assets/fd00abde-dd7a-4f06-a15f-c0503fc065c2)# 开源相册IMMICH私有化本地部署
 
 
 ## 简介
@@ -214,6 +214,22 @@ git clone https://huggingface.co/immich-app/XLM-Roberta-Large-Vit-B-16Plus
 
 系统界面配置
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20250615223821.png)
+
+
+
+### 模型使用
+我们可以在系统设置里面，把我们的模型填写进去
+
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20250616001241.png)
+
+
+### 跑模型
+风扇嗷嗷转，cpu和内存，直接跑满，火力全开
+
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20250616001334.png)
+
+日志查看
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20250616001154.png)
 
 
 ## 手机app
