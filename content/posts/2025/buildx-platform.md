@@ -1,3 +1,14 @@
+---
+title: "运维| Docker基础环境搭建"
+date: 2025-06-02
+lastmod: 2025-06-02
+author: 'bdsdc'
+linkToMarkdown: true
+categories: ['Docker']
+tags: ['Docker']
+---
+# Docker-部署多平台编译buildx平台
+
 ## 基础dockerfile
 ```shell
 # syntax=harbor.bdser.cc/library/docker/dockerfile:1
