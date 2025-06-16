@@ -1,3 +1,13 @@
+---
+title: "运维| 本地部署umami网站统计"
+date: 2025-05-10
+lastmod: 2025-05-10
+author: 'bdsdc'
+linkToMarkdown: true
+categories: ['运维']
+tags: ['Docker','web']
+---
+
 # 目前国内大模型下载方法
 
 ## 虚拟环境
