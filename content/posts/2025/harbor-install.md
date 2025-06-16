@@ -115,7 +115,8 @@ sudo ./prepare --with-trivy
 #主数据下载
 docker exec trivy-adapter trivy image --download-db-only --db-repository  ghcr.nju.edu.cn/ghcr.io/aquasecurity/trivy-db
 #下载java数据库
-docker exec trivy-adapter trivy image --download-java-db-only java-db-repository ghcr.nju.edu.cn/ghcr.io/aquasecurity/trivy-java-db
+docker exec trivy-adapter trivy image --download-java-db-only --java-db-repository ghcr.nju.edu.cn/ghcr.io/aquasecurity/trivy-java-db
+			  
 ```
 重启服务
 ```shell
