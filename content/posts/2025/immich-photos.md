@@ -1,5 +1,13 @@
-![image](https://github.com/user-attachments/assets/fd00abde-dd7a-4f06-a15f-c0503fc065c2)# 开源相册IMMICH私有化本地部署
-
+---
+title: "运维| 开源相册immich私有化Docker本地部署"
+date: 2025-05-
+lastmod: 2025-05-10
+author: 'bdsdc'
+linkToMarkdown: true
+categories: ['运维']
+tags: ['Docker','homesystem']
+---
+# 开源相册immich私有化Docker本地部署
 
 ## 简介
 可以直接从手机后台备份照片和视频的相册解决方案，支持苹果（Live）和安卓，支持人脸，地图，地点，搜索等大模型功能
