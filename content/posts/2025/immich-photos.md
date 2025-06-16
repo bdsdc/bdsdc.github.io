@@ -1,7 +1,7 @@
 ---
 title: "运维| 开源相册immich私有化Docker本地部署"
-date: 2025-05-
-lastmod: 2025-05-10
+date: 2025-06-10
+lastmod: 2025-06-10
 author: 'bdsdc'
 linkToMarkdown: true
 categories: ['运维']
