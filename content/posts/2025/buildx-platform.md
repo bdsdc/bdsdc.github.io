@@ -1,5 +1,5 @@
 ---
-title: "运维| Docker基础环境搭建"
+title: "运维| Docker-部署多平台编译buildx平台"
 date: 2025-06-02
 lastmod: 2025-06-02
 author: 'bdsdc'
