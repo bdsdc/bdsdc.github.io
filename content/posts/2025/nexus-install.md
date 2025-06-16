@@ -1,5 +1,5 @@
 ---
-title: "运维| Centos7升级内核"
+title: "运维| Docker-Nexus安装"
 date: 2025-05-10
 lastmod: 2025-05-10
 author: 'bdsdc'
