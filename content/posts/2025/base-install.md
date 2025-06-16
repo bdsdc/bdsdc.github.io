@@ -4,9 +4,10 @@ date: 2025-05-19
 lastmod: 2025-05-19
 author: 'bdsdc'
 linkToMarkdown: true
-categories: ['Docker']
+categories: ['Docker','运维']
 tags: ['Docker']
 ---
+# Docker基础环境搭建
 
 ## 环境清单
 
