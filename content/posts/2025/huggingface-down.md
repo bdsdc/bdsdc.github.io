@@ -1,5 +1,5 @@
 ---
-title: "运维| 本地部署umami网站统计"
+title: "运维| 国内大模型下载方法"
 date: 2025-05-10
 lastmod: 2025-05-10
 author: 'bdsdc'
