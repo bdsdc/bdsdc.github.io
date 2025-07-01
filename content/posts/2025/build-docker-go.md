@@ -344,6 +344,8 @@ esac
 - 简化流程：将多个构建步骤整合到单个 Dockerfile 中
 
 ```
+mkdir /web
+cd /web
 git clone https://github.com/lework/ci-demo-go.git
 cd ci-demo-go
 
@@ -415,6 +417,14 @@ CMD ["bash", "-c", "exec /app/${APP} -f /app/etc/app_${APP_ENV}.yaml"]
 
 
 ### 构建脚本buil-app.sh
+
+脚本实现了以下功能：
+- 接手环境和应用名称参数
+- 自动获取Git分支和提交信息
+- 生成包含所有镜像相关信息的镜像标签
+- 构建并推送镜像
+- 对生产环境主分支构建添加latest标签
+
 ```
 #!/bin/bash
 
@@ -448,8 +458,39 @@ if [[ "$APP_ENV" == "prd" && ${APP_GIT_BRANCH} == "master" ]]; then
 fi
 
 ```
+### 开始构建应用
+```
+cd web/ci-demo-go 
+./build-app.sh dev ci-demo-go 
+```
 
+## 运行Go应用容器
+```
+# 启动容器
+docker run -d --name ci-demo-go -p 18080:8080 harbor.bdser.cc/dev/ci-demo-go:master-4ff8dc8-202507012318
+# 访问应用
+curl http://192.168.31.239:18080/health
+# 查看日志
+docker logs ci-demo-go
+# 停止和启动
+docker stop ci-demo-go
+docker start ci-demo-go 
+```
 
+### 生产环境实战解析
+在生产环境中部署 Go 应用容器时，可以考虑以下最佳实践：
+1. 资源限制：使用--memory和--cpus设置容器资源上限
+2. 健康检查：添加--health-cmd配置容器健康检查
+3. 日志管理：配置日志驱动将日志发送到集中式日志系统
+4. 网络安全：仅暴露必要端口，使用网络隔离
+5. 存储持久化：对需要持久化的数据使用卷挂载
+6. 容器编排：在生产环境中使用 Kubernetes 等工具进行编排总结
 
-
-
+## 总结
+通过采用多阶段构建和遵循最佳实战，我们成功为Go 应用程序创建了优化，小巧而且安全的Docker镜像
+- 镜像体积小
+- 构建速度快
+- 安全性高
+- 标准化流程
+- 资源效率
+通过这种方式构建的Go 应用程序容器 ，保留了Go语言的高性能特性，又充分发挥了容器技术的优势，为微服务架构和云原生应用提供了理想的部署方案
