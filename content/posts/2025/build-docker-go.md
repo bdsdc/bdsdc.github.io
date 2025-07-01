@@ -1,4 +1,12 @@
-
+---
+title: "运维| 构建GO应用Docker镜像 "
+date: 2025-07-02
+lastmod: 2025-07-02
+author: 'bdsdc'
+linkToMarkdown: true
+categories: ['Docker']
+tags: ['Docker']
+---
 
 #  构建GO 应用Docker镜像 
 Go (Golang)[1] 语言因其编译成静态二进制文件、天然支持并发以及方便的跨平台编译等特性，非常适合容器化部署。本篇将重点介绍如何使用多阶段构建 (Multi-stage builds) 来为 Go 应用创建优化、小巧且安全的 Docker 镜像
