@@ -9,7 +9,21 @@ tags: ['Docker']
 ---
 # Docker-部署多平台编译buildx平台
 
+## 创建git 仓库管理Dockerfile
+```
+git clone https://git.bdser.cc/ops/dockerfile-base.git
+cd dockerfiles-base
+mkdir -p common/os/debian/bullseye-slim
+cd common/os/debian/bullseye-slim
+# 需要下载dockerfile镜像作为前端工具使用
+docker pull docker/dockerfile:1
+docker tag docker/dockerfile:1 harbor.bdser.cc/library/docker/dockerfile:1
+docker push harbor.bdser.cc/library/docker/dockerfile:1 
+```
+
+
 ## 基础dockerfile
+下面是我们的系统层 Dockerfile，包含了必要的基础组件和配置
 ```shell
 # syntax=harbor.bdser.cc/library/docker/dockerfile:1
 
@@ -53,6 +67,7 @@ RUN sed -i -e 's#deb.debian.org#mirrors.aliyun.com#g' \
   && echo 'transfer(){ if [ $# -eq 0 ];then echo "No arguments specified.\nUsage:\n transfer <file|directory>\n ... | transfer <file_name>">&2;return 1;fi;if tty -s;then file="$1";file_name=$(basename "$file");if [ ! -e "$file" ];then echo "$file: No such file or directory">&2;return 1;fi;if [ -d "$file" ];then file_name="$file_name.zip" ,;(cd "$file"&&zip -r -q - .)|curl --progress-bar --upload-file "-" "http://transfer.leops.local/$file_name"|tee /dev/null,;else cat "$file"|curl --progress-bar --upload-file "-" "http://transfer.leops.local/$file_name"|tee /dev/null;fi;else file_name=$1;curl --progress-bar --upload-file "-" "http://transfer.leops.local/$file_name"|tee /dev/null;fi;echo;}' >> /etc/bash.bashrc
 ```
 ## 配置多平台构建环境
+下面是我们的系统层 Dockerfile，包含了必要的基础组件和配置
 
 ```shell
 mkdir /etc/buildkit
@@ -102,7 +117,7 @@ Labels:
 #!/bin/bash
 set -e
 # 配置
-REGISTRY="harbor.leops.local"
+REGISTRY="harbor.bdser.cc"
 IMAGE_BASE_NAME="common/os/debian"
 VERSION="bullseye-20250407-slim"
 # 声明镜像地址数组
