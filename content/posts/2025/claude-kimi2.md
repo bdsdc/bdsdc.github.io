@@ -36,10 +36,12 @@ https://platform.moonshot.cn/console/api-keys
 ### 获取key
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20250730225402.png)
 
+### 充值和限速 
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20250730225459.png)
 ### claude cli终端启动
 首先我们先选择新建一个目录作为项目目录 
 
-**重点强调下，下面安装我们会遇到429的问题，因为默认并发是1，并发太小，所以需要冲 50 块钱 ，增加并发才可以使用**
+**重点强调下，下面安装我们会遇到429的问题，因为默认并发是1，并发太小，所以在KIMI需要冲 50 块钱 ，增加并发才可以使用**
 
 ```shell 
 # mkdir -pv /mnt/d/claude-projects  && cd /mnt/d/claude-projects 
@@ -99,8 +101,7 @@ root@bdser-home:/mnt/d/claude-projects# claude
 
 ```
 
-### 充值和限速 
-![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20250730225459.png)
+
 
 ## 配置环境变量
 ```shell
