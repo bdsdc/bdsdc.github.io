@@ -14,8 +14,8 @@ tags: ['AI']
 - 内存:  最少 4GB RAM
 - 软件: Node.js 18+
 
-## 安装claude cli 
-我这里用的WSL的windows安装的ubuntu24 ，打开windows终端 ，进入ubuntu系统，安装Claude Code CLI
+## 安装claude code
+我这里用的WSL的windows安装的ubuntu24 ，打开windows终端 ，进入ubuntu系统，安装Claude Code
 
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20250730224500.png)
 
