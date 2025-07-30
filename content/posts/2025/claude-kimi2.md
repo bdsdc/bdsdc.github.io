@@ -38,6 +38,7 @@ https://platform.moonshot.cn/console/api-keys
 
 ### claude cli终端启动
 首先我们先选择新建一个目录作为项目目录 
+
 **重点强调下，下面安装我们会遇到429的问题，因为默认并发是1，并发太小，所以需要冲 50 块钱 ，增加并发才可以使用**
 
 ```shell 
