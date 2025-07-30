@@ -19,7 +19,6 @@ tags: ['AI']
 
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20250730224500.png)
 
-
 ```
 sudo apt update
 sudo apt install nodejs npm -y
@@ -32,14 +31,14 @@ sudo npm config set registry https://registry.npmmirror.com && sudo npm install 
 https://platform.moonshot.cn/console/api-keys
 
 ## claude接入kimi2
-首先我们先选择新建一个目录作为项目目录 ，重点强调下，下面安装我们会遇到429的问题，因为默认并发是1，并发太小
-所以需要冲 50 块钱 ，增加并发才可以使用 
+首先我们通过kimi开放平台，新建key并记录
 
 ### 获取key
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20250730225402.png)
 
-
 ### claude cli终端启动
+首先我们先选择新建一个目录作为项目目录 
+**重点强调下，下面安装我们会遇到429的问题，因为默认并发是1，并发太小，所以需要冲 50 块钱 ，增加并发才可以使用**
 
 ```shell 
 # mkdir -pv /mnt/d/claude-projects  && cd /mnt/d/claude-projects 
