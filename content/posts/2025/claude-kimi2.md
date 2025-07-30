@@ -16,7 +16,7 @@ sudo npm install -g @anthropic-ai/claude-code
 或者
 sudo npm config set registry https://registry.npmmirror.com && sudo npm install -g @anthropic-ai/claude-code 
 ```
-##  kimi 
+##  kimi2
 我们先去Moonshot AI - 开放平台，进行注册，默认会送15元额度
 https://platform.moonshot.cn/console/api-keys
 
