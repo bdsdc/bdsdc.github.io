@@ -36,7 +36,7 @@ https://platform.moonshot.cn/console/api-keys
 
 ```shell 
 # mkdir -pv /mnt/d/claude-projects  && cd /mnt/d/claude-projects 
-# export export  ANTHROPIC_AUTH_TOKEN=sk-HKKxsg2zxxxxxxxxxpxqRhAyawVYvwk1Tjr084H9E
+# export ANTHROPIC_AUTH_TOKEN=sk-HKKxsg2zxxxxxxxxxpxqRhAyawVYvwk1Tjr084H9E
 # export ANTHROPIC_BASE_URL=https://api.moonshot.cn/anthropic/
 
 root@bdser-home:/mnt/d/claude-projects# claude
