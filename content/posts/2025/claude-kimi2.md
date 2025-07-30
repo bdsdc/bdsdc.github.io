@@ -1,3 +1,13 @@
+---
+title: "AI| claude+kimi2穷鬼最强AI编程 "
+date: 2025-07-30
+lastmod: 2025-07-30
+author: 'bdsdc'
+linkToMarkdown: true
+categories: ['AI']
+tags: ['AI']
+---
+# claude+kimi2穷鬼最强AI编程
 
 ## 环境准备
 - 操作系统: macOS 10.15+、Ubuntu 20.04+/Debian 10+，windows 或WSL的windows
