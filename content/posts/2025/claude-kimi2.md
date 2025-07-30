@@ -36,6 +36,10 @@ https://platform.moonshot.cn/console/api-keys
 所以需要冲 50 块钱 ，增加并发才可以使用 
 
 ### 获取key
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20250730225402.png)
+
+
+### claude cli终端启动
 
 ```shell 
 # mkdir -pv /mnt/d/claude-projects  && cd /mnt/d/claude-projects 
