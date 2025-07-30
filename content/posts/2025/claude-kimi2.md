@@ -10,9 +10,11 @@
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/blog/20250730224500.png)
 
 ```
-npm install -g @anthropic-ai/claude-code
+sudo apt update
+sudo apt install nodejs npm -y
+sudo npm install -g @anthropic-ai/claude-code
 或者
-npm config set registry https://registry.npmmirror.com && npm install -g @anthropic-ai/claude-code 
+sudo npm config set registry https://registry.npmmirror.com && sudo npm install -g @anthropic-ai/claude-code 
 ```
 ##  kimi 
 我们先去Moonshot AI - 开放平台，进行注册，默认会送15元额度
