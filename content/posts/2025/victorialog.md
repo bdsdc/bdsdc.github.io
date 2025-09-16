@@ -21,7 +21,8 @@ Filebeat 相对Logstash 性能更好，也比VictoriaLogs 自带的rsyslog输入
 
 ## filebat nginx
 
-### filestream
+### filestream功能
+最新版已经遗弃type：log 功能
 
 ```
 filebeat.inputs:
