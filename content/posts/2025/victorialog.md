@@ -24,7 +24,7 @@ Filebeat 相对Logstash 性能更好，也比VictoriaLogs 自带的rsyslog输入
 ### filestream功能
 最新版已经遗弃type：log 功能
 
-```
+```shell
 filebeat.inputs:
   - type: filestream
     enabled: true
@@ -45,7 +45,7 @@ output.elasticsearch:
 
 ### nginx modules
 模块功能是需要单独启用，默认支持非常多的模块,我们这里开启nginx模块
-```
+```shell
 root@bdser-home:~# filebeat modules list 
 root@bdser-home:~# filebeat modules enable nginx
 Module nginx is already enabled
@@ -55,7 +55,7 @@ nginx
 ```
 确保上面nginx模块已经开启
 
-```
+```shell
 # vim /etc/filebeat/modules.d/nginx.yml 
 # Module: nginx
 # Docs: https://www.elastic.co/guide/en/beats/filebeat/9.1/filebeat-module-nginx.html
@@ -87,7 +87,7 @@ nginx
 
 ```
 
-```
+```shell
 # vi /etc/filebeat/nginx-module-filebeat.yml 
 filebeat.config.modules:
   path: ${path.config}/modules.d/*.yml
@@ -105,7 +105,7 @@ output.elasticsearch:
 ## filebeat启动
 
 ### filebeat 二进制
-```
+```shell
 # filebeat -e -c /etc/filebeat/nginx-filebeat.yml 
 ```
 - -e：代表filebeat相关状态日志输出到终端
@@ -113,13 +113,13 @@ output.elasticsearch:
 
 
 ### filebeat docker 
-```
+```shell
 
 
 ```
 ## victorialogs 
 我们采用docker方式部署
-```
+```shell
 services:
   victoria-logs-syslog:
     image: docker.io/victoriametrics/victoria-logs:latest
@@ -138,7 +138,7 @@ services:
 ```
 ## grafana 
 这里我们采用docker 方式部署 
-```
+```shell
 version: "3.9"
 services:
   grafana:
@@ -159,7 +159,7 @@ services:
 
 ```
 需要在grafana安装目录这里新建目录 provisioning/datasources
-```
+```shell
 # cd /mnt/d/grafana 
 # cat ./provisioning/datasources/v1.yml
 
@@ -202,7 +202,7 @@ nginx日志通过filebeat已经接入到victorialog里面
 
 ## virtorialog 监控
 我们通过prometheus进行监控victorialog 日志服务器状态，默认监控metircs，官方已经提供http接口，只需要在prometheus配置一下就可以了
-```
+```shell
 scrape_configs:
   # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
   - job_name: "prometheus"
