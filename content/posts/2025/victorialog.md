@@ -7,8 +7,9 @@ linkToMarkdown: true
 categories: ['运维']
 tags: ['log']
 ---
-
 # Filebeat协同VictoriaLogs收集nginx日志
+
+## 介绍
 
 - VictoriaLogs 兼容支持多种数据输入软件，Filebeat 也支持多种数据输入。
 - VictoriaLogs 的Web UI很简陋，所以要用Grafana。
