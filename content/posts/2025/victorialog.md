@@ -137,7 +137,7 @@ services:
       - '--retentionPeriod=300d'
 ```
 ## grafana 
-这里我们采用docker 方式部署
+这里我们采用docker 方式部署 
 ```
 version: "3.9"
 services:
@@ -147,19 +147,22 @@ services:
       - "/mnt/d/grafana/logs:/var/log/grafana"
       - "/mnt/d/grafana/etc:/etc/grafana"
       - "/mnt/d/grafana/data:/var/lib/grafana"
-      - "./provisioning:/etc/grafana/provisioning"
+      - "./provisioning:/etc/grafana/provisioning"  # 为了安装victorialog的data source插件的配置文件
 
     environment:
       - GF_SECURITY_ADMIN_PASSWORD=123456
-      - GF_INSTALL_PLUGINS=victoriametrics-logs-datasource
+      - GF_INSTALL_PLUGINS=victoriametrics-logs-datasource # 在线安装
     ports:
       - "3000:3000"
     container_name: grafana
     restart: always
 
 ```
-
+需要在grafana安装目录这里新建目录 provisioning/datasources
 ```
+# cd /mnt/d/grafana 
+# cat ./provisioning/datasources/v1.yml
+
 apiVersion: 1
 datasources:
     # <string, required> Name of the VictoriaLogs datasource
@@ -179,19 +182,23 @@ datasources:
 
 ### victorialog 自带UI界面
 nginx日志通过filebeat已经接入到victorialog里面
+
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/img/20250917131555264.png)
 
 ### grafana 界面展示
 
-#### 配置data source
+配置data source
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/img/20250917132133667.png)
 
 查看plugin 是否已经安装
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/img/20250917133448077.png)
 
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/img/20250917134348291.png)
+
+最后通过grafana查询日志
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/img/20250917134127642.png)
 
-![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/img/20250917134348291.png)
+
 
 ## virtorialog 监控
 我们通过prometheus进行监控victorialog 日志服务器状态，默认监控metircs，官方已经提供http接口，只需要在prometheus配置一下就可以了
@@ -226,9 +233,9 @@ scrape_configs:
 #### dashboard 导入模版
 单节点模版： https://grafana.com/grafana/dashboards/22084-victorialogs-single-node/
 
-![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/img/20250917133018362.png)
-
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/img/20250917133110862.png)
+
+![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/img/20250917133018362.png)
 
 ![](https://bdsblog.oss-cn-shanghai.aliyuncs.com/img/20250917133153696.png)
 
