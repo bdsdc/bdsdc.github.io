@@ -1,3 +1,14 @@
+---
+title: "运维| 用nginx 和caddy 分别代理pve，忽略pve证书"
+date: 2026-04-19
+lastmod: 2026-04-19
+author: 'bdsdc'
+linkToMarkdown: true
+categories: ['nginx','运维']
+tags: ['nginx']
+---
+
+
 # 用nginx 和caddy 分别代理pve，忽略pve证书
 
 ## 需求
