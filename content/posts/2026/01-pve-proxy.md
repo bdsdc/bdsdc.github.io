@@ -8,9 +8,6 @@ categories: ['nginx','运维']
 tags: ['nginx']
 ---
 
-
-# 用nginx 和caddy 分别代理pve，忽略pve证书
-
 ## 需求
 本身pve 控制台需要开启证书，但是证书是不安全的，也不是合法证书，合法证书还需要通过acme 或者其他工具来实现
 所以想先通过nginx 代理pve ，然后向上游访问pve访问的时候，忽略pve证书，要不然可能会跳转失败
