@@ -53,7 +53,7 @@ server {
 
 
 ```
-### caddy 配置
+## caddy 配置
 
 正常都可以访问
 ```shell
