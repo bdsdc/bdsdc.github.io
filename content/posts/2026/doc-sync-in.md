@@ -17,7 +17,8 @@ yum install docker-ce docker-compose
 
 ## dnf
 ```
-systemctl disable --now podmansudo dnf remove -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+systemctl disable --now podman 
+dnf remove -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 dnf remove -y podman podman-docker buildah
 dnf remove -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 dnf remove -y podman buildah runc containers-common
