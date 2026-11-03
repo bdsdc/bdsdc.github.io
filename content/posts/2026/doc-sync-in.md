@@ -1,14 +1,13 @@
+# Centos8.2 install sync-in
 
-
-## 
-
+## yum repo
 ```
 curl https://mirrors.aliyun.com/repo/Centos-vault-8.5.2111.repo > /etc/yum.repos.d/Centos-vault-8.5.2111.repo
 curl https://mirrors.aliyun.com/repo/epel-archive-8.repo > /etc/yum.repos.d/epel-archive-8.repo
 
-
 ```
 
+## yum
 ```
 yum install docker-ce docker-compose
 yum-config-manager --add-repo https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
@@ -16,20 +15,23 @@ yum install -y yum-utils device-mapper-persistent-data lvm2
 yum install docker-ce docker-compose
 ```
 
-dnf
+## dnf
 ```
 systemctl disable --now podmansudo dnf remove -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 dnf remove -y podman podman-docker buildah
 dnf remove -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 dnf remove -y podman buildah runc containers-common
 
-``
-sync-in
+```
+## sync-in
+
 ```
 curl -L -o sync-in-docker.zip https://github.com/Sync-in/server/releases/latest/download/sync-in-docker.zip && unzip sync-in-docker.zip
 cd sync-in-docker/
 ```
-#### env yaml配置
+
+### env yaml配置
+
 ```
 server:
   # It will become required in a future major release.
@@ -89,7 +91,8 @@ applications:
         secret: '9f4c7a2e8b1d6f3a5c0e9b7d2a4f8c1e6b3d9a7f5c2e8b4d1a6f9c3e7b2d5a8f'
 
 ```
-#### docker compose yaml
+
+### docker compose yaml
 
 ```
 include:
@@ -162,7 +165,9 @@ networks:
 volumes:
   desktop_releases:
 ```
-#### euroffice 
+
+### euroffice 
+
 ```
 services:
   eurooffice:
@@ -181,8 +186,10 @@ services:
         max-file: "5"
     networks:
       - sync_in_network
+
 ```
-#### onlyoffice docker compose 
+### onlyoffice docker compose 
+
 ```
 services:
   onlyoffice:
@@ -203,10 +210,10 @@ services:
     networks:
       - sync_in_network
       
-
 ```
 
-### docker daemon.json 
+## docker daemon.json 
+
 ```
 [root@VM_96_40_centos sync-in-docker]# cat /etc/docker/daemon.json
 {
